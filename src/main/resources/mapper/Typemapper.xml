@@ -28,3 +28,4 @@
         delete from t_type where id = #{id}
     </delete>
 </mapper>
+00
