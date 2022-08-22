@@ -5,6 +5,7 @@ spring:
     username: root
     password: 1234
 
+
 logging:
   level :
     root: warn
