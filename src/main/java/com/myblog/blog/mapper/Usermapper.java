@@ -1,7 +1,5 @@
 
-
-    package com.myblog.blog.mapper;
-
+package com.myblog.blog.mapper;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,9 +15,6 @@ import java.util.List;
 
         //根据id查询
         User getUserById(Integer id);
-
-
-
         //查询所有分类
         List<User> getAllUsernameandPassword();
         //根据分类名查询分类
