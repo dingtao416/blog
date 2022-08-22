@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Type {
     private Integer id;
     private String name;
-
+    private List<Blog> blogs=new ArrayList<>();
     @Override
     public String toString() {
         return "Type{" +
@@ -54,6 +54,4 @@ public class Type {
     public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
     }
-
-    private List<Blog> blogs=new ArrayList<>();
 }

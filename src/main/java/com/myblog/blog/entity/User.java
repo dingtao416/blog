@@ -18,6 +18,45 @@ public class User {
     private Date createTime;
     private Date updateTime;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime) && Objects.equals(type, user.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, createTime, updateTime, type);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", email='" + email + '\'' +
+                ", fans=" + fans +
+                ", follows=" + follows +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", type=" + type +
+                '}';
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    private Integer type;
     public Integer getId() {
         return id;
     }
@@ -28,19 +67,6 @@ public class User {
 
     public String getNickname() {
         return nickname;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, createTime, updateTime);
     }
 
     public void setNickname(String nickname) {
@@ -111,19 +137,4 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", email='" + email + '\'' +
-                ", fans=" + fans +
-                ", follows=" + follows +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }
