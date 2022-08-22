@@ -17,3 +17,11 @@
 2022-08-22 14:33:07.269  INFO 8732 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
 2022-08-22 14:33:08.306  WARN 8732 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
 2022-08-22 14:33:10.563  INFO 8732 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.216 seconds (JVM running for 4.935)
+2022-08-22 18:23:49.073  INFO 2224 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 2224 (D:\ideaproject\blog\target\classes started by 86166 in D:\ideaproject\blog)
+2022-08-22 18:23:49.073  INFO 2224 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-22 18:23:49.375  WARN 2224 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 18:23:49.974  INFO 2224 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.128 seconds (JVM running for 1.694)
+2022-08-22 19:46:47.318  INFO 17724 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 17724 (D:\ideaproject\blog\target\classes started by 86166 in D:\ideaproject\blog)
+2022-08-22 19:46:47.319  INFO 17724 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-22 19:46:47.618  WARN 17724 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 19:46:48.200  INFO 17724 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.107 seconds (JVM running for 1.535)
