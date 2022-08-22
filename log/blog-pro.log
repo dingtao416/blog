@@ -1,0 +1,19 @@
+2022-08-22 13:49:23.579  WARN 24488 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 13:49:25.565  WARN 24488 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-08-22 13:52:34.749  WARN 15648 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 13:53:12.902  WARN 17516 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog.mapper]' package. Please check your configuration.
+2022-08-22 13:59:38.846  WARN 6460 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog.mapper]' package. Please check your configuration.
+2022-08-22 14:00:07.307  WARN 27576 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog.mapper]' package. Please check your configuration.
+2022-08-22 14:03:55.702  WARN 18896 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog.mapper]' package. Please check your configuration.
+2022-08-22 14:31:31.175  INFO 10836 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 10836 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-08-22 14:31:31.181  INFO 10836 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-22 14:31:32.501  WARN 10836 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 14:31:34.691  INFO 10836 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.484 seconds (JVM running for 5.196)
+2022-08-22 14:32:41.425  INFO 20048 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 20048 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-08-22 14:32:41.431  INFO 20048 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-22 14:32:43.021  WARN 20048 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 14:32:45.823  INFO 20048 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.615 seconds (JVM running for 6.489)
+2022-08-22 14:33:07.266  INFO 8732 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 8732 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-08-22 14:33:07.269  INFO 8732 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-22 14:33:08.306  WARN 8732 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-08-22 14:33:10.563  INFO 8732 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.216 seconds (JVM running for 4.935)
