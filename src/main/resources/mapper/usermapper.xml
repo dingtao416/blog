@@ -8,8 +8,6 @@
     </insert>
     <update id="updateUser"></update>
     <delete id="deleteUser"></delete>
-
-
     <select id="getUserById" resultType="com.myblog.blog.entity.User">
 
     </select>
