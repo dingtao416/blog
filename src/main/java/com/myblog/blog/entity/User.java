@@ -1,6 +1,7 @@
 package com.myblog.blog.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,35 +15,8 @@ public class User {
     private String email;
     private long fans;
     private long follows;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(type, user.type) && Objects.equals(blogs, user.blogs);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, type, blogs);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", email='" + email + '\'' +
-                ", fans=" + fans +
-                ", follows=" + follows +
-                ", type=" + type +
-                ", blogs=" + blogs +
-                '}';
-    }
+    private Date createTime;
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -54,6 +28,19 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, createTime, updateTime);
     }
 
     public void setNickname(String nickname) {
@@ -108,24 +95,35 @@ public class User {
         this.follows = follows;
     }
 
-    public Integer getType() {
-        return type;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public List<Blog> getBlogs() {
-        return blogs;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    private Integer type;
-
-    private List<Blog> blogs=new ArrayList<>();
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", email='" + email + '\'' +
+                ", fans=" + fans +
+                ", follows=" + follows +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

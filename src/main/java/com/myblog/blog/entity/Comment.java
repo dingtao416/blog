@@ -11,7 +11,15 @@ public class Comment {
     private String nickname;
     private String email;
     private String content;
+    private String avatar;
+    private Date createTime;
+    private long blogId;
+    private long parentCommentId;
+    private boolean adminComment;
 
+    private List<Comment> replyComments=new ArrayList<>();
+    private Comment parentComment;
+    private  String parentNickname;
     public Integer getId() {
         return id;
     }
@@ -138,14 +146,4 @@ public class Comment {
     public void setParentNickname(String parentNickname) {
         this.parentNickname = parentNickname;
     }
-
-    private String avatar;
-    private Date createTime;
-    private long blogId;
-    private long parentCommentId;
-    private boolean adminComment;
-
-    private List<Comment> replyComments=new ArrayList<>();
-    private Comment parentComment;
-    private  String parentNickname;
 }
