@@ -16,7 +16,7 @@ public interface Usermapper {
         //根据id查询
         User getUserById(Integer id);
         //查询所有分类
-        List<User> getAllUsernameandPassword();
+        User getAllUsernameandPassword(String username,String password);
         //根据分类名查询分类
         User getUserByName(String username);
         //修改分类
