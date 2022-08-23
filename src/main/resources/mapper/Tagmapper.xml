@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myblog.blog.mapper.Tagmapper">
+    <insert id="savetag">
+
+    </insert>
+    <update id="updatetag">
+
+    </update>
+    <delete id="delettag">
+
+    </delete>
+    <select id="gettagByid" resultType="com.myblog.blog.entity.Tag">
+
+    </select>
+    <select id="getAlltag" resultType="com.myblog.blog.entity.Tag">
+
+    </select>
+</mapper>

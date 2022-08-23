@@ -26,7 +26,7 @@ public class Comment {
 
     @Override
     public String toString() {
-        return "Comment{" +
+        return "Commentmapper{" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
