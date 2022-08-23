@@ -7,7 +7,7 @@ import java.util.List;
 public interface TypeService {
     //新增保存分类
     int saveType(Type type);
-    //根据idd查询分类
+    //根据id查询分类
     Type getTypeById(Integer id);
     //根据分类名称查询分类
     Type getTypeByName(String name);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myblog.blog.mapper.Usermapper">
+    <insert id="saveUser" parameterType="com.myblog.blog.entity.User">
+
+    </insert>
+    <update id="updateUser"></update>
+    <delete id="deleteUser"></delete>
+    <select id="getUserById" resultType="com.myblog.blog.entity.User">
+
+    </select>
+    <select id="getAllUser" resultType="com.myblog.blog.entity.User">
+
+    </select>
+    <select id="getUserByName" resultType="com.myblog.blog.entity.User">
+
+    </select>
+    <select id="getAllUsernameandPassword" resultType="com.myblog.blog.entity.User">
+
+    </select>
+</mapper>
+
