@@ -4,21 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Usermapper">
     <insert id="saveUser" parameterType="com.myblog.blog.entity.User">
-
+        insert into t_user(username,password,nickname,email) values (#{username},#{password},#{nickname},#{email})
     </insert>
-    <update id="updateUser"></update>
-    <delete id="deleteUser"></delete>
+    <update id="updateUser">
+        update t_type set nickname = #{nickname},avatar=#{avatar},password=#{password},email=#{email} where id = #{id}
+    </update>
+    <delete id="deleteUser">
+       delete from t_user where id = #{id}
+    </delete>
     <select id="getUserById" resultType="com.myblog.blog.entity.User">
-
+        select * from t_user where id=#{id}
     </select>
     <select id="getAllUser" resultType="com.myblog.blog.entity.User">
-
+        select * from t_user
     </select>
     <select id="getUserByName" resultType="com.myblog.blog.entity.User">
-
+        select * from t_user where nickname=#{nickname}
     </select>
     <select id="getAllUsernameandPassword" resultType="com.myblog.blog.entity.User">
-
+        select * from t_user where username=#{username} and password=#{password}
     </select>
+
 </mapper>
 

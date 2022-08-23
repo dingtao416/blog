@@ -15,13 +15,12 @@ public interface Usermapper {
 
         //根据id查询
         User getUserById(Integer id);
-        //查询所有分类
-        User getAllUsernameandPassword(String username,String password);
         //根据分类名查询分类
-        User getUserByName(String username);
+        User getUserByName(String nickname);
         //修改分类
         int updateUser(User user);
         //删除分类
         void deleteUser(Integer id);
-
+        //根据用户名和密码查询检验用户
+        User getAllUsernameandPassword(String username,String password);
 }

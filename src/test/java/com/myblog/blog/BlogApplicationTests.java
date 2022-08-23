@@ -1,7 +1,9 @@
 package com.myblog.blog;
 
 import com.myblog.blog.entity.Type;
+import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Typemapper;
+import com.myblog.blog.mapper.Usermapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +14,8 @@ import java.util.List;
 class BlogApplicationTests {
     @Autowired
     private Typemapper typemapper;
+    @Autowired
+    private Usermapper usermapper;
     @Test
     void contextLoads() {
     }
@@ -24,18 +28,21 @@ class BlogApplicationTests {
     @Test
     void InsertText()
     {
-        Type t1=new Type();
-        t1.setName("javaweb");
-        typemapper.saveType(t1);
-        System.out.println(t1);
+        User user=new User();
+        user.setNickname("蛋纯");
+        user.setUsername("xxx2839");
+        user.setPassword("456654546");
+        user.setEmail("3563433349@qq.com");
+        int i = usermapper.saveUser(user);
+        System.out.println(i);
     }
     @Test
-    void findType()
+    void findUser()
     {
-        Type t1 = typemapper.getTypeByName("javascript");
-        Type t2 = typemapper.getTypeById(44);
-        System.out.println(t1);
-        System.out.println(t2);
+        User user=new User();
+        user.setNickname("蛋纯");
+        User u = usermapper.getUserById(2);
+        System.out.println(u);
     }
     @Test
     void deleteType()

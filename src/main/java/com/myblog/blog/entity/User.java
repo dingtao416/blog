@@ -8,12 +8,14 @@ import java.util.Objects;
 //用户
 public class User {
     private Integer id;
+    //昵称
     private String nickname;
     private String username;
     private String password;
+    //头像
     private String avatar;
     private String email;
-    private long fans;
+    private long fans ;
     private long follows;
     private Date createTime;
     private Date updateTime;
