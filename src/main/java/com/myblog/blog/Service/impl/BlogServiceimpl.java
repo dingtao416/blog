@@ -4,13 +4,19 @@ import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
+import lombok.SneakyThrows;
+import org.apache.ibatis.javassist.NotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 @Service
 public class BlogServiceimpl implements BlogService {
    private Blogmapper blogmapper;
     @Override
-    public Blog getBlogByid(Integer id) {
+    public Blog getBlogByid(long id) {
         return  blogmapper.getBlogByid(id);
     }
 
@@ -19,14 +25,27 @@ public class BlogServiceimpl implements BlogService {
       return blogmapper.saveBlog(blog);
     }
 
+    @SneakyThrows
     @Override
     public int updateBlog(Blog blog) {
-       return blogmapper.updateBlog(blog);
+       Blog b=blogmapper.getBlogByid(blog.getId());
+       if(b == null)
+       {
+           throw new NotFoundException("该博客不存在");
+       }
+       else
+           BeanUtils.copyProperties(b,blog);
+        return blogmapper.saveBlog(b);
     }
     @Transactional
     @Override
-    public void deleteBlog(Integer id) {
+    public void deleteBlog(long id) {
          blogmapper.deletBlog(id);
+    }
+
+    @Override
+    public List<Blog> getAllBlog() {
+       return blogmapper.getAllBlog();
     }
 
 

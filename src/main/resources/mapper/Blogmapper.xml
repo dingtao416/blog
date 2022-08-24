@@ -9,4 +9,5 @@
     <delete id="deletBlog"></delete>
 
     <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog"></select>
+    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog"></select>
 </mapper>

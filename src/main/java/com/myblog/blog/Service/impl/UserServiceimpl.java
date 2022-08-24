@@ -1,8 +1,12 @@
 package com.myblog.blog.Service.impl;
 
 import com.myblog.blog.Service.UserService;
+import com.myblog.blog.entity.Tag;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Usermapper;
+import lombok.SneakyThrows;
+import org.apache.ibatis.javassist.NotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,10 +24,18 @@ public class UserServiceimpl implements UserService {
     public int saveUser(User user) {
         return  usermapper.saveUser(user);
     }
+    @SneakyThrows
     @Transactional
     @Override
     public int updateUser(User user) {
-        return usermapper.updateUser(user);
+        User user1=usermapper.getUserById(user.getId());
+        if(user1 == null)
+        {
+            throw new NotFoundException("该用户不存在");
+        }
+        else
+            BeanUtils.copyProperties(user1,user);
+        return usermapper.saveUser(user1);
     }
     @Transactional
     @Override

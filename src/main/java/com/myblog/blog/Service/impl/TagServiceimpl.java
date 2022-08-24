@@ -3,6 +3,9 @@ package com.myblog.blog.Service.impl;
 import com.myblog.blog.Service.TagService;
 import com.myblog.blog.entity.Tag;
 import com.myblog.blog.mapper.Tagmapper;
+import lombok.SneakyThrows;
+import org.apache.ibatis.javassist.NotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +26,17 @@ public class TagServiceimpl implements TagService {
         tagmapper.deleteTag(id);
     }
 
+    @SneakyThrows
     @Override
     public int updateTag(Tag tag) {
-        return tagmapper.updateTag(tag);
+        Tag tag1=tagmapper.getTagById(tag.getId());
+        if(tag1 == null)
+        {
+            throw new NotFoundException("该标签不存在");
+        }
+        else
+            BeanUtils.copyProperties(tag1,tag);
+        return tagmapper.saveTag(tag1);
     }
 
     @Override
