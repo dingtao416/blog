@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" method="post" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})} ">
+    <input type="hidden" name="id" th:value="*{id}">
+    <div >
+        <div >
+            <label >名称</label>
+            <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
+        </div>
+    </div>
+    <div>
+        <button type="submit">提交</button>
+    </div>
+</form>
+<p th:unless="${#strings.isEmpty(message)} " th:text="${message}"></p>
+</body>
+</html>

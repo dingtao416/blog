@@ -11,7 +11,6 @@ public class LoginInterceptor implements HandlerInterceptor {
                              HttpServletResponse response,
                              Object handler) throws Exception
     {
-        System.out.println("进入");
         Object o=request.getSession().getAttribute("user");
         if(o==null)
         {
