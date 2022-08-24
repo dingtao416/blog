@@ -25,13 +25,13 @@ public class UserController extends baseController{
     {
         return "register";
     }
-    @DeleteMapping("/delet")
+    @DeleteMapping("/delete")
     public JsonResult<User> delet(@PathVariable Integer id)
     {
        userService.deleteUser(id);
        return new JsonResult<>(OK,"删除成功");
     }
-    @PostMapping("update")
+    @PostMapping("/update/{id}")
     /**
      * 修改user数据
      * @user
@@ -44,6 +44,4 @@ public class UserController extends baseController{
         userService.updateUser(user);
         return new JsonResult<>(OK,"修改成功");
     }
-
-
 }

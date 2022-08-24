@@ -28,8 +28,7 @@ public class adminUserController {
                         RedirectAttributes redirectAttributes)
     {
         User user= userService.checkUser(username,password);
-        System.out.println(user);
-        if(user!=null)
+        if(user!=null && "admin".equals(user.getUsername()))
         {
             session.setAttribute("user",user);
             return "admin/index";
@@ -40,10 +39,11 @@ public class adminUserController {
         }
     }
     //注销用户
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public String logout(HttpSession session)
     {
         session.removeAttribute("user");
         return "redirect:admin/login";
     }
+
 }

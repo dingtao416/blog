@@ -5803,3 +5803,9 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 2022-08-23 20:23:51.573  INFO 21368 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 21368 (D:\ideaproject\blog\target\classes started by 86166 in D:\ideaproject\blog)
 2022-08-23 20:23:51.574  INFO 21368 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
 2022-08-23 20:23:52.560  INFO 21368 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.221 seconds (JVM running for 1.724)
+2022-08-24 09:58:00.067  INFO 13804 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 13804 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-08-24 09:58:00.070  INFO 13804 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-24 09:58:03.510  INFO 13804 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.791 seconds (JVM running for 6.058)
+2022-08-24 10:04:28.870  INFO 7944 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 7944 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-08-24 10:04:28.877  INFO 7944 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-24 10:04:31.755  INFO 7944 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.831 seconds (JVM running for 4.482)

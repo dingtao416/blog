@@ -19,16 +19,14 @@ public class LoginInterceptorConfig implements WebMvcConfigurer {
         list.add("/images/**");
         list.add("/js/**");
         list.add("/admin/login");
-        list.add("/login");
-        list.add("/index.html");
         list.add("/user/login");
         list.add("/user/register");
         list.add("/login.html");
         list.add("/register.html");
         list.add("/bootstrap3/**");
-        list.add("/");
+        list.add("/admin/logout");
         registry.addInterceptor(interceptor)
-                .addPathPatterns("/**").
+                .addPathPatterns("/admin/**").
                 excludePathPatterns(list);
     }
 }
