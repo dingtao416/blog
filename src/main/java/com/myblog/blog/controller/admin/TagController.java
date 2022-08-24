@@ -31,6 +31,7 @@ public class TagController {
         List<Tag> list = tagService.getAlltag();
         PageInfo<Tag> pageInfo = new PageInfo<Tag>(list);
         model.addAttribute("pageInfo",pageInfo);
+        System.out.println("dt");
         return "admin/tags";
     }
     //    返回新增标签页面
