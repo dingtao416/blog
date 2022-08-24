@@ -2,8 +2,9 @@ package com.myblog.blog.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.myblog.blog.Service.TypeService;
-import com.myblog.blog.entity.Type;
+import com.myblog.blog.Service.TagService;
+import com.myblog.blog.entity.Tag;
+import com.myblog.blog.mapper.Tagmapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,51 +14,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import com.myblog.blog.entity.Tag;
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class TypeController {
+public class TagController {
     @Autowired
-    private TypeService typeService;
-    //分页查询界面
-    @GetMapping("/types")
-    public String list(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum){
+    private TagService tagService;
+    @GetMapping("/tags")
+    public String list(Model model, @RequestParam(defaultValue = "1",value = "tagNum") Integer pageNum){
         //按照排序字段 倒序 排序
         String orderBy = "id desc";
         PageHelper.startPage(pageNum,10,orderBy);
-        List<Type> list = typeService.getTypes();
-        PageInfo<Type> pageInfo = new PageInfo<Type>(list);
+        List<Tag> list = tagService.getAlltag();
+        PageInfo<Tag> pageInfo = new PageInfo<Tag>(list);
         model.addAttribute("pageInfo",pageInfo);
-        return "admin/types";
+        return "admin/tags";
     }
-    //    返回新增分类页面
-    @GetMapping("/types/input")
+    //    返回新增标签页面
+    @GetMapping("/tags/input")
     public String input(){
-        return "admin/types-input";
+        return "admin/tags-input";
     }
     //  新增分类
-    @PostMapping("/types")
-    public String post(@Valid Type type, BindingResult result,RedirectAttributes attributes) {
-        Type type1 = typeService.getTypeByName(type.getName());
+    @PostMapping("/tags")
+    public String post(@Valid Tag tag, BindingResult result, RedirectAttributes attributes) {
+        Tag tag1 = tagService.gettagByid(tag.getId());
 
-        if (type1 != null) {
+        if (tag1 != null) {
             attributes.addFlashAttribute("message","类型名不能重复");
-            return "redirect:/admin/types/input";
+            return "redirect:/admin/tags/input";
         }
         if(result.hasErrors()) {
-            return "redirect:/admin/types/input";
+            return "redirect:/admin/tags/input";
         }
 
-        int t = typeService.saveType(type);
+        int t = tagService.savetag(tag);
         if (t == 0) {
             attributes.addFlashAttribute("message", "新增失败");
         } else {
             attributes.addFlashAttribute("message", "新增成功");
         }
-        return "redirect:/admin/types";
+        return "redirect:/admin/tags";
     }
+
+
 
 }

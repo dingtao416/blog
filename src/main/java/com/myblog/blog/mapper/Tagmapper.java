@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface Tagmapper {
 
-    void  savetag(Tag tag);
+    int  savetag(Tag tag);
     void  delettag(Integer id);
     void updatetag(Tag tag);
     Tag gettagByid(Integer id);
