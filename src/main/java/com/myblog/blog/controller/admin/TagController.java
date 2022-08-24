@@ -38,7 +38,7 @@ public class TagController {
     public String input(){
         return "admin/tags-input";
     }
-    //  新增分类
+    //  新增标签分类
     @PostMapping("/tags")
     public String post(@Valid Tag tag, BindingResult result, RedirectAttributes attributes) {
         Tag tag1 = tagService.gettagByid(tag.getId());

@@ -1680,3 +1680,6 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user/
 2022-08-24 13:00:32.852  WARN 20020 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
 2022-08-24 13:00:33.313  WARN 20020 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
 2022-08-24 13:00:33.502  WARN 20020 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-08-24 13:02:11.200  INFO 18128 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 18128 (D:\ideaproject\blog\target\classes started by 86166 in D:\ideaproject\blog)
+2022-08-24 13:02:11.201  INFO 18128 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-08-24 13:02:12.184  INFO 18128 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.212 seconds (JVM running for 1.655)
