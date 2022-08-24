@@ -1,7 +1,9 @@
 package com.myblog.blog.Service;
 
+import com.github.pagehelper.Page;
 import com.myblog.blog.entity.Type;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 public interface TypeService {
@@ -17,4 +19,5 @@ public interface TypeService {
     void deleteType(Integer id);
     //查询所有分类
     List<Type> getTypes();
+
 }

@@ -1,12 +1,16 @@
 package com.myblog.blog.Service.impl;
 
+import com.github.pagehelper.Page;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.mapper.Typemapper;
+import org.apache.ibatis.javassist.NotFoundException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
 import java.util.List;
 @Service
 public class TypeServiceimpl implements TypeService {
@@ -30,7 +34,14 @@ public class TypeServiceimpl implements TypeService {
     @Transactional
     @Override
     public int updateType(Type type) {
+
         return typemapper.updateType(type);
+        /*Type t=typemapper.getTypeById(type.getId());
+        if (t == null)
+        {
+           throw new NotFoundException("不存在类型");
+        }*/
+
     }
     @Transactional
     @Override
@@ -42,4 +53,6 @@ public class TypeServiceimpl implements TypeService {
     public List<Type> getTypes() {
         return typemapper.getAllType();
     }
+
+
 }
