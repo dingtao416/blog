@@ -5,9 +5,10 @@ import com.myblog.blog.entity.Tag;
 import java.util.List;
 
 public interface TagService {
-    int savetag(Tag tag);
-    void  delettag(Integer id);
-    void updatetag(Tag tag);
-    Tag gettagByid(Integer id);
-    List<Tag> getAlltag();
+    int saveTag(Tag tag);
+    void  deleteTag(Integer id);
+    int updateTag(Tag tag);
+    Tag getTagById(Integer id);
+    List<Tag> getAllTag();
+    Tag getTagByName(String name);
 }

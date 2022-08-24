@@ -5,39 +5,41 @@ import com.myblog.blog.entity.Tag;
 import com.myblog.blog.mapper.Tagmapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-
 public class TagServiceimpl implements TagService {
-@Autowired
+    @Autowired
     private  Tagmapper tagmapper;
-    @Transactional
+
     @Override
-    public int savetag(Tag tag) {
-         tagmapper.savetag(tag);
-        return 0;
+    public int saveTag(Tag tag) {
+        return tagmapper.saveTag(tag);
     }
 
     @Override
-    public void delettag(Integer id) {
-     tagmapper.delettag(id);
-    }
-    @Transactional
-    @Override
-    public void updatetag(Tag tag) {
-    tagmapper.updatetag(tag);
+    public void deleteTag(Integer id) {
+        tagmapper.deleteTag(id);
     }
 
     @Override
-    public Tag gettagByid(Integer id) {
-        return tagmapper.gettagByid(id);
+    public int updateTag(Tag tag) {
+        return tagmapper.updateTag(tag);
     }
 
     @Override
-    public List<Tag> getAlltag() {
-       return tagmapper.getAlltag();
+    public Tag getTagById(Integer id) {
+        return tagmapper.getTagById(id);
+    }
+
+    @Override
+    public List<Tag> getAllTag(){
+        return tagmapper.getAllTags();
+    }
+
+    @Override
+    public Tag getTagByName(String name) {
+        return tagmapper.getTagByName(name);
     }
 }

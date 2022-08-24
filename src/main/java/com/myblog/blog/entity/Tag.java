@@ -5,7 +5,7 @@ import java.util.Objects;
 //标签
 public class Tag {
     private Integer id;
-
+    private String name;
     public Integer getId() {
         return id;
     }
@@ -43,5 +43,4 @@ public class Tag {
         this.name = name;
     }
 
-    private String name;
 }

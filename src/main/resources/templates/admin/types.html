@@ -6,12 +6,12 @@
 </head>
 <body>
 <tr align="center" th:each="type,iterStat:${pageInfo.list}">
-  <td th:text="${iterStat.count}">1</td>
-  <td th:text="${type.name}">我的故事</td>
-  <td>
+  <th th:text="${iterStat.count}">1</th>
+  <th th:text="${type.name}">我的故事</th>
+  <th>
     <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}">编辑</a>
-    <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>
-  </td>
+    <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}">删除</a>
+  </th>
 <tr>
   <th colspan="6" >
     <div >

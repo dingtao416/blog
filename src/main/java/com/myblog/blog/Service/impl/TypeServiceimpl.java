@@ -36,12 +36,6 @@ public class TypeServiceimpl implements TypeService {
     public int updateType(Type type) {
 
         return typemapper.updateType(type);
-        /*Type t=typemapper.getTypeById(type.getId());
-        if (t == null)
-        {
-           throw new NotFoundException("不存在类型");
-        }*/
-
     }
     @Transactional
     @Override

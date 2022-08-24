@@ -7,7 +7,7 @@ import lombok.Data;
 import java.io.Serializable;
 @Data
 @AllArgsConstructor
-public class AjaxResult<T> {
+public class AjaxResult<T> implements Serializable{
     private Integer code;//状态码
     private String msg;//提示
     private boolean success;//成功

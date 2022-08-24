@@ -9,9 +9,7 @@ import java.util.Objects;
 //博客分类
 public class Type {
     private Integer id;
-    @NotBlank(message = "类型名不能为空")
     private String name;
-    @Valid
     private List<Blog> blogs=new ArrayList<>();
     @Override
     public String toString() {

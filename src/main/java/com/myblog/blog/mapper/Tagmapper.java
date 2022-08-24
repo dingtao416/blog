@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface Tagmapper {
 
-    int  savetag(Tag tag);
-    void  delettag(Integer id);
-    void updatetag(Tag tag);
-    Tag gettagByid(Integer id);
-    List<Tag> getAlltag();
-
+    int  saveTag(Tag tag);
+    int  deleteTag(Integer id);
+    int updateTag(Tag tag);
+    Tag getTagById(Integer id);
+    List<Tag> getAllTags();
+    Tag getTagByName(String name);
 }
