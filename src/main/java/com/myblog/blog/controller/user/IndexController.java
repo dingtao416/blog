@@ -50,29 +50,5 @@ public class IndexController {
         return "search";
     }
 
-   /* //博客信息
-    @GetMapping("/footer/blogmessage")
-    public String blogMessage(Model model){
-        int blogTotal = blogService.getBlog();
-        int blogViewTotal = blogService.getBlogViewTotal();
-        int blogCommentTotal = blogService.getBlogCommentTotal();
-        int blogMessageTotal = blogService.getBlogMessageTotal();
 
-        model.addAttribute("blogTotal",blogTotal);
-        model.addAttribute("blogViewTotal",blogViewTotal);
-        model.addAttribute("blogCommentTotal",blogCommentTotal);
-        model.addAttribute("blogMessageTotal",blogMessageTotal);
-        return "index :: blogMessage";
-    }
-
-    //跳转博客详情页面
-    @GetMapping("/blog/{id}")
-    public String blog(@PathVariable Long id, Model model) {
-        DetailedBlog detailedBlog = blogService.getDetailedBlog(id);
-//        List<Comment> comments = commentService.listCommentByBlogId(id);
-//        model.addAttribute("comments", comments);
-        model.addAttribute("blog", detailedBlog);
-        return "blog";
-    }
-*/
 }
