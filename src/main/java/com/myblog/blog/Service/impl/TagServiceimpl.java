@@ -28,14 +28,8 @@ public class TagServiceimpl implements TagService {
     @SneakyThrows
     @Override
     public int updateTag(Tag tag) {
-        Tag tag1=tagmapper.getTagById(tag.getId());
-        if(tag1 == null)
-        {
-            throw new NotFoundException("该标签不存在");
-        }
-        else
-            BeanUtils.copyProperties(tag1,tag);
-        return tagmapper.saveTag(tag1);
+
+        return tagmapper.updateTag(tag);
     }
 
     @Override
