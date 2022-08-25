@@ -32,14 +32,15 @@ public class BlogServiceimpl implements BlogService {
     @SneakyThrows
     @Override
     public int updateBlog(Blog blog) {
-       Blog b=blogmapper.getBlogByid(blog.getId());
+       /*Blog b=blogmapper.getBlogByid(blog.getId());
        if(b == null)
        {
            throw new NotFoundException("该博客不存在");
        }
        else
            BeanUtils.copyProperties(b,blog);
-        return blogmapper.saveBlog(b);
+        return blogmapper.saveBlog(b);*/
+        return blogmapper.updateBlog(blog);
     }
     @Transactional
     @Override

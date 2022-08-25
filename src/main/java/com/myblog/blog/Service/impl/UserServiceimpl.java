@@ -28,14 +28,15 @@ public class UserServiceimpl implements UserService {
     @Transactional
     @Override
     public int updateUser(User user) {
-        User user1=usermapper.getUserById(user.getId());
+        /*User user1=usermapper.getUserById(user.getId());
         if(user1 == null)
         {
             throw new NotFoundException("该用户不存在");
         }
         else
             BeanUtils.copyProperties(user1,user);
-        return usermapper.saveUser(user1);
+        return usermapper.saveUser(user1);*/
+        return usermapper.updateUser(user);
     }
     @Transactional
     @Override

@@ -39,8 +39,17 @@ public class TypeServiceimpl implements TypeService {
     @Transactional
     @Override
     public int updateType(Type type) {
+        /*Type type1=typemapper.getTypeById(type.getId());
+        if(type1 == null)
+        {
+           throw new NotFoundException("该类型不存在");
+        }
+        else
+            BeanUtils.copyProperties(type1,type);
+        return typemapper.saveType(type1);*/
+       return  typemapper.updateType(type);
 
-        return typemapper.updateType(type);
+        
     }
     @Transactional
     @Override
