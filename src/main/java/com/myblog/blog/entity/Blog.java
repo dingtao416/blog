@@ -23,8 +23,9 @@ public class Blog {
     private Date updateTime;
     private  String description;
 
+
     @Override
-    public boolean equals(Object o) {
+   public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Blog)) return false;
         Blog blog = (Blog) o;

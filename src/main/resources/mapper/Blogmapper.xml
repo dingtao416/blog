@@ -5,7 +5,6 @@
 <mapper namespace="com.myblog.blog.mapper.Blogmapper">
     <insert id="saveBlog"></insert>
     <update id="updateBlog"></update>
-
     <delete id="deletBlog"></delete>
 
     <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog"></select>

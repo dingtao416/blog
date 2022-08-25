@@ -9,6 +9,7 @@ import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @Service
 public class TypeServiceimpl implements TypeService {
     @Autowired
+
     private Typemapper typemapper;
     @Transactional
     @Override
@@ -33,14 +35,14 @@ public class TypeServiceimpl implements TypeService {
     public Type getTypeByName(String name) {
         return typemapper.getTypeByName(name);
     }
-    @SneakyThrows
+   @SneakyThrows
     @Transactional
     @Override
     public int updateType(Type type) {
         Type type1=typemapper.getTypeById(type.getId());
         if(type1 == null)
         {
-            throw new NotFoundException("该类型不存在");
+           throw new NotFoundException("该类型不存在");
         }
         else
             BeanUtils.copyProperties(type1,type);

@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,7 +23,10 @@ public class BlogServiceimpl implements BlogService {
 
     @Override
     public int saveBlog(Blog blog) {
-      return blogmapper.saveBlog(blog);
+       blog.setCreateTime(new Date());
+       blog.setUpdateTime(new Date());
+       blog.setViews(0);
+        return blogmapper.saveBlog(blog);
     }
 
     @SneakyThrows

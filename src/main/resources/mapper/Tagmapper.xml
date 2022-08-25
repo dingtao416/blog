@@ -3,7 +3,7 @@
 <mapper namespace="com.myblog.blog.mapper.Tagmapper">
 
     <insert id="saveTag">
-        insert into t_tag values (#{id},#{name});
+        insert into t_tag values (#{id},#{name})
     </insert>
     <update id="updateTag">
         update t_tag set name = #{name} where id = #{id}

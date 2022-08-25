@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,6 @@ import java.util.List;
 public class TagServiceimpl implements TagService {
     @Autowired
     private  Tagmapper tagmapper;
-
     @Override
     public int saveTag(Tag tag) {
         return tagmapper.saveTag(tag);
@@ -25,7 +25,6 @@ public class TagServiceimpl implements TagService {
     public void deleteTag(Integer id) {
         tagmapper.deleteTag(id);
     }
-
     @SneakyThrows
     @Override
     public int updateTag(Tag tag) {
