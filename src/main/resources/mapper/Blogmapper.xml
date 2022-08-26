@@ -3,20 +3,40 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Blogmapper">
-    <insert id="saveBlog" parameterType="com.myblog.blog.entity.Blog">
-       /*写不对呜呜呜
+    <!--查询文章管理列表-->
+    <resultMap id="blog" type="com.myblog.blog.entity.Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="recommend" column="recommend"/>
+        <result property="published" column="published"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="com.myblog.blog.entity.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <insert id="saveBlog">
+        insert into myblog.t_blog (id,title, content, first_picture, flag,
+        views, comment_count, appreciation, share_statement, commentabled, published,
+        recommend, create_time, update_time, type_id, user_id, description)
+        values (#{id},#{title},#{content},#{firstPicture},#{flag},#{views},#{commentCount},#{appreciation},
+        #{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},
+        #{updateTime},#{typeId},#{userId},#{description});
     </insert>
-    <update id="updateBlog" parameterType="com.myblog.blog.entity.Blog">
-        update t_blog set title = #{title} where id = #{id}
-    </update>
-    <delete id="deletBlog" parameterType="com.myblog.blog.entity.Blog">
-delete from t_blog where id = #{id}
-</delete>
+    <update id="updateBlog">
 
-    <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog">
-        select id,title from t_blog where id = #{id}
+    </update>
+    <delete id="deletBlog"></delete>
+
+    <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog"></select>
+    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog"></select>
+    <select id="getAllBlogQuery" resultMap="blog">
+        select b.id blogNo,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name
+        from myblog.t_blog b
+        left outer join myblog.t_type t on b.type_id = t.id
+        order by b.create_time desc
     </select>
-    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog">
-        select * from t_blog;
-    </select>
+
 </mapper>

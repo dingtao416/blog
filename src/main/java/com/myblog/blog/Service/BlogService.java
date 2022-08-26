@@ -1,6 +1,7 @@
 package com.myblog.blog.Service;
 
 import com.myblog.blog.entity.Blog;
+import com.myblog.blog.quaryentity.BlogQuery;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface BlogService {
     int updateBlog(Blog blog);
     //删除博客
     void deleteBlog(long id);
-    List<Blog> getAllBlog();
+    List<BlogQuery> getAllBlog();
 }

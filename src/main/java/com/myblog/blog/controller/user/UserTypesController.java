@@ -3,6 +3,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
+import com.myblog.blog.quaryentity.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,20 +30,14 @@ public class UserTypesController {
 
         @Autowired
         private BlogService blogService;
-
-        //    分页查询分类
-        @GetMapping("/types")
-        public String types(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, /*@PathVariable Long id,*/ Model model) {
-            List<Type> types = typeService.getTypes();
-            model.addAttribute("types", types);
-            List<Blog> blogs = blogService.getAllBlog();
-
-            PageHelper.startPage(pageNum, 10000);
-            PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
-            model.addAttribute("pageInfo", pageInfo);
-            //model.addAttribute("activeTypeId", id);
-            return "admin/types";
-        }
-
+    @GetMapping("/types")
+    public String types(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, /*@PathVariable Long id,*/ Model model) {
+        List<Type> types = typeService.getTypes();
+        model.addAttribute("types", types);
+        PageHelper.startPage(pageNum, 10000);
+        PageInfo<BlogQuery> list=new PageInfo<>();
+        //model.addAttribute("activeTypeId", id);
+        return "admin/types";
+    }
     }
 

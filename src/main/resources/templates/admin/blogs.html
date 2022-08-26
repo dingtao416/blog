@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+</head>
+<body>
+<!--中间内容-->
+<div  class="">
+    <div class="">
+        <div >
+            <input type="hidden" name="page" >
+            <div>
+                <div class="field">
+                    <input type="text" name="title" placeholder="标题">
+                </div>
+                <div class="field">
+                    <div class="ui labeled action input">
+                        <div class="ui type selection dropdown">
+                            <input type="hidden" name="typeId">
+                            <div >分类</div>
+                            <select >
+                                <option th:each="type : ${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">我的故事</option>
+                            </select>
+                        </div>
+                        <button id="clear-btn">clear</button>
+                    </div>
+
+                </div>
+                <!--<div class="field">-->
+                <!--<div class="ui checkbox">-->
+                <!--<input type="checkbox" id="recommend" name="recommend">-->
+                <!--<label for="recommend">推荐</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="field">
+                    <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+                </div>
+            </div>
+        </div>
+        <div id="table-container">
+            <table th:fragment="blogList">
+                <thead>
+                <tr align="center">
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>类型</th>
+                    <th>推荐</th>
+                    <th>状态</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr align="center" th:each="blog,iterStat : ${pageInfo.list}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${blog.title}">大圣，此去欲何?</td>
+                    <td th:text="${blog.getType().name}">我的故事</td>
+                    <td th:text="${blog.recommend} ? '是':'否'">是</td>
+                    <td th:text="${blog.published} ? '发布':'草稿'">草稿</td>
+                    <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2020-01-02 05:20</td>
+                    <td>
+                        <!--th:href="@{/admin/types/{id}/input(id=${type.id})}"-->
+                        <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}">编辑</a>
+                        <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" onclick="return confirm('确定要删除该文章吗？三思啊! 删了可就没了！')" >删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="7">
+                        <div >
+                            <div align="center">
+                                <a  th:href="@{/admin/blogs(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">上一页</a>
+                            </div>
+                            <div class="ten wide column" align="center">
+                                <p>第 <span th:text="${pageInfo.pageNum}"></span> 页，共 <span th:text="${pageInfo.pages}"></span> 页，有 <span th:text="${pageInfo.total}"></span> 篇文章</p>
+                            </div>
+
+                            <div align="center">
+                                <a th:href="@{/admin/blogs(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}">下一页</a>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <a href="#" th:href="@{/admin/blogs/input}">
+                                <button type="button"></i>新增</button>
+                            </a>
+                        </div>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+
+            <div  th:unless="${#strings.isEmpty(message)}">
+                <div class="" th:text="|提示： ${message}">提示：操作成功！</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+<script>
+ $("#search-btn").click(function () {
+      $("[name='page']").val(0);
+      loaddata();
+    });
+function loaddata() {
+      $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+        title : $("[name='title']").val(),
+        typeId : $("[name='typeId']").val(),
+        page : $("[name='page']").val()
+      });
+    }
+</script>
+</body>
+</html>

@@ -31,7 +31,7 @@ public class adminUserController {
         if(user!=null && "admin".equals(user.getUsername()))
         {
             session.setAttribute("user",user);
-            return "admin/index";
+            return "admin/adminIndex";
         }
         else {
             redirectAttributes.addFlashAttribute("message","用户名和密码错误");

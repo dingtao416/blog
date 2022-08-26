@@ -25,6 +25,11 @@ public class UserController extends baseController{
     {
         return "register";
     }
+    @GetMapping("/dl")
+    public String dl()
+    {
+        return "dl";
+    }
     @DeleteMapping("/delete")
     public JsonResult<User> delet(@PathVariable Integer id)
     {

@@ -17,26 +17,18 @@ public class Blog {
     private  Integer CommentCount;
     private boolean appreciation;
     private boolean commentabled;
+
+    private boolean shareStatement;
     private boolean recommend;
     private boolean published;
     private Date createTime;
     private Date updateTime;
     private  String description;
-
-
-    @Override
-   public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Blog)) return false;
-        Blog blog = (Blog) o;
-        return id == blog.id && appreciation == blog.appreciation && commentabled == blog.commentabled && recommend == blog.recommend && published == blog.published && typeId == blog.typeId && userId == blog.userId && Objects.equals(title, blog.title) && Objects.equals(content, blog.content) && Objects.equals(firstPicture, blog.firstPicture) && Objects.equals(flag, blog.flag) && Objects.equals(views, blog.views) && Objects.equals(CommentCount, blog.CommentCount) && Objects.equals(createTime, blog.createTime) && Objects.equals(updateTime, blog.updateTime) && Objects.equals(description, blog.description) && Objects.equals(type, blog.type) && Objects.equals(user, blog.user) && Objects.equals(comments, blog.comments);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, content, firstPicture, flag, views, CommentCount, appreciation, commentabled, recommend, published, createTime, updateTime, description, type, user, typeId, userId, comments);
-    }
-
+    private  Type type;
+    private  User user;
+    private long typeId;
+    private long userId;
+    private List<Comment> comments=new ArrayList<>();
     @Override
     public String toString() {
         return "Blog{" +
@@ -49,6 +41,7 @@ public class Blog {
                 ", CommentCount=" + CommentCount +
                 ", appreciation=" + appreciation +
                 ", commentabled=" + commentabled +
+                ", shareStatement=" + shareStatement +
                 ", recommend=" + recommend +
                 ", published=" + published +
                 ", createTime=" + createTime +
@@ -62,10 +55,18 @@ public class Blog {
                 '}';
     }
 
-    private  Type type;
-    private  User user;
-    private long typeId;
-    private long userId;
+    @Override
+   public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Blog)) return false;
+        Blog blog = (Blog) o;
+        return id == blog.id && appreciation == blog.appreciation && commentabled == blog.commentabled && recommend == blog.recommend && published == blog.published && typeId == blog.typeId && userId == blog.userId && Objects.equals(title, blog.title) && Objects.equals(content, blog.content) && Objects.equals(firstPicture, blog.firstPicture) && Objects.equals(flag, blog.flag) && Objects.equals(views, blog.views) && Objects.equals(CommentCount, blog.CommentCount) && Objects.equals(createTime, blog.createTime) && Objects.equals(updateTime, blog.updateTime) && Objects.equals(description, blog.description) && Objects.equals(type, blog.type) && Objects.equals(user, blog.user) && Objects.equals(comments, blog.comments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, content, firstPicture, flag, views, CommentCount, appreciation, commentabled, recommend, published, createTime, updateTime, description, type, user, typeId, userId, comments);
+    }
 
     public long getId() {
         return id;
@@ -218,6 +219,12 @@ public class Blog {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+    public boolean isShareStatement() {
+        return shareStatement;
+    }
 
-    private List<Comment> comments=new ArrayList<>();
+    public void setShareStatement(boolean shareStatement) {
+        this.shareStatement = shareStatement;
+    }
+
 }
