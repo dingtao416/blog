@@ -22,7 +22,7 @@ public class IndexController {
     private BlogService blogService;
     private CommentService commentService;
     //分页查询博客列表
-    @GetMapping("/blogss")
+    @GetMapping("/blogs")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, RedirectAttributes attributes){
         PageHelper.startPage(pageNum,10);
         //查询博客列表
