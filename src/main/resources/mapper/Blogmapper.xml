@@ -25,17 +25,30 @@
         #{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},
         #{updateTime},#{typeId},#{userId},#{description});
     </insert>
-    <update id="updateBlog">
-
+    <update id="updateBlog" parameterType="com.myblog.blog.quaryentity.ShowBlog">
+        update myblog.t_blog
+        set published = #{published},flag = #{flag} ,
+        title = #{title}, content = #{content}, type_id = #{typeId},
+        first_picture = #{firstPicture} , description = #{description} , recommend = #{recommend} ,
+        share_statement = #{shareStatement}, appreciation = #{appreciation},
+        commentabled = #{commentabled} ,update_time = #{updateTime}
+        where id = #{id};
     </update>
-    <delete id="deletBlog"></delete>
+    <delete id="deletBlog">
+        delete from myblog.t_blog where id = #{id}
+    </delete>
 
-    <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog"></select>
-    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog"></select>
-    <select id="getAllBlogQuery" resultMap="blog">
-        select b.id blogNo,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name
+    <select id="getBlogByid" resultType="com.myblog.blog.quaryentity.ShowBlog">
+        select b.id,b.flag,b.title,b.content,b.type_id,
+        b.first_picture,b.description,b.recommend,b.published,b.share_statement,
+        b.appreciation,b.commentabled
         from myblog.t_blog b
-        left outer join myblog.t_type t on b.type_id = t.id
+        where  b.id = #{id};
+    </select>
+    <select id="getAllBlogQuery" resultMap="blog">
+        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,t.id typeno,t.name
+        from t_blog b
+        left join t_type t on b.type_id = t.id
         order by b.create_time desc
     </select>
 

@@ -8,7 +8,7 @@ import java.util.Date;
  * 查询blog作用类
  */
 public class BlogQuery {
-    private Long id;
+    private Integer id;
     private String title;
     private Date createTime;
     private Date updateTime;
@@ -31,11 +31,11 @@ public class BlogQuery {
                 '}';
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

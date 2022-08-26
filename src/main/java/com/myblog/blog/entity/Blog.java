@@ -8,7 +8,7 @@ import java.util.Objects;
 //博客
 public class Blog {
     //主键
-    private long id;
+    private Integer id;
     private String title;
     private  String content;
     private String firstPicture;
@@ -68,11 +68,11 @@ public class Blog {
         return Objects.hash(id, title, content, firstPicture, flag, views, CommentCount, appreciation, commentabled, recommend, published, createTime, updateTime, description, type, user, typeId, userId, comments);
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

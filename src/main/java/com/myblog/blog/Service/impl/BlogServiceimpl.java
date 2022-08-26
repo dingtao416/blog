@@ -5,6 +5,7 @@ import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.ShowBlog;
 import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -19,9 +20,10 @@ import java.util.List;
 public class BlogServiceimpl implements BlogService {
     @Autowired
    private Blogmapper blogmapper;
+
     @Override
-    public Blog getBlogByid(long id) {
-        return  blogmapper.getBlogByid(id);
+    public ShowBlog getBlogById(Integer id) {
+        return blogmapper.getBlogByid(id);
     }
 
     @Override
@@ -35,12 +37,13 @@ public class BlogServiceimpl implements BlogService {
 
     @SneakyThrows
     @Override
-    public int updateBlog(Blog blog) {
-        return blogmapper.saveBlog(blog);
+    public int updateBlog(ShowBlog showBlog) {
+        showBlog.setUpdateTime(new Date());
+        return blogmapper.updateBlog(showBlog);
     }
     @Transactional
     @Override
-    public void deleteBlog(long id) {
+    public void deleteBlog(Integer id) {
          blogmapper.deletBlog(id);
     }
     //查询文章列表

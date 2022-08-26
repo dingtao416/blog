@@ -9,6 +9,7 @@ import com.myblog.blog.entity.Blog;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.ShowBlog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.nio.channels.Pipe;
 import java.util.List;
 
@@ -57,7 +59,6 @@ public class BlogController {
         blog.setTypeId(blog.getType().getId());
         //设置用户id
         blog.setUserId(blog.getUser().getId());
-
         int b = blogService.saveBlog(blog);
         if(b == 0){
             attributes.addFlashAttribute("message", "新增失败");
@@ -71,20 +72,30 @@ public class BlogController {
     {
         return "admin/blogs::blogList";
     }
-    @PutMapping("/blogs")
-    //提交blog
-    public String post(Blog blog, HttpSession session, RedirectAttributes attributes)
-    {
-        blog.setUser((User)session.getAttribute("user")) ;
-        blog.setType(typeService.getTypeByName(blog.getType().getName()));
-
-      int t=blogService.saveBlog(blog);
-        if (t == 0) {
-            attributes.addFlashAttribute("message", "新增失败");
-        } else {
-            attributes.addFlashAttribute("message", "新增成功");
+    @GetMapping("/blogs/{id}/input")
+    public String editInput(@PathVariable Integer id, Model model) {
+        System.out.println(id);
+        List<Type> allType = typeService.getTypes();
+        model.addAttribute("blog", blogService.getBlogById(id));
+        model.addAttribute("types", allType);
+        return "admin/blogs-input";
+    }
+    //编辑修改文章
+    @PostMapping("/blogs/{id}")
+    public String editPost(ShowBlog showBlog, RedirectAttributes attributes) {
+        int b = blogService.updateBlog(showBlog);
+        if(b == 0){
+            attributes.addFlashAttribute("message", "修改失败");
+        }else {
+            attributes.addFlashAttribute("message", "修改成功");
         }
-
+        return "redirect:/admin/blogs";
+    }
+    //删除
+    @GetMapping("/blogs/{id}/delete")
+    public String delete(@PathVariable Integer id, RedirectAttributes attributes) {
+        blogService.deleteBlog(id);
+        attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/blogs";
     }
 }
