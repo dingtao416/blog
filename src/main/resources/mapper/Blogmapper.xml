@@ -3,10 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Blogmapper">
-    <insert id="saveBlog"></insert>
-    <update id="updateBlog"></update>
-    <delete id="deletBlog"></delete>
+    <insert id="saveBlog" parameterType="com.myblog.blog.entity.Blog">
+       /*写不对呜呜呜
+    </insert>
+    <update id="updateBlog" parameterType="com.myblog.blog.entity.Blog">
+        update t_blog set title = #{title} where id = #{id}
+    </update>
+    <delete id="deletBlog" parameterType="com.myblog.blog.entity.Blog">
+delete from t_blog where id = #{id}
+</delete>
 
-    <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog"></select>
-    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog"></select>
+    <select id="getBlogByid" resultType="com.myblog.blog.entity.Blog">
+        select id,title from t_blog where id = #{id}
+    </select>
+    <select id="getAllBlog" resultType="com.myblog.blog.entity.Blog">
+        select * from t_blog;
+    </select>
 </mapper>

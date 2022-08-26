@@ -65,8 +65,19 @@ class BlogApplicationTests {
     {
         Type t1 = new Type();
         t1.setName("springmvc");
-        typemapper.updateType(t1);
+        typemapper.saveType(t1);
+        //typemapper.updateType(t1);
         System.out.println(t1);
+    }
+    @Test
+    void blog()
+    {
+        Blog blog=new Blog();
+        blog.setId(123);
+       // blog.setTitle("帅锅");
+       // blogmapper.saveBlog(blog);
+       Blog blog1=blogmapper.getBlogByid(123);
+        System.out.println(blog1);
     }
 
 
