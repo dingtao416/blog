@@ -1,6 +1,7 @@
 package com.myblog.blog.quaryentity;
 
 import com.myblog.blog.entity.Type;
+import com.myblog.blog.entity.User;
 
 import java.util.Date;
 
@@ -16,7 +17,9 @@ public class BlogQuery {
     private Boolean published;
     private Long typeId;
     private Type type;
-
+    private Long views;
+    private Long userId;
+    private User user;
     @Override
     public String toString() {
         return "BlogQuery{" +
@@ -28,7 +31,33 @@ public class BlogQuery {
                 ", published=" + published +
                 ", typeId=" + typeId +
                 ", type=" + type +
+                ", views=" + views +
+                ", userId=" + userId +
+                ", user=" + user +
                 '}';
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getViews() {
+        return views;
+    }
+
+    public void setViews(Long views) {
+        this.views = views;
     }
 
     public Integer getId() {

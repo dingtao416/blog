@@ -13,8 +13,8 @@ public class Blog {
     private  String content;
     private String firstPicture;
     private String flag;
-    private  Integer views;
-    private  Integer CommentCount;
+    private  long views;
+    private  long CommentCount;
     private boolean appreciation;
     private boolean commentabled;
 
@@ -108,7 +108,7 @@ public class Blog {
         this.flag = flag;
     }
 
-    public Integer getViews() {
+    public long getViews() {
         return views;
     }
 
@@ -116,7 +116,7 @@ public class Blog {
         this.views = views;
     }
 
-    public Integer getCommentCount() {
+    public long getCommentCount() {
         return CommentCount;
     }
 

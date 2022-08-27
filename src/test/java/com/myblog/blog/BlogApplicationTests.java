@@ -1,11 +1,14 @@
 package com.myblog.blog;
 
+import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
+import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
 import lombok.extern.jbosslog.JBossLog;
 import org.junit.jupiter.api.Test;
@@ -22,6 +25,8 @@ class BlogApplicationTests {
     private Typemapper typemapper;
     @Autowired
     private Usermapper usermapper;
+    @Autowired
+    private BlogService blogService;
     @Test
     void contextLoads() {
     }
@@ -73,7 +78,8 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        System.out.println(blogmapper.getAllBlogQuery());
+        List<BlogQuery> list = blogService.getAllBlog();
+        System.out.println(list);
     }
 
 

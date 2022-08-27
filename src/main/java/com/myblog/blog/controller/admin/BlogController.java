@@ -9,6 +9,7 @@ import com.myblog.blog.entity.Blog;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,6 @@ public class BlogController {
     private BlogService blogService;
     @Autowired
     private TypeService typeService;
-    @Autowired
-    private TagService tagService;
     //博客列表
     @GetMapping("/blogs")
     public String blogs(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum){
@@ -67,11 +66,6 @@ public class BlogController {
         }
         return "redirect:/admin/blogs";
     }
-    @GetMapping("/blogs/search")
-    public  String search()
-    {
-        return "admin/blogs::blogList";
-    }
     @GetMapping("/blogs/{id}/input")
     public String editInput(@PathVariable Integer id, Model model) {
         System.out.println(id);
@@ -97,5 +91,14 @@ public class BlogController {
         blogService.deleteBlog(id);
         attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/blogs";
+    }
+    @PostMapping("/blogs/search")
+    public String search(SearchBlog searchBlog, Model model,
+                         @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
+        List<BlogQuery> blogBySearch = blogService.getBlogBySearch(searchBlog);
+        PageHelper.startPage(pageNum, 10);
+        PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogBySearch);
+        model.addAttribute("pageInfo", pageInfo);
+        return "admin/blogs :: blogList";
     }
 }

@@ -2,6 +2,7 @@ package com.myblog.blog.mapper;
 
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -19,4 +20,5 @@ public interface Blogmapper {
     int updateBlog(ShowBlog showBlog);
     //删除博客
     void deletBlog(long id);
+    List<BlogQuery> searchByTitleAndType(SearchBlog searchBlog);
 }

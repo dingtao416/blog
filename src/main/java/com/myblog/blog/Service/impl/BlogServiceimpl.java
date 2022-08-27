@@ -5,6 +5,7 @@ import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
 import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
@@ -50,6 +51,11 @@ public class BlogServiceimpl implements BlogService {
     @Override
     public List<BlogQuery> getAllBlog() {
        return blogmapper.getAllBlogQuery();
+    }
+
+    @Override
+    public List<BlogQuery> getBlogBySearch(SearchBlog searchBlog) {
+        return blogmapper.searchByTitleAndType(searchBlog);
     }
 
 

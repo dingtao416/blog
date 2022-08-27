@@ -2,6 +2,7 @@ package com.myblog.blog.Service;
 
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface BlogService {
     //删除博客
     void deleteBlog(Integer id);
     List<BlogQuery> getAllBlog();
+
+    List<BlogQuery> getBlogBySearch(SearchBlog searchBlog);
 }

@@ -12,9 +12,14 @@
         <result property="recommend" column="recommend"/>
         <result property="published" column="published"/>
         <result property="typeId" column="type_id"/>
+        <result property="userId" column="user_id"/>
         <association property="type" javaType="com.myblog.blog.entity.Type">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
+        </association>
+        <association property="user" javaType="com.myblog.blog.entity.User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
         </association>
     </resultMap>
     <insert id="saveBlog">
@@ -46,10 +51,26 @@
         where  b.id = #{id};
     </select>
     <select id="getAllBlogQuery" resultMap="blog">
-        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,t.id typeno,t.name
+        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,u.username,b.views,t.id typeno,t.name
         from t_blog b
         left join t_type t on b.type_id = t.id
+        join t_user u on u.id=b.user_id
         order by b.create_time desc
+    </select>
+    <select id="searchByTitleAndType" resultMap="blog">
+        <bind name="pattern" value="'%' + title + '%'" />
+        select b.id,b.title,b.type_id,t.id,t.name,b.views,u.username from myblog.t_blog b ,myblog.t_type t,myblog.t_user u
+        <where>
+            <if test="1 == 1">
+                b.type_id = t.id
+            </if>
+            <if test="typeId != null">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="title != null">
+                and b.title like #{pattern}
+            </if>
+        </where>
     </select>
 
 </mapper>
