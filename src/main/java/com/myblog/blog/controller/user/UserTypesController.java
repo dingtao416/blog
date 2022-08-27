@@ -39,5 +39,6 @@ public class UserTypesController {
         //model.addAttribute("activeTypeId", id);
         return "admin/types";
     }
-    }
+
+}
 

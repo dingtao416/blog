@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>新增博客</title>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +58,7 @@
 <!--中间内容-->
 <div  class="">
     <div class="ui container">
-        <form id="blog-form" action="#" th:object="${blog}" th:action="*{id}==null ? @{/admin/blogs} : @{/admin/blogs/{id}(id=*{id})}" method="post" class="ui form">
+        <form id="blog-form" th:object="${blog}" th:action="*{id}==null ? @{/admin/blogs} : @{/admin/blogs/{id}(id=*{id})}" method="post" class="ui form">
             <input type="hidden" name="published" th:value="*{published}">
             <input type="hidden" name="id" th:value="*{id}">
             <div class="required field">
@@ -146,7 +139,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="ui error message"></div>
+
             <div class="ui right aligned container">
                 <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
                 <button type="button" id="save-btn" class="ui secondary button">保存</button>
@@ -378,7 +373,5 @@
     });
 
   </script>
-</body>
-</html>
 </body>
 </html>

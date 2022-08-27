@@ -6,6 +6,7 @@ import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
+import com.myblog.blog.quaryentity.ShowBlog;
 import lombok.extern.jbosslog.JBossLog;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,15 +73,10 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        Blog blog=new Blog();
-        blog.setId(123);
-       // blog.setTitle("帅锅");
-       // blogmapper.saveBlog(blog);
-       Blog blog1=blogmapper.getBlogByid(123);
-        System.out.println(blog1);
+        System.out.println(blogmapper.getAllBlogQuery());
     }
 
 
-    }
+}
 
 
