@@ -1,17 +1,21 @@
 package com.myblog.blog;
 
+import com.myblog.blog.Service.BlogService;
+import com.myblog.blog.Service.FriendService;
 import com.myblog.blog.entity.Blog;
+import com.myblog.blog.entity.FriendLink;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
-import com.myblog.blog.quaryentity.ShowBlog;
+import com.myblog.blog.quaryentity.*;
 import lombok.extern.jbosslog.JBossLog;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -22,6 +26,8 @@ class BlogApplicationTests {
     private Typemapper typemapper;
     @Autowired
     private Usermapper usermapper;
+    @Autowired
+    private BlogService blogService;
     @Test
     void contextLoads() {
     }
@@ -73,29 +79,9 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        List<BlogQuery> list = blogService.getAllBlog();
-        System.out.println(list);
+        List<NewComment> newComment = blogService.getNewComment();
+        System.out.println(newComment);
     }
-    @Test
-    void FriendLink()
-
-    {
-        Date date=new Date();
-        date.setTime(2021L);
-        FriendLink friendLink=new FriendLink();
-        friendLink.setId(10L);
-        friendLink.setBlogname("dt");
-        friendLink.setBlogaddress("北京");
-        friendLink.setPictureaddress("海淀");
-        friendLink.setBlogname("dt");
-        friendLink.setCreateTime(date);
-        friendLinkmapper.saveFriendLink(friendLink);
-        System.out.println(friendLinkmapper.listFriendLink());
-        friendLinkmapper.deleteFriendLink(1L);
-        System.out.println(friendLinkmapper.getFriendLink(1L));
-    }
-
-
 }
 
 

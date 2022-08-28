@@ -4,9 +4,7 @@ import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
-import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.SearchBlog;
-import com.myblog.blog.quaryentity.ShowBlog;
+import com.myblog.blog.quaryentity.*;
 import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -56,6 +54,21 @@ public class BlogServiceimpl implements BlogService {
     @Override
     public List<BlogQuery> getBlogBySearch(SearchBlog searchBlog) {
         return blogmapper.searchByTitleAndType(searchBlog);
+    }
+
+    @Override
+    public List<FirstPageBlog> getAllFirstPageBlog() {
+        return blogmapper.getFirstPageBlog();
+    }
+
+    @Override
+    public List<RecommendBlog> getRecommendedBlog() {
+        return blogmapper.getAllRecommendBlog();
+    }
+
+    @Override
+    public List<NewComment> getNewComment() {
+        return blogmapper.getNewComment();
     }
 
 

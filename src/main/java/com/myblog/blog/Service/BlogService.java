@@ -1,9 +1,7 @@
 package com.myblog.blog.Service;
 
 import com.myblog.blog.entity.Blog;
-import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.SearchBlog;
-import com.myblog.blog.quaryentity.ShowBlog;
+import com.myblog.blog.quaryentity.*;
 
 import java.util.List;
 
@@ -18,4 +16,7 @@ public interface BlogService {
     List<BlogQuery> getAllBlog();
 
     List<BlogQuery> getBlogBySearch(SearchBlog searchBlog);
+    List<FirstPageBlog> getAllFirstPageBlog();
+    List<RecommendBlog> getRecommendedBlog();
+    List<NewComment> getNewComment();
 }

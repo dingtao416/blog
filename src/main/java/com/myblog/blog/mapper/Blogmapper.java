@@ -1,9 +1,7 @@
 package com.myblog.blog.mapper;
 
 import com.myblog.blog.entity.Blog;
-import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.SearchBlog;
-import com.myblog.blog.quaryentity.ShowBlog;
+import com.myblog.blog.quaryentity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +19,9 @@ public interface Blogmapper {
     //删除博客
     void deletBlog(long id);
     List<BlogQuery> searchByTitleAndType(SearchBlog searchBlog);
+    //首页展示查询
+    List<FirstPageBlog> getFirstPageBlog();
+    //推荐博客
+    List<RecommendBlog> getAllRecommendBlog();
+    List<NewComment> getNewComment();
 }

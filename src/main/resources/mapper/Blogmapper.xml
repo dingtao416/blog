@@ -59,10 +59,11 @@
     </select>
     <select id="searchByTitleAndType" resultMap="blog">
         <bind name="pattern" value="'%' + title + '%'" />
-        select b.id,b.title,b.type_id,t.id,t.name,b.views,u.username from myblog.t_blog b ,myblog.t_type t,myblog.t_user u
+        select b.id,b.title,b.type_id,t.id,t.name,b.views,u.username,b.update_time from myblog.t_blog b ,myblog.t_type t,myblog.t_user u
         <where>
             <if test="1 == 1">
                 b.type_id = t.id
+                and  b.user_id=u.id
             </if>
             <if test="typeId != null">
                 and b.type_id = #{typeId}
@@ -72,5 +73,51 @@
             </if>
         </where>
     </select>
-
+    <!--查询首页最新博客列表信息-->
+    <resultMap id="firstPageBlog" type="com.myblog.blog.quaryentity.FirstPageBlog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="views" column="views"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="description" column="description"/>
+        <result property="typeName" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+    <select id="getFirstPageBlog" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description,t.name ,u.nickname, u.avatar
+        from  myblog.t_blog b, myblog.t_type t,myblog.t_user u
+        where b.type_id = t.id and  u.id = b.user_id and b.published = 1 order by b.create_time desc
+    </select>
+    <select id="getAllRecommendBlog" resultType="com.myblog.blog.quaryentity.RecommendBlog">
+        SELECT
+        *
+        FROM
+        myblog.t_blog
+        WHERE
+        t_blog.recommend = TRUE
+        ORDER BY
+        t_blog.create_time DESC LIMIT 4
+    </select>
+    <resultMap id="newComment" type="com.myblog.blog.quaryentity.NewComment">
+        <id property="id" column="bid"/>
+        <result property="blogId" column="blog_id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+    </resultMap>
+    <select id="getNewComment" resultMap="newComment">
+        SELECT
+        *
+        FROM
+        myblog.t_comment c,
+        myblog.t_blog b
+        WHERE
+        c.blog_id = b.id
+        ORDER by
+        c.create_time DESC
+        LIMIT 10
+    </select>
 </mapper>
