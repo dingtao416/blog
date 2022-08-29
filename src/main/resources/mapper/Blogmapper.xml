@@ -39,6 +39,9 @@
         commentabled = #{commentabled} ,update_time = #{updateTime}
         where id = #{id};
     </update>
+    <update id="updateViews">
+        update myblog.t_blog b set b.views = b.views+1 where b.id = #{id}
+    </update>
     <delete id="deletBlog">
         delete from myblog.t_blog where id = #{id}
     </delete>
@@ -120,4 +123,31 @@
         c.create_time DESC
         LIMIT 10
     </select>
+    <resultMap id="detailedBlog" type="com.myblog.blog.quaryentity.DetailedBlog">
+        <id property="id" column="bid"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="typeName" column="name"/>
+        <result property="views" column="views"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="commentabled" column="commentabled"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <select id="getDetailedBlog" resultMap="detailedBlog">
+        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name
+        from myblog.t_blog b,myblog.t_user u, myblog.t_type t
+        where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
+    </select>
+    <update id="getCommentCountById" parameterType="com.myblog.blog.entity.Blog">
+        update myblog.t_blog b set b.comment_count = (
+        select count(*) from myblog.t_comment c where c.blog_id = #{id} and b.id = #{id}
+        ) WHERE b.id = #{id}
+    </update>
 </mapper>

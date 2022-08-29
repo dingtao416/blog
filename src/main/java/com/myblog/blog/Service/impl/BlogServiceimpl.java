@@ -5,6 +5,7 @@ import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.*;
+import com.myblog.blog.util.MarkdownUtils;
 import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -71,6 +72,20 @@ public class BlogServiceimpl implements BlogService {
         return blogmapper.getNewComment();
     }
 
+    @Override
+    public DetailedBlog getDetailedBlog(Integer id) {
+        DetailedBlog detailedBlog = blogmapper.getDetailedBlog(id);
+        if(detailedBlog==null)
+        {
+            throw new RuntimeException("博客不存在");
+        }
+        String content = detailedBlog.getContent();
+        content= MarkdownUtils.markdownToHtml(content);
+        detailedBlog.setContent(content);
+        blogmapper.updateViews(id);
+        blogmapper.getCommentCountById(id);
+        return detailedBlog;
+    }
 
 }
 

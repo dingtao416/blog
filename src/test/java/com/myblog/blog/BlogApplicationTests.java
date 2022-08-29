@@ -1,11 +1,9 @@
 package com.myblog.blog;
 
 import com.myblog.blog.Service.BlogService;
+import com.myblog.blog.Service.CommentService;
 import com.myblog.blog.Service.FriendService;
-import com.myblog.blog.entity.Blog;
-import com.myblog.blog.entity.FriendLink;
-import com.myblog.blog.entity.Type;
-import com.myblog.blog.entity.User;
+import com.myblog.blog.entity.*;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
@@ -28,6 +26,8 @@ class BlogApplicationTests {
     private Usermapper usermapper;
     @Autowired
     private BlogService blogService;
+    @Autowired
+    private CommentService commentService;
     @Test
     void contextLoads() {
     }
@@ -81,6 +81,13 @@ class BlogApplicationTests {
     {
         List<NewComment> newComment = blogService.getNewComment();
         System.out.println(newComment);
+    }
+    @Test
+    void comment()
+    {
+        Integer blogId=16;
+        List<Comment> comments = commentService.listCommentByBlogId(blogId);
+        System.out.println(comments);
     }
 }
 

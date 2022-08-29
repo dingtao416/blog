@@ -13,8 +13,8 @@ public class Comment {
     private String content;
     private String avatar;
     private Date createTime;
-    private long blogId;
-    private long parentCommentId;
+    private Integer blogId;
+    private Integer parentCommentId;
     private boolean adminComment;
 
     private List<Comment> replyComments=new ArrayList<>();
@@ -99,19 +99,19 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    public long getBlogId() {
+    public Integer getBlogId() {
         return blogId;
     }
 
-    public void setBlogId(long blogId) {
+    public void setBlogId(Integer blogId) {
         this.blogId = blogId;
     }
 
-    public long getParentCommentId() {
+    public Integer getParentCommentId() {
         return parentCommentId;
     }
 
-    public void setParentCommentId(long parentCommentId) {
+    public void setParentCommentId(Integer parentCommentId) {
         this.parentCommentId = parentCommentId;
     }
 

@@ -4,6 +4,7 @@ import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.CommentService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.entity.Comment;
+import com.myblog.blog.quaryentity.DetailedBlog;
 import com.myblog.blog.quaryentity.FirstPageBlog;
 import com.myblog.blog.quaryentity.NewComment;
 import com.myblog.blog.quaryentity.RecommendBlog;
@@ -26,7 +27,7 @@ public class IndexController {
     //分页查询博客列表
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, RedirectAttributes attributes){
-        PageHelper.startPage(pageNum,10);
+        PageHelper.startPage(pageNum,4);
         //查询博客列表
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
         //查询最新推荐博客
@@ -39,5 +40,13 @@ public class IndexController {
         model.addAttribute("recommendedBlogs", recommendedBlog);
         model.addAttribute("newComment",newComments);
         return "index";
+    }
+    @GetMapping("/blog/{id}")
+    public String blog(@PathVariable Integer id, Model model) {
+        DetailedBlog detailedBlog = blogService.getDetailedBlog(id);
+//        List<Comment> comments = commentService.listCommentByBlogId(id);
+//        model.addAttribute("comments", comments);
+        model.addAttribute("blog", detailedBlog);
+        return "blog";
     }
 }

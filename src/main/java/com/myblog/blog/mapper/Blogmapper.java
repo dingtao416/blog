@@ -24,4 +24,9 @@ public interface Blogmapper {
     //推荐博客
     List<RecommendBlog> getAllRecommendBlog();
     List<NewComment> getNewComment();
+    //查询博客详情
+    DetailedBlog getDetailedBlog(Integer id);
+    //设置观看量
+    int updateViews(Integer id);
+    int getCommentCountById(Integer id);
 }

@@ -19,4 +19,5 @@ public interface BlogService {
     List<FirstPageBlog> getAllFirstPageBlog();
     List<RecommendBlog> getRecommendedBlog();
     List<NewComment> getNewComment();
+    DetailedBlog getDetailedBlog(Integer id);
 }
