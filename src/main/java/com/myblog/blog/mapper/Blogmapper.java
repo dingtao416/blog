@@ -29,4 +29,5 @@ public interface Blogmapper {
     //设置观看量
     int updateViews(Integer id);
     int getCommentCountById(Integer id);
+    List<FirstPageBlog> getByTypeId(Integer typeId);
 }

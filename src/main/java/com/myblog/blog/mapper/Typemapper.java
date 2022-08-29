@@ -2,6 +2,7 @@ package com.myblog.blog.mapper;
 
 import com.github.pagehelper.Page;
 import com.myblog.blog.entity.Type;
+import com.myblog.blog.quaryentity.FirstPageBlog;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -22,5 +23,5 @@ public interface Typemapper {
     int updateType(Type type);
     //删除分类
     void deleteType(Integer id);
-
+    List<Type> getAllTypeAndBlog();
 }

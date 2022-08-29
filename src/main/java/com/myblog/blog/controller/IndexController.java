@@ -49,4 +49,5 @@ public class IndexController {
         model.addAttribute("blog", detailedBlog);
         return "blog";
     }
+
 }

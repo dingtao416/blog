@@ -15,10 +15,10 @@ public class BlogQuery {
     private Date updateTime;
     private Boolean recommend;
     private Boolean published;
-    private Long typeId;
+    private Integer typeId;
     private Type type;
-    private Long views;
-    private Long userId;
+    private Integer views;
+    private Integer userId;
     private User user;
     @Override
     public String toString() {
@@ -44,19 +44,19 @@ public class BlogQuery {
     public void setUser(User user) {
         this.user = user;
     }
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public Long getViews() {
+    public Integer getViews() {
         return views;
     }
 
-    public void setViews(Long views) {
+    public void setViews(Integer views) {
         this.views = views;
     }
 
@@ -108,11 +108,11 @@ public class BlogQuery {
         this.published = published;
     }
 
-    public Long getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Long typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 

@@ -26,6 +26,12 @@ public class BlogServiceimpl implements BlogService {
         return blogmapper.getBlogByid(id);
     }
 
+    /**
+     * 新增博客，初始化各种属性
+     * @param blog
+     * @return
+     */
+    @Transactional
     @Override
     public int saveBlog(Blog blog) {
         blog.setCreateTime(new Date());
@@ -35,6 +41,12 @@ public class BlogServiceimpl implements BlogService {
         return blogmapper.saveBlog(blog);
     }
 
+    /**
+     * 更新博客，修改更新时间
+     * @param showBlog
+     * @return
+     */
+    @Transactional
     @SneakyThrows
     @Override
     public int updateBlog(ShowBlog showBlog) {
@@ -52,26 +64,48 @@ public class BlogServiceimpl implements BlogService {
        return blogmapper.getAllBlogQuery();
     }
 
+    /**
+     * 查询博客时用的方法
+     * @param searchBlog
+     * @return
+     */
     @Override
     public List<BlogQuery> getBlogBySearch(SearchBlog searchBlog) {
         return blogmapper.searchByTitleAndType(searchBlog);
     }
 
+    /**
+     * 首页返回博客
+     * @return
+     */
     @Override
     public List<FirstPageBlog> getAllFirstPageBlog() {
         return blogmapper.getFirstPageBlog();
     }
 
+    /**
+     * 首页推荐博客
+     * @return
+     */
     @Override
     public List<RecommendBlog> getRecommendedBlog() {
         return blogmapper.getAllRecommendBlog();
     }
 
+    /**
+     * 首页返回最新留言信息 ps:暂时用不到
+     * @return
+     */
     @Override
     public List<NewComment> getNewComment() {
         return blogmapper.getNewComment();
     }
 
+    /**
+     * 博客详情
+     * @param id
+     * @return
+     */
     @Override
     public DetailedBlog getDetailedBlog(Integer id) {
         DetailedBlog detailedBlog = blogmapper.getDetailedBlog(id);
@@ -86,6 +120,9 @@ public class BlogServiceimpl implements BlogService {
         blogmapper.getCommentCountById(id);
         return detailedBlog;
     }
-
+    @Override
+    public List<FirstPageBlog> getByTypeId(Integer typeId) {
+        return blogmapper.getByTypeId(typeId);
+    }
 }
 

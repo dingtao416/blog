@@ -20,4 +20,5 @@ public interface BlogService {
     List<RecommendBlog> getRecommendedBlog();
     List<NewComment> getNewComment();
     DetailedBlog getDetailedBlog(Integer id);
+    List<FirstPageBlog> getByTypeId(Integer typeId);
 }
