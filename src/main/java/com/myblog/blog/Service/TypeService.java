@@ -19,5 +19,5 @@ public interface TypeService {
     void deleteType(Integer id);
     //查询所有分类
     List<Type> getTypes();
-
+    List<Type> getAllTypesAndBlog();
 }

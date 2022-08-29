@@ -68,7 +68,7 @@ class BlogApplicationTests {
     @Test
     void getAll()
     {
-        List<Type> t = typemapper.getAllType();
+        List<Type> t = typemapper.getAllTypeAndBlog();
         System.out.println(t);
     }
     @Test
@@ -83,8 +83,7 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        List<NewComment> newComment = blogService.getNewComment();
-        System.out.println(newComment);
+        System.out.println(blogService.getAllBlog());
     }
     @Test
     void comment()

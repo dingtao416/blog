@@ -62,5 +62,10 @@ public class TypeServiceimpl implements TypeService {
         return typemapper.getAllType();
     }
 
+    @Override
+    public List<Type> getAllTypesAndBlog() {
+        return typemapper.getAllTypeAndBlog();
+    }
+
 
 }

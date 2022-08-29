@@ -13,8 +13,9 @@
         <result property="published" column="published"/>
         <result property="typeId" column="type_id"/>
         <result property="userId" column="user_id"/>
+        <result property="views" column="views"/>
         <association property="type" javaType="com.myblog.blog.entity.Type">
-            <id property="id" column="id"/>
+            <id property="id" column="typeno"/>
             <result property="name" column="name"/>
         </association>
         <association property="user" javaType="com.myblog.blog.entity.User">
@@ -54,7 +55,7 @@
         where  b.id = #{id};
     </select>
     <select id="getAllBlogQuery" resultMap="blog">
-        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,u.username,b.views,t.id typeno,t.name
+        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,b.views,u.username,t.id typeno,t.name
         from t_blog b
         left join t_type t on b.type_id = t.id
         join t_user u on u.id=b.user_id
@@ -144,6 +145,11 @@
         select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name
         from myblog.t_blog b,myblog.t_user u, myblog.t_type t
         where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
+    </select>
+    <select id="getByTypeId" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture, b.views, b.comment_count, b.update_time, b.description,t.name ,u.nickname, u.avatar
+        from myblog.t_blog b, myblog.t_type t,myblog.t_user u
+        where b.type_id = t.id and u.id = b.user_id and b.type_id = #{typeId} order by b.update_time desc
     </select>
     <update id="getCommentCountById" parameterType="com.myblog.blog.entity.Blog">
         update myblog.t_blog b set b.comment_count = (

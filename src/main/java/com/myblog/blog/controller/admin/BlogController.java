@@ -36,6 +36,7 @@ public class BlogController {
         String orderBy = "id desc";
         PageHelper.startPage(pageNum,5,orderBy);
         List<BlogQuery> list = blogService.getAllBlog();
+        System.out.println(list);
         PageInfo<BlogQuery> pageInfo=new PageInfo<>(list);
         model.addAttribute("pageInfo",pageInfo);
         return "admin/blogs";
@@ -68,7 +69,6 @@ public class BlogController {
     }
     @GetMapping("/blogs/{id}/input")
     public String editInput(@PathVariable Integer id, Model model) {
-        System.out.println(id);
         List<Type> allType = typeService.getTypes();
         model.addAttribute("blog", blogService.getBlogById(id));
         model.addAttribute("types", allType);
