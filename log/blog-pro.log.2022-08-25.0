@@ -3519,7 +3519,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field userService in com.myblog.blog.controller.UserController required a bean of type 'com.myblog.blog.Service.UserService' that could not be found.
+Field userService in com.myblog.blog.controller.user.UserController required a bean of type 'com.myblog.blog.Service.UserService' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)

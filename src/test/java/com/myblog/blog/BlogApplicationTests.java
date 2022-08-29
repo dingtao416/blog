@@ -2,13 +2,15 @@ package com.myblog.blog;
 
 import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.CommentService;
-import com.myblog.blog.Service.FriendService;
-import com.myblog.blog.entity.*;
+import com.myblog.blog.Service.MessageService;
+import com.myblog.blog.entity.Comment;
+import com.myblog.blog.entity.Message;
+import com.myblog.blog.entity.Type;
+import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
-import com.myblog.blog.quaryentity.*;
-import lombok.extern.jbosslog.JBossLog;
+import com.myblog.blog.quaryentity.NewComment;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +30,8 @@ class BlogApplicationTests {
     private BlogService blogService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private MessageService messageService;
     @Test
     void contextLoads() {
     }
@@ -88,6 +92,22 @@ class BlogApplicationTests {
         Integer blogId=16;
         List<Comment> comments = commentService.listCommentByBlogId(blogId);
         System.out.println(comments);
+    }
+    @Test
+    void Message()
+    {
+        Date date=new Date();
+        date.setTime(20005);
+       Message message= new Message();
+        message.setId(1l);
+        message.setParentMessageId(1l);
+        message.setCreateTime(date);
+        Message message1= new Message();
+        message1.setId(2l);
+        message1.setCreateTime(date);
+        messageService.saveMessage(message,message1);
+        System.out.println(messageService.getEmailByParentId(1l));
+        System.out.println(messageService.findAllmessage());
     }
 }
 

@@ -1,18 +1,19 @@
-package com.myblog.blog.controller;
+package com.myblog.blog.controller.user;
 
 import com.myblog.blog.Service.UserService;
+import com.myblog.blog.controller.baseController;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.util.JsonResult;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends baseController{
+public class UserController extends baseController {
     @Autowired
     private UserService userService;
+
     @PostMapping("/register")
     public JsonResult<User> reg(User user)
     {
