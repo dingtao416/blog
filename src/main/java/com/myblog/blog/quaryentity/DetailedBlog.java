@@ -19,6 +19,7 @@ public class DetailedBlog {
     private boolean commentabled;
     private boolean shareStatement;
     private boolean appreciation;
+    private long ups;
     private String nickname;
     private String avatar;
 
@@ -26,6 +27,35 @@ public class DetailedBlog {
     private String typeName;
 
     public DetailedBlog() {
+    }
+
+    @Override
+    public String toString() {
+        return "DetailedBlog{" +
+                "id=" + id +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", flag='" + flag + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", views=" + views +
+                ", commentCount=" + commentCount +
+                ", updateTime=" + updateTime +
+                ", commentabled=" + commentabled +
+                ", shareStatement=" + shareStatement +
+                ", appreciation=" + appreciation +
+                ", ups=" + ups +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", typeName='" + typeName + '\'' +
+                '}';
+    }
+
+    public long getUps() {
+        return ups;
+    }
+
+    public void setUps(long ups) {
+        this.ups = ups;
     }
 
     public Integer getId() {
@@ -140,23 +170,4 @@ public class DetailedBlog {
         this.typeName = typeName;
     }
 
-    @Override
-    public String toString() {
-        return "DetailedBlog{" +
-                "id=" + id +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", flag='" + flag + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", views=" + views +
-                ", commentCount=" + commentCount +
-                ", updateTime=" + updateTime +
-                ", commentabled=" + commentabled +
-                ", shareStatement=" + shareStatement +
-                ", appreciation=" + appreciation +
-                ", nickname='" + nickname + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", typeName='" + typeName + '\'' +
-                '}';
-    }
 }

@@ -30,4 +30,8 @@ public interface Blogmapper {
     int updateViews(Integer id);
     int getCommentCountById(Integer id);
     List<FirstPageBlog> getByTypeId(Integer typeId);
+    int updateUps(Integer id);
+
+    //搜索博客列表
+    List<FirstPageBlog> getSearchBlog(String query);
 }

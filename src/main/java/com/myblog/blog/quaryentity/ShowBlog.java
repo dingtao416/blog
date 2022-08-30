@@ -16,8 +16,36 @@ public class ShowBlog {
     private boolean appreciation;
     private boolean commentabled;
     private Date updateTime;
-
+    private long ups;
     public ShowBlog() {
+    }
+
+    @Override
+    public String toString() {
+        return "ShowBlog{" +
+                "id=" + id +
+                ", flag='" + flag + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", typeId=" + typeId +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", description='" + description + '\'' +
+                ", recommend=" + recommend +
+                ", published=" + published +
+                ", shareStatement=" + shareStatement +
+                ", appreciation=" + appreciation +
+                ", commentabled=" + commentabled +
+                ", updateTime=" + updateTime +
+                ", ups=" + ups +
+                '}';
+    }
+
+    public long getUps() {
+        return ups;
+    }
+
+    public void setUps(long ups) {
+        this.ups = ups;
     }
 
     public Integer getId() {
@@ -124,22 +152,4 @@ public class ShowBlog {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "ShowBlog{" +
-                "id=" + id +
-                ", flag='" + flag + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", typeId=" + typeId +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", description='" + description + '\'' +
-                ", recommend=" + recommend +
-                ", published=" + published +
-                ", shareStatement=" + shareStatement +
-                ", appreciation=" + appreciation +
-                ", commentabled=" + commentabled +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }

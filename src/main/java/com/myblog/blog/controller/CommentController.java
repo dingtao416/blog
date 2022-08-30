@@ -36,7 +36,6 @@ public class CommentController {
     //新增评论
     @PostMapping("/comments")
     public String post(Comment comment, HttpSession session, Model model) {
-        System.out.println(comment);
         Integer blogId = comment.getBlogId();
         User user = (User) session.getAttribute("user");
         if (user != null) {
@@ -63,6 +62,6 @@ public class CommentController {
         List<Comment> comments = commentService.listCommentByBlogId(blogId);
         model.addAttribute("blog", detailedBlog);
         model.addAttribute("comments", comments);
-        return "blog";
+        return "redirect:/comments"+blogId;
     }
 }

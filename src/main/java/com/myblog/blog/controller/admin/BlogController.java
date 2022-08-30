@@ -8,6 +8,7 @@ import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
+import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.BlogQuery;
 import com.myblog.blog.quaryentity.SearchBlog;
 import com.myblog.blog.quaryentity.ShowBlog;
@@ -30,15 +31,17 @@ public class BlogController {
     private BlogService blogService;
     @Autowired
     private TypeService typeService;
+    @Autowired
+    private Blogmapper blogmapper;
     //博客列表
     @GetMapping("/blogs")
     public String blogs(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum){
         String orderBy = "id desc";
         PageHelper.startPage(pageNum,5,orderBy);
         List<BlogQuery> list = blogService.getAllBlog();
-        System.out.println(list);
         PageInfo<BlogQuery> pageInfo=new PageInfo<>(list);
         model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("types",typeService.getTypes());
         return "admin/blogs";
     }
     //跳转博客新增页面
@@ -51,6 +54,7 @@ public class BlogController {
     //博客新增
     @PostMapping("/blogs")
     public String post(Blog blog, RedirectAttributes attributes, HttpSession session){
+        System.out.println(blog);
         //新增的时候需要传递blog对象，blog对象需要有user
         blog.setUser((User) session.getAttribute("user"));
         //设置blog的type
@@ -59,6 +63,7 @@ public class BlogController {
         blog.setTypeId(blog.getType().getId());
         //设置用户id
         blog.setUserId(blog.getUser().getId());
+        System.out.println(blog);
         int b = blogService.saveBlog(blog);
         if(b == 0){
             attributes.addFlashAttribute("message", "新增失败");
@@ -96,6 +101,8 @@ public class BlogController {
     public String search(SearchBlog searchBlog, Model model,
                          @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
         List<BlogQuery> blogBySearch = blogService.getBlogBySearch(searchBlog);
+        System.out.println("进入");
+        System.out.println(searchBlog);
         PageHelper.startPage(pageNum, 10);
         PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogBySearch);
         model.addAttribute("pageInfo", pageInfo);

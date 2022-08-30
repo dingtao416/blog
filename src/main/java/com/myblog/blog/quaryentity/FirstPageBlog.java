@@ -16,7 +16,7 @@ public class FirstPageBlog {
     private Date createTime;
     private Date updateTime;
     private String description;
-
+    private long ups;
     //分类名称
     private String typeName;
 
@@ -26,6 +26,32 @@ public class FirstPageBlog {
     private String avatar;
 
     public FirstPageBlog() {
+    }
+
+    @Override
+    public String toString() {
+        return "FirstPageBlog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", views=" + views +
+                ", commentCount=" + commentCount +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", ups=" + ups +
+                ", typeName='" + typeName + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
+
+    public long getUps() {
+        return ups;
+    }
+
+    public void setUps(long ups) {
+        this.ups = ups;
     }
 
     public Integer getId() {
@@ -116,20 +142,4 @@ public class FirstPageBlog {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        return "FirstPageBlog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", views=" + views +
-                ", commentCount=" + commentCount +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", description='" + description + '\'' +
-                ", typeName='" + typeName + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", avatar='" + avatar + '\'' +
-                '}';
-    }
 }

@@ -20,6 +20,8 @@ public class Blog {
 
     private boolean shareStatement;
     private boolean recommend;
+    private long ups;
+
     private boolean published;
     private Date createTime;
     private Date updateTime;
@@ -29,31 +31,6 @@ public class Blog {
     private long typeId;
     private long userId;
     private List<Comment> comments=new ArrayList<>();
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", flag='" + flag + '\'' +
-                ", views=" + views +
-                ", CommentCount=" + CommentCount +
-                ", appreciation=" + appreciation +
-                ", commentabled=" + commentabled +
-                ", shareStatement=" + shareStatement +
-                ", recommend=" + recommend +
-                ", published=" + published +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", description='" + description + '\'' +
-                ", type=" + type +
-                ", user=" + user +
-                ", typeId=" + typeId +
-                ", userId=" + userId +
-                ", comments=" + comments +
-                '}';
-    }
 
     @Override
    public boolean equals(Object o) {
@@ -226,5 +203,46 @@ public class Blog {
     public void setShareStatement(boolean shareStatement) {
         this.shareStatement = shareStatement;
     }
+    public void setViews(long views) {
+        this.views = views;
+    }
 
+    public void setCommentCount(long commentCount) {
+        CommentCount = commentCount;
+    }
+
+    public long getUps() {
+        return ups;
+    }
+
+    public void setUps(long ups) {
+        this.ups = ups;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", flag='" + flag + '\'' +
+                ", views=" + views +
+                ", CommentCount=" + CommentCount +
+                ", appreciation=" + appreciation +
+                ", commentabled=" + commentabled +
+                ", shareStatement=" + shareStatement +
+                ", recommend=" + recommend +
+                ", ups=" + ups +
+                ", published=" + published +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", user=" + user +
+                ", typeId=" + typeId +
+                ", userId=" + userId +
+                ", comments=" + comments +
+                '}';
+    }
 }

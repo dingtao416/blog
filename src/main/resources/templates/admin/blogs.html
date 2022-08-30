@@ -58,19 +58,20 @@
   <div  class="">
     <div class="ui container">
       <div  class="ui secondary segment form">
-        <input type="hidden" name="page" >
+        <input type="hidden" name="page">
         <div class="inline fields">
           <div class="field">
             <input type="text" name="title" placeholder="标题">
           </div>
           <div>
             <div >
-                <input type="hidden" name="typeId">
                 <i class="dropdown icon"></i>
-              <div class="default text">分类</div>
-              <div class="menu">
-                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">我的故事</div>
-              </div>
+              <div class="ui dropdown">
+                <input type="hidden" name="typeId">
+                <div class="text">分类</div>
+                <div class="menu">
+                  <div class="item" th:each="type: ${types}" th:text="${type.name}" data-value="1" th:data-value="${type.id}">New</div>
+                </div>
               </div>
               <button id="clear-btn" >clear</button>
             </div>
@@ -83,7 +84,7 @@
             <!--</div>-->
           <!--</div>-->
           <div class="field">
-            <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+              <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
           </div>
         </div>
       </div>
@@ -99,6 +100,7 @@
             <th>更新时间</th>
             <th>创作用户</th>
             <th>观看量</th>
+            <th>点赞数</th>
             <th>操作</th>
           </tr>
           </thead>
@@ -112,6 +114,7 @@
             <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2020-01-02 05:20</td>
             <td th:text="${blog.user.username}">小虎</td>
             <td th:text="${blog.views}">1</td>
+            <td th:text="${blog.ups}">2/td>
             <td>
               <!--th:href="@{/admin/types/{id}/input(id=${type.id})}"-->
               <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
@@ -121,7 +124,7 @@
           </tbody>
           <tfoot>
           <tr>
-            <th colspan="9">
+            <th colspan="10">
               <div class="ui inverted divided stackable grid">
                 <div class="three wide column" align="center">
                   <a class="item" th:href="@{/admin/blogs(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">上一页</a>

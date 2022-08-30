@@ -21,4 +21,6 @@ public interface BlogService {
     List<NewComment> getNewComment();
     DetailedBlog getDetailedBlog(Integer id);
     List<FirstPageBlog> getByTypeId(Integer typeId);
+    //首页查询博客
+    List<FirstPageBlog> getSearchBlog(String query);
 }

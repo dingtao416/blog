@@ -19,7 +19,9 @@ public class BlogQuery {
     private Type type;
     private Integer views;
     private Integer userId;
+    private  long ups;
     private User user;
+
     @Override
     public String toString() {
         return "BlogQuery{" +
@@ -33,8 +35,17 @@ public class BlogQuery {
                 ", type=" + type +
                 ", views=" + views +
                 ", userId=" + userId +
+                ", ups=" + ups +
                 ", user=" + user +
                 '}';
+    }
+
+    public long getUps() {
+        return ups;
+    }
+
+    public void setUps(long ups) {
+        this.ups = ups;
     }
 
     public User getUser() {

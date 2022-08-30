@@ -456,8 +456,6 @@ h5,h6{font-size:1em;}
       </div>
 
       <div class="ui horizontal divider">end</div>
-
-
       <!--赞赏-->
       <div th:if="${blog.appreciation}">
         <div class="ui center aligned basic segment">
@@ -592,6 +590,12 @@ h5,h6{font-size:1em;}
   <div class="ui vertical icon buttons ">
     <button type="button" class="ui toc orange button" >目录</button>
     <a href="#comment-container" class="ui orange button" >评论</a>
+    <button id="ups-button" type="button" class="ui orange button">
+      <div th:fragment="upsMessage" class="item">
+        <i class="hand point up outline icon m-font-size-text-min"></i>
+        <span th:text="${blog.ups}" class="m-font-size-text-mini">1</span>
+      </div>
+    </button>
     <!--<button class="ui wechat icon button"><i class="weixin icon"></i></button>-->
     <div id="toTop-button" class="ui icon button" ><i class="ui medium orange chevron up icon"></i></div>
   </div>
@@ -828,7 +832,9 @@ h5,h6{font-size:1em;}
         $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/);
     });
 
-
+    $('#ups-button').click(function(){
+       $('#ups-button').load(/*[[@{/ups/{id}(id=${blog.id})}]]*/)
+    });
 
     $('#commentpost-btn').click(function () {
         var boo = $('.ui.form').form('validate form');

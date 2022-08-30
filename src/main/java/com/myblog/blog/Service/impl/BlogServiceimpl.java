@@ -38,6 +38,7 @@ public class BlogServiceimpl implements BlogService {
         blog.setUpdateTime(new Date());
         blog.setViews(0);
         blog.setCommentCount(0);
+        blog.setUps(0);
         return blogmapper.saveBlog(blog);
     }
 
@@ -123,6 +124,10 @@ public class BlogServiceimpl implements BlogService {
     @Override
     public List<FirstPageBlog> getByTypeId(Integer typeId) {
         return blogmapper.getByTypeId(typeId);
+    }
+    @Override
+    public List<FirstPageBlog> getSearchBlog(String query) {
+        return blogmapper.getSearchBlog(query);
     }
 }
 

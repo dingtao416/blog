@@ -45,5 +45,4 @@ public class adminUserController {
         session.removeAttribute("user");
         return "redirect:admin/login";
     }
-
 }

@@ -3,6 +3,7 @@ package com.myblog.blog;
 import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.CommentService;
 import com.myblog.blog.Service.FriendService;
+import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.*;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
@@ -28,6 +29,8 @@ class BlogApplicationTests {
     private BlogService blogService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private TypeService typeService;
     @Test
     void contextLoads() {
     }
@@ -79,14 +82,13 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        System.out.println(blogService.getAllBlog());
+        int i = blogmapper.updateUps(17);
+        System.out.println(i);
     }
     @Test
     void comment()
     {
-        Integer blogId=16;
-        List<Comment> comments = commentService.listCommentByBlogId(blogId);
-        System.out.println(comments);
+        System.out.println(typemapper.getAllType());
     }
 }
 
