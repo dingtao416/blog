@@ -11,4 +11,7 @@ mybatis:
     call-setters-on-nulls: true
 
 Comment:
-   avatar: /images/avatar.png
+  avatar: /images/avatar.png
+message.avatar: /images/avatar.png
+
+

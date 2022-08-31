@@ -12,6 +12,7 @@ import java.util.List;
 public class MessageServiceimpl implements MessageService {
     @Autowired
     private Messagemapper messagemapper;
+
     private List<Message> tempReplys = new ArrayList<>();
     //方法1：查找留言，使用递归迭代
     private void recursively(Long childId, String parentNickname1) {

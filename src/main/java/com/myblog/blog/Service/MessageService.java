@@ -3,7 +3,6 @@ package com.myblog.blog.Service;
 import com.myblog.blog.entity.Message;
 
 import java.util.List;
-
 public interface MessageService {
     //查询留言列表
     List<Message> listMessage();
