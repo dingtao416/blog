@@ -6,10 +6,13 @@ import com.myblog.blog.entity.Blog;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.*;
 import com.myblog.blog.util.MarkdownUtils;
+import com.myblog.blog.util.TimeUtil;
 import lombok.SneakyThrows;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +23,11 @@ import java.util.List;
 public class BlogServiceimpl implements BlogService {
     @Autowired
    private Blogmapper blogmapper;
+
+    /**
+     * 定时更新时间
+     * @param id
+     */
 
     @Override
     public ShowBlog getBlogById(Integer id) {
@@ -117,6 +125,10 @@ public class BlogServiceimpl implements BlogService {
         String content = detailedBlog.getContent();
         content= MarkdownUtils.markdownToHtml(content);
         detailedBlog.setContent(content);
+        if(new TimeUtil().offTime())
+        {
+            blogmapper.updateDayViews(id);
+        }
         blogmapper.updateViews(id);
         blogmapper.getCommentCountById(id);
         return detailedBlog;
@@ -128,6 +140,11 @@ public class BlogServiceimpl implements BlogService {
     @Override
     public List<FirstPageBlog> getSearchBlog(String query) {
         return blogmapper.getSearchBlog(query);
+    }
+    @Scheduled(cron = "0 0 1 * * ?")
+    public void updateNewDayViews()
+    {
+        blogmapper.updateNewDayViews();
     }
 }
 

@@ -91,7 +91,7 @@
       <div id="table-container">
         <table th:fragment="blogList" class="ui compact teal table">
           <thead>
-          <tr align="center">
+          <tr colspan="11" align="center">
             <th>ID</th>
             <th>标题</th>
             <th>类型</th>
@@ -101,6 +101,7 @@
             <th>创作用户</th>
             <th>观看量</th>
             <th>点赞数</th>
+            <th>当日访问量</th>
             <th>操作</th>
           </tr>
           </thead>
@@ -114,7 +115,8 @@
             <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2020-01-02 05:20</td>
             <td th:text="${blog.user.username}">小虎</td>
             <td th:text="${blog.views}">1</td>
-            <td th:text="${blog.ups}">2/td>
+            <td th:text="${blog.ups}">2</td>
+            <td th:text="${blog.dayViews}">3</td>
             <td>
               <!--th:href="@{/admin/types/{id}/input(id=${type.id})}"-->
               <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
@@ -124,7 +126,7 @@
           </tbody>
           <tfoot>
           <tr>
-            <th colspan="10">
+            <th colspan="11">
               <div class="ui inverted divided stackable grid">
                 <div class="three wide column" align="center">
                   <a class="item" th:href="@{/admin/blogs(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">上一页</a>
