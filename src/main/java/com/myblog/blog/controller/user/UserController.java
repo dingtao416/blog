@@ -7,36 +7,63 @@ import com.myblog.blog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
 public class UserController extends baseController {
     @Autowired
     private UserService userService;
+//注册
+
+@GetMapping("/register")
+public  String regpages()
+{
+    return "register";
+}
 
     @PostMapping("/register")
-    public JsonResult<User> reg(User user)
+    public String reg(User user)
     {
-        System.out.println(user);
         userService.saveUser(user);
-        return new JsonResult<>(OK,user);
+        //登陆成功进入注册页面
+        return "dl";
     }
-    @GetMapping("/register")
-    public String re()
-    {
-        return "register";
+    //登陆
+
+@PostMapping("/dl")
+public  String dd(String username, String password, HttpSession session,
+                  RedirectAttributes redirectAttributes)
+{
+    User user= userService.checkUser(username,password);
+    if((user == null||username.equals("admin")))
+    { redirectAttributes.addFlashAttribute("message","用户名和密码错误");
+        return "redirect:/user/dl";
+        //失败重定向至原来页面
     }
+    else {
+        session.setAttribute("user",user);
+        return "user/userIndex";
+        //登陆成功进入下一页面 userIndex
+    }
+}
     @GetMapping("/dl")
     public String dl()
     {
         return "dl";
     }
+    //删除
+
     @DeleteMapping("/delete")
     public JsonResult<User> delet(@PathVariable Integer id)
     {
        userService.deleteUser(id);
        return new JsonResult<>(OK,"删除成功");
     }
+    //修改
+
     @PostMapping("/update/{id}")
     /**
      * 修改user数据

@@ -4,6 +4,7 @@ import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.CommentService;
 import com.myblog.blog.Service.MessageService;
 import com.myblog.blog.Service.TypeService;
+import com.myblog.blog.entity.Message;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -50,6 +52,13 @@ class BlogApplicationTests {
         user.setEmail("3563433349@qq.com");
         int i = usermapper.saveUser(user);
         System.out.println(i);
+        User user1=new User();
+        user.setNickname("顶他");
+        user.setUsername("2839");
+        user.setPassword("456654546");
+        user.setEmail("3563433349@qq.com");
+        usermapper.updateUser(user);
+
     }
     @Test
     void findUser()
@@ -58,6 +67,7 @@ class BlogApplicationTests {
         user.setNickname("蛋纯");
         User u = usermapper.getUserById(2);
         System.out.println(u);
+        usermapper.saveUser(user);
     }
     @Test
     void deleteType()
@@ -90,8 +100,8 @@ class BlogApplicationTests {
     {
         System.out.println(typemapper.getAllType());
     }
-
-   /* void Message()
+@Test
+    void Message()
     {
         Date date=new Date();
         date.setTime(20005);
@@ -105,7 +115,7 @@ class BlogApplicationTests {
         messageService.saveMessage(message,message1);
         System.out.println(messageService.getEmailByParentId(1l));
         System.out.println(messageService.findAllmessage());
-    }*/
+    }
 }
 
 

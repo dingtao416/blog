@@ -36,7 +36,7 @@ public class UserTypesController {
         PageHelper.startPage(pageNum, 10000);
         PageInfo<BlogQuery> list=new PageInfo<>();
         model.addAttribute("activeTypeId", id);
-        return "admin/types";
+        return "user/types";
     }
 
 }

@@ -1,4 +1,4 @@
-package com.myblog.blog.controller.user;
+package com.myblog.blog.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/message")
+@RequestMapping()
 //@PropertySource("classpath:application.yml")
     public class MessageController {
 

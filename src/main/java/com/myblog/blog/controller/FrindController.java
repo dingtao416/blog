@@ -1,4 +1,4 @@
-package com.myblog.blog.controller.user;
+package com.myblog.blog.controller;
 
 import com.myblog.blog.Service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/friend")
+@RequestMapping()
 public class FrindController {
     //友链功能
     @Autowired
