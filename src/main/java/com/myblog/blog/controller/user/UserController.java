@@ -27,11 +27,25 @@ public  String regpages()
     @PostMapping("/register")
     public String reg(User user)
     {
+
         userService.saveUser(user);
-        //登陆成功进入注册页面
+        //注册成功进入登陆页面
         return "dl";
     }
-    //登陆
+    /*
+     @PostMapping("/register")
+    public JsonResult<User> reg(User user)
+    {
+        System.out.println(user);
+        userService.saveUser(user);
+        return new JsonResult<>(OK,user);
+    }
+    @GetMapping("/register")
+    public String re()
+    {
+        return "register";
+    }
+    登陆*/
 
 @PostMapping("/dl")
 public  String dd(String username, String password, HttpSession session,
@@ -63,7 +77,6 @@ public  String dd(String username, String password, HttpSession session,
        return new JsonResult<>(OK,"删除成功");
     }
     //修改
-
     @PostMapping("/update/{id}")
     /**
      * 修改user数据
