@@ -10,6 +10,9 @@ import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
+import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.DetailedBlog;
+import com.myblog.blog.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -92,8 +95,7 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        int i = blogmapper.updateUps(17);
-        System.out.println(i);
+
     }
     @Test
     void comment()
@@ -115,6 +117,12 @@ class BlogApplicationTests {
         messageService.saveMessage(message,message1);
         System.out.println(messageService.getEmailByParentId(1l));
         System.out.println(messageService.findAllmessage());
+    }
+    @Test
+    void Time()
+    {
+        boolean flag=new TimeUtil().offTime();
+        System.out.println(flag);
     }
 }
 

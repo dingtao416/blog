@@ -17,7 +17,7 @@ public class Blog {
     private  long CommentCount;
     private boolean appreciation;
     private boolean commentabled;
-
+    private long dayViews;
     private boolean shareStatement;
     private boolean recommend;
     private long ups;
@@ -31,6 +31,42 @@ public class Blog {
     private long typeId;
     private long userId;
     private List<Comment> comments=new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", firstPicture='" + firstPicture + '\'' +
+                ", flag='" + flag + '\'' +
+                ", views=" + views +
+                ", CommentCount=" + CommentCount +
+                ", appreciation=" + appreciation +
+                ", commentabled=" + commentabled +
+                ", dayViews=" + dayViews +
+                ", shareStatement=" + shareStatement +
+                ", recommend=" + recommend +
+                ", ups=" + ups +
+                ", published=" + published +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", user=" + user +
+                ", typeId=" + typeId +
+                ", userId=" + userId +
+                ", comments=" + comments +
+                '}';
+    }
+
+    public long getDayViews() {
+        return dayViews;
+    }
+
+    public void setDayViews(long dayViews) {
+        this.dayViews = dayViews;
+    }
 
     @Override
    public boolean equals(Object o) {
@@ -219,30 +255,4 @@ public class Blog {
         this.ups = ups;
     }
 
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", flag='" + flag + '\'' +
-                ", views=" + views +
-                ", CommentCount=" + CommentCount +
-                ", appreciation=" + appreciation +
-                ", commentabled=" + commentabled +
-                ", shareStatement=" + shareStatement +
-                ", recommend=" + recommend +
-                ", ups=" + ups +
-                ", published=" + published +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", description='" + description + '\'' +
-                ", type=" + type +
-                ", user=" + user +
-                ", typeId=" + typeId +
-                ", userId=" + userId +
-                ", comments=" + comments +
-                '}';
-    }
 }

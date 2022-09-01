@@ -14,6 +14,7 @@
         <result property="typeId" column="type_id"/>
         <result property="userId" column="user_id"/>
         <result property="views" column="views"/>
+        <result property="dayViews" column="day_views"/>
         <result property="ups" column="ups"/>
         <association property="type" javaType="com.myblog.blog.entity.Type">
             <id property="id" column="typeno"/>
@@ -56,7 +57,7 @@
         where  b.id = #{id};
     </select>
     <select id="getAllBlogQuery" resultMap="blog">
-        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.type_id,b.views,b.ups,u.username,t.id typeno,t.name
+        select b.id,b.title,b.create_time,b.update_time,b.recommend,b.published,b.day_views,b.type_id,b.views,b.ups,u.username,t.id typeno,t.name
         from t_blog b
         left join t_type t on b.type_id = t.id
         join t_user u on u.id=b.user_id
@@ -102,10 +103,8 @@
         *
         FROM
         myblog.t_blog
-        WHERE
-        t_blog.recommend = TRUE
         ORDER BY
-        t_blog.create_time DESC LIMIT 4
+        t_blog.ups DESC LIMIT 4
     </select>
     <resultMap id="newComment" type="com.myblog.blog.quaryentity.NewComment">
         <id property="id" column="bid"/>
@@ -166,5 +165,11 @@
     </update>
     <update id="updateUps">
         update myblog.t_blog b set b.ups=b.ups+1 where id=#{id}
+    </update>
+    <update id="updateDayViews">
+        update myblog.t_blog b set b.day_views=b.day_views+1 where id=#{id}
+    </update>
+    <update id="updateNewDayViews">
+        update myblog.t_blog b set b.day_views=0
     </update>
 </mapper>
