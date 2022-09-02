@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
 public class UserServiceimpl implements UserService {
     @Autowired
@@ -22,6 +24,10 @@ public class UserServiceimpl implements UserService {
     @Transactional
     @Override
     public int saveUser(User user) {
+        String prefix="blog:";
+        String nickname= UUID.randomUUID().toString();
+        user.setNickname(prefix+nickname);
+        System.out.println(user);
         return  usermapper.saveUser(user);
     }
     @SneakyThrows

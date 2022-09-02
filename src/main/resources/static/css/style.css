@@ -1,0 +1,144 @@
+body{
+    /* 引入背景图片 设置居中布局 */
+    background: url(../images/backgroundtwo.jpg) no-repeat center center fixed;
+    /* 计算背景大小 */
+    background-size: cover;
+    font-family: roboto,snas-serif;
+}
+.conter{
+    width: 400px;
+    height: 480px;
+    margin: 100px auto;
+    background-color: black;
+    opacity: 0.8;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgb(76, 107, 154);
+
+}
+
+.header{
+    text-align: center;
+    padding-top: 60px;
+}
+.header h1{
+    font-size: 30px;
+    color: rgb(219, 223, 223);
+}
+.main{
+    text-align: center;
+
+
+}
+.main input,button{
+    width: 300px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    font-size: 15px;
+    color: rgb(19, 56, 49);
+    border-radius: 10px;
+
+}
+.main button{
+    padding-left:15px ;
+    background-color: rgb(95, 100, 100);
+    color: aliceblue;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.main button:hover{
+    box-shadow: 2px 2px 5px rgb(4, 40, 33);
+    background-color: rgb(76, 107, 154);
+}
+.main input:hover{
+    color: aliceblue;
+    box-shadow: 2px 2px 5px rgb(76, 107, 154);
+    background-color:#999;
+}
+.main span{
+    position: relative;
+}
+/*图标位置调整*/
+.main i{
+    position: absolute;
+    left: 15px;
+    color: #333;
+    font-size: 20px;
+    top: 2px;
+}
+.main a{
+    color: rgb(163, 167, 172);
+}
+.main a:hover{
+    color: rgb(25, 58, 72);
+}
+
+/*  注册界面  */
+.conter2{
+    width: 480px;
+    height: 500px;
+    margin:100px auto;
+    background-color:black;
+    opacity: 0.8;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgb(76, 107, 154)
+}
+.header2{
+    margin-left: 80px;
+    padding-top: 60px;
+    color: rgb(194, 202, 209);
+}
+.main2{
+    margin-left: 80px;
+
+
+}
+.main2 input,button{
+    width: 300px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+    font-size: 15px;
+    color: rgb(19, 56, 49);
+    border-radius: 10px;
+
+}
+.main2 button{
+    padding-left:15px ;
+    background-color:  rgb(95, 100, 100);
+    color: aliceblue;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.main2 button:hover{
+    box-shadow: 2px 2px 5px #999;
+    background-color: rgb(76, 107, 154);
+}
+
+.main2 input:hover{
+    color: aliceblue;
+    box-shadow: 2px 2px 5px rgb(76, 107, 154);
+    background-color:#999;
+}
+.main2 span{
+    position: relative;
+}
+.main2 i{
+    position: absolute;
+    left: 15px;
+    color: #333;
+    font-size: 20px;
+    top: 2px;
+}
+.message{
+color:red;
+align:center;
+}
