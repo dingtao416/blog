@@ -2,13 +2,39 @@
 <html lang="en" xmlns:th="http://www.themleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面</title>
+    <link href="../css/style.css"  rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"  rel="stylesheet">
+
 </head>
 <body>
-<form th:action="@{/user/register}" method="post">
-    <input type="text" name="username">
-    <input type="text" name="password">
-    <input type="submit" value="提交">
-</form>
+<div class="conter2"><!--中间大方框-->
+    <div class="header2">
+        <h1>注册</h1>
+    </div>
+
+    <!--表格-->
+    <div class="main2">
+        <form th:action="@{/user/register}" method="post">
+        <span>
+            <i class="fas fa-solid fa-user"></i>
+          <input name="username" type="text" placeholder="用户名">
+        </span><br>
+
+            <span>
+            <i class=" fas fa-solid fa-envelope"></i>
+            <input name="email" type="text" placeholder="邮箱">
+        </span><br>
+
+            <span>
+          <i class="fas fa-lock"></i>
+          <input name="password" type="password" placeholder="设置密码">
+        </span><br>
+            <button type="submit">注册</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

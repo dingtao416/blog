@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <link href="../static/css/style.css"  rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"  rel="stylesheet">
+
+</head>
+<body>
+<div class="conter">
+    <div class="header">
+        <h1>用户登录</h1>
+    </div>
+    <div class="main">
+        <form th:action="@{/user/login}">
+        <span>
+          <i class="fas fa-lock"></i>
+          <input name="username" type="text" placeholder="账号">
+        </span><br>
+            <span>
+          <i class="fas fa-solid fa-user"></i>
+          <input name="password" type="password" placeholder="密码">
+        </span><br>
+            <button type="submit">登录</button>
+            <br>
+        </form> <br>
+        <a href="./注册.html">新用户注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+        <a href="#">忘记密码？</a>
+    </div>
+</div>
+</body>
+</html>

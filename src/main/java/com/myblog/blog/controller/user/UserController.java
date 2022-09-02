@@ -5,6 +5,7 @@ import com.myblog.blog.controller.baseController;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -17,22 +18,27 @@ public class UserController extends baseController {
     @Autowired
     private UserService userService;
 //注册
-
-@GetMapping("/register")
-public  String regpages()
+    @Value("${user.avatar}")
+    String avatar;
+    @GetMapping("/login")
+    public  String regpages()
 {
-    return "register";
+    return "userLogin";
 }
-
-    @PostMapping("/register")
-    public String reg(User user)
+    @GetMapping("/register")
+    public String register()
     {
-
+        return "register";
+    }
+     @PostMapping("/register")
+     public String reg(User user)
+     {
+         user.setAvatar(avatar);
         userService.saveUser(user);
         //注册成功进入登陆页面
-        return "dl";
-    }
-    /*
+        return "userLogin";
+     }
+     /*
      @PostMapping("/register")
     public JsonResult<User> reg(User user)
     {
@@ -47,35 +53,23 @@ public  String regpages()
     }
     登陆*/
 
-@PostMapping("/dl")
+@PostMapping("/login")
 public  String dd(String username, String password, HttpSession session,
                   RedirectAttributes redirectAttributes)
 {
     User user= userService.checkUser(username,password);
     if((user == null||username.equals("admin")))
-    { redirectAttributes.addFlashAttribute("message","用户名和密码错误");
-        return "redirect:/user/dl";
+    {
+        redirectAttributes.addFlashAttribute("message","用户名和密码错误");
+        return "redirect:/user/login";
         //失败重定向至原来页面
     }
     else {
         session.setAttribute("user",user);
-        return "user/userIndex";
+        return "redirect:/";
         //登陆成功进入下一页面 userIndex
     }
 }
-    @GetMapping("/dl")
-    public String dl()
-    {
-        return "dl";
-    }
-    //删除
-
-    @DeleteMapping("/delete")
-    public JsonResult<User> delet(@PathVariable Integer id)
-    {
-       userService.deleteUser(id);
-       return new JsonResult<>(OK,"删除成功");
-    }
     //修改
     @PostMapping("/update/{id}")
     /**

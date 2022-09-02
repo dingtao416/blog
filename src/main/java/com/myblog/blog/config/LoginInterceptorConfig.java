@@ -15,9 +15,9 @@ public class LoginInterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         HandlerInterceptor interceptor=new LoginInterceptor();
         List<String> list=new ArrayList<>();
-        list.add("/css/**");
-        list.add("/images/**");
-        list.add("/js/**");
+        list.add("/static/css/**");
+        list.add("/static/images/**");
+        list.add("/static/lib/**");
         list.add("/admin/login");
         list.add("/user/login");
         list.add("/user/register");

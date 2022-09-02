@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Usermapper">
     <insert id="saveUser" parameterType="com.myblog.blog.entity.User">
-        insert into t_user(username,password,nickname,email) values (#{username},#{password},#{nickname},#{email})
+        insert into t_user(username,password,email,nickname) values (#{username},#{password},#{email},#{nickname})
     </insert>
     <update id="updateUser">
         update t_user set nickname = #{nickname},avatar=#{avatar},password=#{password},email=#{email} where id = #{id}
