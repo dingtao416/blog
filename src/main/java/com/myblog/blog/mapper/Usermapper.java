@@ -2,7 +2,9 @@
 package com.myblog.blog.mapper;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
+import com.myblog.blog.quaryentity.FollowEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,4 +25,12 @@ public interface Usermapper {
         void deleteUser(Integer id);
         //根据用户名和密码查询检验用户
         User getAllUsernameandPassword(String username,String password);
+        @Select("select * from t_user where username=#{username}")
+        User judgeUser(String username);
+
+        int saveFollower(long userId,long followId);
+        int cancelFollow(long userId,long followId);
+        List<User> selectAllFollowers(long userId);
+        int updateFollow(long userId);
+        FollowEntity isFollowed(long userId,long followId);
 }

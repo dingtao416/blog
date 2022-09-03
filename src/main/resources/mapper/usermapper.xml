@@ -6,11 +6,21 @@
     <insert id="saveUser" parameterType="com.myblog.blog.entity.User">
         insert into t_user(username,password,email,nickname) values (#{username},#{password},#{email},#{nickname})
     </insert>
+    <insert id="saveFollower">
+        insert t_follow(t_userId,t_followId,hasfollowed) VALUES(#{userId},#{followId},1)
+    </insert>
     <update id="updateUser">
         update t_user set nickname = #{nickname},avatar=#{avatar},password=#{password},email=#{email} where id = #{id}
     </update>
+    <update id="updateFollow">
+        update t_user u set follows=(SELECT count(*) from t_follow f where f.t_userId=#{userId})
+        where u.id=#{userId}
+    </update>
     <delete id="deleteUser">
        delete from t_user where id = #{id}
+    </delete>
+    <delete id="cancelFollow">
+        DELETE FROM t_follow where t_userId=#{userId} and t_followId=#{followId};
     </delete>
     <select id="getUserById" resultType="com.myblog.blog.entity.User">
         select * from t_user where id=#{id}
@@ -23,6 +33,12 @@
     </select>
     <select id="getAllUsernameandPassword" resultType="com.myblog.blog.entity.User">
         select * from t_user where username=#{username} and password=#{password}
+    </select>
+    <select id="selectAllFollowers" resultType="com.myblog.blog.entity.User">
+        SELECT u.id,u.username from t_user u,t_follow f where f.t_userId=#{userId} and f.t_followId=u.id;
+    </select>
+    <select id="isFollowed" resultType="com.myblog.blog.quaryentity.FollowEntity">
+        SELECT f.hasfollowed FROM t_follow f WHERE f.t_userId=#{userId} and f.t_followId=#{followId};
     </select>
 
 </mapper>

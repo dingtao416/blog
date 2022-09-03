@@ -19,7 +19,6 @@ public class User {
     private long follows;
     private Date createTime;
     private Date updateTime;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

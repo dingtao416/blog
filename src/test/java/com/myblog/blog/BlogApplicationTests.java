@@ -95,7 +95,8 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-
+        int i = usermapper.updateFollow(4);
+        System.out.println(i);
     }
     @Test
     void comment()
