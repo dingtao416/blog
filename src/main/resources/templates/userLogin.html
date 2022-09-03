@@ -15,7 +15,7 @@
         <h1>用户登录</h1>
     </div>
     <div class="main">
-        <form th:action="@{/user/login}">
+        <form th:action="@{/user/login}" method="post">
         <span>
           <i class="fas fa-lock"></i>
           <input name="username" type="text" placeholder="账号">
@@ -30,6 +30,7 @@
         <p class="message" th:unless="${#strings.isEmpty(message)} " th:text="${message}"></p>
         <br>
         <a href="./注册.html">新用户注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
         <a href="#">忘记密码？</a>
     </div>
 </div>

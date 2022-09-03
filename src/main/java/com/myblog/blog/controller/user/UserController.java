@@ -22,11 +22,7 @@ public class UserController extends baseController {
 //注册
     @Value("${user.avatar}")
     String avatar;
-    @GetMapping("/login")
-    public  String regpages()
-{
-    return "userLogin";
-}
+
     @GetMapping("/register")
     public String register()
     {
@@ -47,6 +43,21 @@ public class UserController extends baseController {
         //注册成功进入登陆页面
         return "userLogin";
      }
+     /*
+     @PostMapping("/register")
+    public JsonResult<User> reg(User user)
+    {
+        System.out.println(user);
+        userService.saveUser(user);
+        return new JsonResult<>(OK,user);
+    }
+    @GetMapping("/register")
+    public String re()
+    {
+        return "register";
+    }
+    登陆*/
+
 @PostMapping("/login")
 public  String dd(String username, String password, HttpSession session,
                   RedirectAttributes redirectAttributes)

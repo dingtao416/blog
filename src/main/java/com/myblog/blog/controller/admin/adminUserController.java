@@ -31,6 +31,7 @@ public class adminUserController {
         System.out.println(user);
         if(user!=null && "admin".equals(user.getUsername()))
         {
+
             session.setAttribute("user",user);
             return "admin/adminIndex";
         }
