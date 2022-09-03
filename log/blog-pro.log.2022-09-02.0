@@ -1,0 +1,993 @@
+2022-09-02 08:37:13.080  INFO 38460 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 38460 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:37:13.088  INFO 38460 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:37:17.644  INFO 38460 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.59 seconds (JVM running for 6.72)
+2022-09-02 08:39:38.953  INFO 18064 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 18064 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:39:38.958  INFO 18064 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:39:43.866  INFO 18064 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.658 seconds (JVM running for 6.444)
+2022-09-02 08:46:28.958  INFO 22320 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 22320 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:46:28.964  INFO 22320 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:46:35.743  INFO 22320 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 8.126 seconds (JVM running for 9.446)
+2022-09-02 08:47:34.873 ERROR 22320 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "login": Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 08:47:34.877 ERROR 22320 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 08:52:34.213  INFO 48648 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 48648 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:52:34.215  INFO 48648 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:52:38.374  INFO 48648 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.092 seconds (JVM running for 6.021)
+2022-09-02 08:52:53.261 ERROR 48648 --- [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "usrLogin": Error resolving template [usrLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usrLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 08:52:53.262 ERROR 48648 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usrLogin], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usrLogin], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 08:53:24.878  INFO 39956 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 39956 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:53:24.880  INFO 39956 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:53:28.878  INFO 39956 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.846 seconds (JVM running for 5.773)
+2022-09-02 08:54:09.972 ERROR 39956 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "userLogin": An error happened during template parsing (template: "class path resource [templates/userLogin.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/userLogin.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "@{}" (template: "userLogin" - line 18, col 15)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@{}" (template: "userLogin" - line 18, col 15)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+
+2022-09-02 08:54:09.974 ERROR 39956 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/userLogin.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@{}" (template: "userLogin" - line 18, col 15)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 08:56:53.758  INFO 30252 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 30252 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:56:53.762  INFO 30252 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:56:57.947  INFO 30252 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.238 seconds (JVM running for 6.272)
+2022-09-02 08:59:18.327  INFO 12548 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 12548 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 08:59:18.330  INFO 12548 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 08:59:21.812  INFO 12548 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.269 seconds (JVM running for 5.032)
+2022-09-02 09:06:10.440  INFO 38948 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 38948 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:06:10.442  INFO 38948 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:06:14.388  INFO 38948 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.691 seconds (JVM running for 5.358)
+2022-09-02 09:06:58.673  INFO 51952 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 51952 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:06:58.675  INFO 51952 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:07:02.502  INFO 51952 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.455 seconds (JVM running for 5.167)
+2022-09-02 09:07:36.550  INFO 38952 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 38952 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:07:36.552  INFO 38952 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:07:40.295  INFO 38952 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.424 seconds (JVM running for 5.042)
+2022-09-02 09:12:43.086  INFO 52112 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 52112 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:12:43.089  INFO 52112 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:12:46.665  INFO 52112 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.193 seconds (JVM running for 4.858)
+2022-09-02 09:14:42.527  INFO 44632 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 44632 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:14:42.529  INFO 44632 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:14:46.745  INFO 44632 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.996 seconds (JVM running for 5.743)
+2022-09-02 09:15:24.121  INFO 36912 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 36912 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:15:24.124  INFO 36912 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:15:28.106  INFO 36912 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.686 seconds (JVM running for 5.383)
+2022-09-02 09:17:37.588  INFO 15468 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 15468 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:17:37.591  INFO 15468 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:17:42.524  INFO 15468 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 6.039 seconds (JVM running for 6.762)
+2022-09-02 09:19:41.218  INFO 42104 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 42104 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:19:41.221  INFO 42104 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:19:45.161  INFO 42104 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.58 seconds (JVM running for 5.339)
+2022-09-02 09:22:22.976  INFO 39572 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 39572 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:22:22.978  INFO 39572 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:22:26.954  INFO 39572 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.624 seconds (JVM running for 5.292)
+2022-09-02 09:22:40.336 ERROR 39572 --- [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "pageInfo.list" (template: "index" - line 56, col 50)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "pageInfo.list" (template: "index" - line 56, col 50)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'list' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 70 common frames omitted
+
+2022-09-02 09:22:40.338 ERROR 39572 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'list' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 09:23:52.091  INFO 49584 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 49584 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:23:52.094  INFO 49584 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:23:56.172  INFO 49584 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.001 seconds (JVM running for 5.621)
+2022-09-02 09:28:40.291  INFO 50168 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 50168 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:28:40.294  INFO 50168 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:28:43.980  INFO 50168 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.569 seconds (JVM running for 5.3)
+2022-09-02 09:30:59.051  INFO 53000 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 53000 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:30:59.053  INFO 53000 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:31:02.258  INFO 53000 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.81 seconds (JVM running for 4.37)
+2022-09-02 09:35:58.306  INFO 25380 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 25380 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:35:58.309  INFO 25380 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:36:02.247  INFO 25380 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.821 seconds (JVM running for 5.424)
+2022-09-02 09:36:38.041  INFO 27552 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 27552 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:36:38.044  INFO 27552 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:36:42.062  INFO 27552 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.684 seconds (JVM running for 5.338)
+2022-09-02 09:37:12.987  INFO 33280 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 33280 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:37:12.989  INFO 33280 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:37:17.041  INFO 33280 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.78 seconds (JVM running for 5.497)
+2022-09-02 09:37:33.534  INFO 52240 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 52240 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:37:33.536  INFO 52240 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:37:37.242  INFO 52240 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.569 seconds (JVM running for 5.304)
+2022-09-02 09:37:52.323  INFO 9880 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 9880 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:37:52.326  INFO 9880 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:37:56.193  INFO 9880 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.672 seconds (JVM running for 5.364)
+2022-09-02 09:39:55.315  INFO 47848 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 47848 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:39:55.318  INFO 47848 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:39:59.253  INFO 47848 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.84 seconds (JVM running for 6.023)
+2022-09-02 09:43:05.101  INFO 42560 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 42560 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:43:05.105  INFO 42560 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:43:08.889  INFO 42560 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.783 seconds (JVM running for 5.578)
+2022-09-02 09:43:27.010  WARN 42560 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-09-02 09:44:21.812  INFO 50604 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 50604 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:44:21.816  INFO 50604 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:44:25.497  INFO 50604 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.612 seconds (JVM running for 5.301)
+2022-09-02 09:45:10.369  INFO 49208 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 49208 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:45:10.372  INFO 49208 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:45:14.236  INFO 49208 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.76 seconds (JVM running for 5.378)
+2022-09-02 09:45:47.035  INFO 50808 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 50808 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:45:47.038  INFO 50808 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:45:50.913  INFO 50808 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.698 seconds (JVM running for 5.359)
+2022-09-02 09:46:13.561  WARN 50808 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: <EOL><EOL>### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'nickname' cannot be null<EOL><EOL>### The error may exist in file [D:\myblog\blog\target\classes\mapper\usermapper.xml]<EOL><EOL>### The error may involve com.myblog.blog.mapper.Usermapper.saveUser-Inline<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: insert into t_user(username,password,nickname,email) values (?,?,?,?)<EOL><EOL>### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'nickname' cannot be null<EOL>; Column 'nickname' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'nickname' cannot be null]
+2022-09-02 09:47:26.942  INFO 29892 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 29892 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:47:26.944  INFO 29892 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:47:30.770  INFO 29892 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.758 seconds (JVM running for 5.605)
+2022-09-02 09:47:41.054  WARN 29892 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: <EOL><EOL>### Error updating database.  Cause: java.sql.SQLException: Field 'nickname' doesn't have a default value<EOL><EOL>### The error may exist in file [D:\myblog\blog\target\classes\mapper\usermapper.xml]<EOL><EOL>### The error may involve com.myblog.blog.mapper.Usermapper.saveUser-Inline<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: insert into t_user(username,password,email) values (?,?,?)<EOL><EOL>### Cause: java.sql.SQLException: Field 'nickname' doesn't have a default value<EOL>; Field 'nickname' doesn't have a default value; nested exception is java.sql.SQLException: Field 'nickname' doesn't have a default value]
+2022-09-02 09:49:20.946  INFO 47816 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 47816 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:49:20.949  INFO 47816 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:49:24.039  INFO 47816 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.736 seconds (JVM running for 4.283)
+2022-09-02 09:49:36.451  WARN 47816 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: <EOL><EOL>### Error updating database.  Cause: java.sql.SQLException: Field 'nickname' doesn't have a default value<EOL><EOL>### The error may exist in file [D:\myblog\blog\target\classes\mapper\usermapper.xml]<EOL><EOL>### The error may involve com.myblog.blog.mapper.Usermapper.saveUser-Inline<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: insert into t_user(username,password,email) values (?,?,?)<EOL><EOL>### Cause: java.sql.SQLException: Field 'nickname' doesn't have a default value<EOL>; Field 'nickname' doesn't have a default value; nested exception is java.sql.SQLException: Field 'nickname' doesn't have a default value]
+2022-09-02 09:50:15.814  INFO 30868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 30868 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:50:15.818  INFO 30868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:50:19.131  INFO 30868 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.976 seconds (JVM running for 4.622)
+2022-09-02 09:50:24.548 ERROR 30868 --- [http-nio-8080-exec-4] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-4] Exception processing template "/user/login": Error resolving template [/user/login], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 09:50:24.550 ERROR 30868 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/login], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1404)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022-09-02 09:51:01.858  INFO 37224 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 37224 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:51:01.860  INFO 37224 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:51:04.940  INFO 37224 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.757 seconds (JVM running for 4.34)
+2022-09-02 09:54:34.345  INFO 51776 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 51776 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:54:34.347  INFO 51776 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:54:37.848  INFO 51776 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.183 seconds (JVM running for 4.771)
+2022-09-02 09:57:15.980  INFO 51380 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 51380 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:57:15.982  INFO 51380 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:57:19.299  INFO 51380 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.916 seconds (JVM running for 4.474)
+2022-09-02 09:58:53.876  INFO 49284 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 49284 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
+2022-09-02 09:58:53.879  INFO 49284 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 09:58:57.453  INFO 49284 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 4.324 seconds (JVM running for 4.821)
+2022-09-02 10:13:46.645  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 16868 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:13:46.645  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:13:47.875  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.459 seconds (JVM running for 2.036)
+2022-09-02 10:30:23.322  WARN 16868 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause'<EOL><EOL>### The error may exist in file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: SELECT         *         FROM         myblog.t_blog         ORDER BY         t_blog.ups DESC LIMIT 4<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause'<EOL>; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause']
+2022-09-02 10:31:07.460  WARN 16868 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 5]
+2022-09-02 10:40:25.262  WARN 16868 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause'<EOL><EOL>### The error may exist in file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: SELECT         *         FROM         myblog.t_blog         ORDER BY         t_blog.ups DESC LIMIT 4<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause'<EOL>; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 't_blog.ups' in 'order clause']
+2022-09-02 10:41:15.762  WARN 16868 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2.1/java.lang.Thread.run(Thread.java:833)
+2022-09-02 10:41:15.822  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 16868 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:41:15.822  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:41:15.909  WARN 16868 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.myblog.blog]' package. Please check your configuration.
+2022-09-02 10:41:16.051  WARN 16868 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+2022-09-02 10:41:16.068 ERROR 16868 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.myblog.blog.BlogApplication.main(BlogApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 22 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:613)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:491)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:633)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:188)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$91dc2bb5.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$91dc2bb5$$FastClassBySpringCGLIB$$c04f76c8.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$91dc2bb5.sqlSessionFactory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 23 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\ideaproject\blog1\target\classes\mapper\Blogmapper.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:611)
+	... 34 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:263)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:254)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:246)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:119)
+	... 36 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.myblog.blog.entity.Blog'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 40 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.myblog.blog.entity.Blog
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:196)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 42 common frames omitted
+
+2022-09-02 10:41:18.150  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 16868 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:41:18.150  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:41:18.530  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 0.399 seconds (JVM running for 1652.69)
+2022-09-02 10:41:19.365  INFO 19512 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 19512 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:41:19.366  INFO 19512 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:41:20.514  WARN 19512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 10:41:20.528  WARN 19512 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 10:41:20.551 ERROR 19512 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 10:59:51.065  WARN 16868 --- [Thread-7] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2.1/java.lang.Thread.run(Thread.java:833)
+2022-09-02 10:59:51.136  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 16868 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:59:51.136  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:59:51.599  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 0.487 seconds (JVM running for 2765.759)
+2022-09-02 10:59:52.506  INFO 3668 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3668 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:59:52.507  INFO 3668 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:59:53.247  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 16868 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 10:59:53.247  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 10:59:53.604  INFO 16868 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 0.381 seconds (JVM running for 2767.764)
+2022-09-02 10:59:53.893  WARN 3668 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 10:59:53.909  WARN 3668 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 10:59:53.931 ERROR 3668 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 11:02:12.998  INFO 8172 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 8172 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 11:02:12.998  INFO 8172 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 11:02:14.281  INFO 8172 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.498 seconds (JVM running for 2.008)
+2022-09-02 11:06:31.129  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3048 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 11:06:31.130  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 11:06:32.300  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.391 seconds (JVM running for 1.878)
+2022-09-02 11:09:58.712  WARN 3048 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2]
+2022-09-02 11:20:24.834  INFO 13928 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 13928 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 11:20:24.835  INFO 13928 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 11:20:26.115  WARN 13928 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 11:20:26.131  WARN 13928 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 11:20:26.152 ERROR 13928 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 12:28:08.399  INFO 3412 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3412 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:28:08.400  INFO 3412 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:28:09.645  WARN 3412 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 12:28:09.660  WARN 3412 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 12:28:09.681 ERROR 3412 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 12:28:55.131  WARN 3048 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2.1/java.lang.Thread.run(Thread.java:833)
+2022-09-02 12:28:55.222  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3048 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:28:55.222  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:28:55.749  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 0.557 seconds (JVM running for 4945.326)
+2022-09-02 12:28:56.407  INFO 21176 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 21176 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:28:56.408  INFO 21176 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:28:57.410  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3048 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:28:57.411  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:28:57.726  WARN 21176 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 12:28:57.737  INFO 3048 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 0.349 seconds (JVM running for 4947.315)
+2022-09-02 12:28:57.742  WARN 21176 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 12:28:57.762 ERROR 21176 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 12:30:04.367  INFO 612 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 612 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:30:04.368  INFO 612 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:30:05.689  WARN 612 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-09-02 12:30:05.704  WARN 612 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-09-02 12:30:05.724 ERROR 612 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-09-02 12:35:28.259  INFO 3744 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.2.1 on dtaiwh with PID 3744 (D:\ideaproject\blog1\target\classes started by 86166 in D:\ideaproject\blog1)
+2022-09-02 12:35:28.260  INFO 3744 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
+2022-09-02 12:35:29.513  INFO 3744 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 1.475 seconds (JVM running for 1.948)
+2022-09-02 16:26:00.180  WARN 3744 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h49m9s533ms366µs).

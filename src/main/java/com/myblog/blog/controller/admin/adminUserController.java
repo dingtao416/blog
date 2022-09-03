@@ -30,6 +30,7 @@ public class adminUserController {
         User user= userService.checkUser(username,password);
         if(user!=null && "admin".equals(user.getUsername()))
         {
+
             session.setAttribute("user",user);
             return "admin/adminIndex";
         }
