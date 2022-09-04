@@ -25,3 +25,33 @@
 2022-09-03 16:35:54.799  INFO 9416 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 9416 (started by 86136 in D:\myblog\blog)
 2022-09-03 16:35:54.800  INFO 9416 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
 2022-09-03 16:35:57.488  INFO 9416 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 3.14 seconds (JVM running for 4.296)
+2022-09-04 10:24:10.705  INFO 7500 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 7500 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:24:10.706  INFO 7500 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:24:12.451  INFO 7500 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 2.033 seconds (JVM running for 2.748)
+2022-09-04 10:27:57.172  INFO 11164 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 11164 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:27:57.173  INFO 11164 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:27:58.766  INFO 11164 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.846 seconds (JVM running for 2.498)
+2022-09-04 10:30:03.269  INFO 19048 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 19048 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:30:03.270  INFO 19048 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:30:04.942  INFO 19048 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.925 seconds (JVM running for 2.627)
+2022-09-04 10:30:51.593  INFO 2844 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 2844 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:30:51.593  INFO 2844 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:30:53.233  INFO 2844 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.891 seconds (JVM running for 2.551)
+2022-09-04 10:35:19.454  INFO 24092 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 24092 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:35:19.454  INFO 24092 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:35:21.077  INFO 24092 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.873 seconds (JVM running for 2.518)
+2022-09-04 10:36:01.828  INFO 1948 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 1948 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:36:01.828  INFO 1948 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:36:03.580  INFO 1948 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 2.008 seconds (JVM running for 2.659)
+2022-09-04 10:36:42.852  INFO 6896 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 6896 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:36:42.853  INFO 6896 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:36:44.440  INFO 6896 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.837 seconds (JVM running for 2.482)
+2022-09-04 10:37:27.600  INFO 17136 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 17136 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:37:27.601  INFO 17136 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:37:29.181  INFO 17136 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.825 seconds (JVM running for 2.474)
+2022-09-04 10:38:43.572  INFO 11928 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 11928 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:38:43.572  INFO 11928 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:38:45.211  INFO 11928 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.887 seconds (JVM running for 2.541)
+2022-09-04 10:41:46.025  INFO 22836 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.2.1 on dtaiwh with PID 22836 (started by 86166 in D:\ideaproject\blog1)
+2022-09-04 10:41:46.026  INFO 22836 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:41:47.595  INFO 22836 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 1.826 seconds (JVM running for 2.484)

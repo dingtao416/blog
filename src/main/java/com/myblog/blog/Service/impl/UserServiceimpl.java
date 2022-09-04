@@ -1,13 +1,10 @@
 package com.myblog.blog.Service.impl;
 
 import com.myblog.blog.Service.UserService;
-import com.myblog.blog.entity.Tag;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Usermapper;
 import com.myblog.blog.quaryentity.FollowEntity;
 import lombok.SneakyThrows;
-import org.apache.ibatis.javassist.NotFoundException;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -93,5 +90,10 @@ public class UserServiceimpl implements UserService {
     @Override
     public User getDetailUser(Integer userId) {
         return usermapper.getUserById(userId);
+    }
+
+    @Override
+    public int updateFollow(long userId) {
+        return usermapper.updateFollow(userId);
     }
 }

@@ -89,6 +89,14 @@ public  String dd(String username, String password, HttpSession session,
         userService.updateUser(user);
         return new JsonResult<>(OK,"修改成功");
     }
+
+    /**
+     * 粉丝关注功能
+     * @param session
+     * @param followId
+     * @param model
+     * @return
+     */
     @GetMapping("/follow/{followId}")
     public  String follow(HttpSession session,@PathVariable  long followId,Model model)
     {
@@ -126,4 +134,5 @@ public  String dd(String username, String password, HttpSession session,
         model.addAttribute("user",detailUser);
         return "user";
     }
+
 }
