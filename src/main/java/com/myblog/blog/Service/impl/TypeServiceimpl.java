@@ -66,6 +66,4 @@ public class TypeServiceimpl implements TypeService {
     public List<Type> getAllTypesAndBlog() {
         return typemapper.getAllTypeAndBlog();
     }
-
-
 }
