@@ -33,10 +33,14 @@
         from myblog.t_type t,myblog.t_blog b
         where t.id = b.type_id
     </select>
+    <select id="FindNumOfTypes" resultType="java.lang.Integer">
+        select count(*) from t_type
+    </select>
     <!--编辑修改分类-->
     <update id="updateType" parameterType="com.myblog.blog.entity.Type">
         update t_type set name = #{name} where id = #{id}
     </update>
+
     <!--删除分类-->
     <delete id="deleteType" >
         delete from t_type where id = #{id}

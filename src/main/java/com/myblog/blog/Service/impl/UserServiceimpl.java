@@ -26,21 +26,13 @@ public class UserServiceimpl implements UserService {
         String prefix="blog:";
         String nickname= UUID.randomUUID().toString();
         user.setNickname(prefix+nickname);
-        System.out.println(user);
         return  usermapper.saveUser(user);
     }
     @SneakyThrows
     @Transactional
     @Override
     public int updateUser(User user) {
-        /*User user1=usermapper.getUserById(user.getId());
-        if(user1 == null)
-        {
-            throw new NotFoundException("该用户不存在");
-        }
-        else
-            BeanUtils.copyProperties(user1,user);
-        return usermapper.saveUser(user1);*/
+
         return usermapper.updateUser(user);
     }
     @Transactional

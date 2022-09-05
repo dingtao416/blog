@@ -5,6 +5,7 @@ body{
     background-size: cover;
     font-family: roboto,snas-serif;
 }
+/*中间大框*/
 .conter{
     width: 400px;
     height: 480px;
@@ -25,22 +26,22 @@ body{
     color: rgb(219, 223, 223);
 }
 .main{
-    text-align: center;
-
-
+    text-align: center ;
+}
+.main small{
+    color: aliceblue;
 }
 .main input,button{
+
     width: 300px;
     height: 40px;
     border: none;
     outline: none;
     padding-left: 40px;
     box-sizing: border-box;
-    margin-bottom: 40px;
     font-size: 15px;
     color: rgb(19, 56, 49);
     border-radius: 10px;
-
 }
 .main button{
     padding-left:15px ;
@@ -59,23 +60,27 @@ body{
     box-shadow: 2px 2px 5px rgb(76, 107, 154);
     background-color:#999;
 }
-.main span{
+.main div{
     position: relative;
 }
 /*图标位置调整*/
 .main i{
     position: absolute;
-    left: 15px;
+    left: 60px;
     color: #333;
     font-size: 20px;
-    top: 2px;
+    top: 9px;
 }
-.main a{
+.conter a{
+    padding-left: 80px;
     color: rgb(163, 167, 172);
 }
-.main a:hover{
+.conter a:hover{
     color: rgb(25, 58, 72);
 }
+
+
+
 
 /*  注册界面  */
 .conter2{
@@ -137,8 +142,4 @@ body{
     color: #333;
     font-size: 20px;
     top: 2px;
-}
-.message{
-    color:red;
-    align:center;
 }

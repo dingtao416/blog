@@ -24,4 +24,6 @@ public interface Typemapper {
     //删除分类
     void deleteType(Integer id);
     List<Type> getAllTypeAndBlog();
+
+    int FindNumOfTypes();
 }

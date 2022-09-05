@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet"  href="../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 
 <body>
@@ -15,9 +15,9 @@
     <div class="ui container">
         <div class="ui inverted secondary menu">
             <h1 class="ui blue header item">Blog</h1>
-            <a href="#" class="item"><i class="home icon"></i>首页</a>
-            <a href="#" class="item" th:href="@{/types/-1}"><i class="idea icon"></i>分类</a>
-            <a href="#" class="item" ><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/}" class="item"><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="item"><i class="idea icon"></i>分类</a>
+            <a href="#" class="item"><i class="tags icon"></i>标签</a>
             <a href="#" class="item"><i class="info icon"></i>关于我</a>
             <div class="right item">
                 <div class="ui icon inverted transparent input">
@@ -28,79 +28,165 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div th:if="${user}" class="right item">
-                <img th:src="${user.avatar}">
-            </div>
-            <div th:if="${user==null}" class="right item">
-                <a th:href="@{/user/login}" href="#">登录</a>
-                &nbsp&nbsp<span>|</span>&nbsp&nbsp
-                <a th:href="@{/user/register}">注册</a>
+                <div class="right item login" th:if="${session.user}">
+                    <img th:src="${session.user.avatar}">
+                </div>
+                <div th:if="${session.user==null}" class="right item login">
+                    <a href="#" th:href="@{/user/login}"class="item">登录</a><p style="padding-top: 12px;">/</p>
+                    <a href="#"th:href="@{/user/register}" class="item">注册</a>
+                </div>
             </div>
         </div>
     </div>
 </nav>
-
+<!------------------------------------------------------------------------------------------------------------------------------------>
 <!--中间内容-->
 <div class="m-padded-large">
     <div class="ui container">
         <div class="ui grid">
+            <!--左侧博客内容-->
             <div class="eleven wide column">
-                <!--header-->
+                <!--头部 blog 共n篇-->
                 <div class="ui top attached segment">
                     <div class="ui middle aligned two column grid">
-                        <div class="column">
-                            <h3 class="ui blue header">Blog</h3>
-                        </div>
-                        <div class="right aligned column">
-                            共<h2 class="ui orange header m-inline-block">10</h2>篇
+                        <div class="column"><h2 class="ui blue header">Blog</h2></div>
+                        <div id="blog-message" class="right aligned column" th:fragment="message">
+                            共<h2 class="ui orange header m-inline-block " th:text="${blogTotal}">10</h2>篇
                         </div>
                     </div>
                 </div>
-                <!--content-->
-                <div class="ui attached segment" th:each="blog:${pageInfo.list}">
-                    <div class="ui segment">
-                        <div class="ui grid">
-                            <div class="ui eleven wide column" >
-                                <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-title-font" th:text="${blog.title}">大圣，此去欲何?</a></h3>
+                <!-- 文字内容部分 -->
+                <div class="ui attached segment">
+                    <div class="ui padded vertical segment m-padded-large" th:each="blog:${pageInfo.list}">
+                        <div class="ui middle aligned grid">
+                            <div class="eleven wide column">
+                                <h3 class="ui haeder" th:text="${blog.title}">总结过去，展望未来</h3>
+                                <p class="m-text" th:text="|${blog.description}......|">
+                                    博主是一名准大三的学生，目前就读于双非本科的软件工程专业，大学两年中认真的学习了C语言、C++、Java、Python、Golang、Linux操作系统、MySQL数据库、数据结构与算法、HTML、CSS、JavaScript。最喜欢的编码软件是VS Code，
+                                    对前端页面设计、Web应用开发、爬虫、数据分析、数据可视化、机器学习、深度学习都有一定的理解，主攻的语言是Python、Golang。大家如果有什么问题欢迎私信博主。
+                                </p>
+                                <div class="ui grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../images/头像.png" th:src="@{${blog.avatar}}" alt="" class="ui avatar image">
+                                                <div class="content" ><a href="#" th:text="${blog.nickname}"class="header">二百斤的三儿</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2021-09-01</span>
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i><span th:text="${blog.views}">2674</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="./详情页.html" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="ui label blue basic">查看详情</a>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="m-text m-margin-top-max" th:text="|${blog.description}......|">戴上金箍，没法爱你；放下金箍，没法保护你。我知道上天不会给我第二次机会，曾经我们说好的永远，原来也仅仅只有，十二画，而已。“大圣，此去欲何?”“踏南天，碎凌霄。”“若一去不回……”“便一去不回” 其实很多时候，我们都是有机会的，最后真正放弃的，是我们自己。......</p>
-                            <div class="five wide column">
-                                <a href="#" target="_blank" >
-                                    <img src="../static/images/enter.png" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
-                                </a>
+                            <div class="right aligned five wide column">
+                                <a href="./详情页.html"  th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" ><img src="../images/picture.png" alt="" th:src="@{${blog.firstPicture}}" class="ui rounded image"></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--footer-->
+                <!--底部栏-->
                 <div class="ui bottom attached segment">
                     <div class="ui middle aligned two column grid">
                         <div class="column">
-                                <a href="#" th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}"  class="ui button mini blue basic">上一页</a>
+                            <a th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}" href="#" class="ui blue mini button">上一页</a>
                         </div>
                         <div class="right aligned column">
-                            <a href="#" th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}" class="ui button mini blue basic">下一页</a>
+                            <a th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}" href="#" class="ui blue mini button">下一页</a>
                         </div>
                     </div>
                 </div>
-                <div class="five wide column">
-                    <div class="ui segment"></div>
+            </div>
+            <!--右侧分各榜-->
+            <div class="five wide column">
+                <!--分类栏-->
+                <div class="ui segments m-margin-big">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>分类推荐
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank">更多..<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui fluid vertical menu">
+                           <div th:each="type : ${types}"><a href="" class="item" th:text="${type.name}">java<div class="ui blue right pointing label" th:text="${#arrays.length(type.blogs)}">22</div></a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <!--标签栏-->
+                <div class="ui segments m-margin-big" >
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="ui column">
+                                <i class="tags icon"></i>标签推荐
+                            </div>
+                            <div class="right aligned ui column">
+                                <a href="">更多..<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui blue segment">
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                        <a href="" target="_blank" class="ui blue  left pointing label m-margin-small">概率论 <div class="detail">22</div></a>
+                    </div>
+                </div>
+                <!--热榜-->
+                <div class="ui segments m-margin-big">
+                    <div class="ui secondary segment">
+                        <i class="hotjar icon"></i>热榜
+                    </div>
+                    <div class="ui segment" th:each="blogs:${recommendedBlogs}"><a href="#" th:href="@{/blog/{id}(id=${blogs.id})}" th:text="${blogs.title}"target="_blank">学术界的“父母内卷”：近1/4终身教授拥有博士父母,是普通人的25倍</a></div>
+                </div>
+                <!--向你推荐榜-->
+                <div class="ui segments m-margin-big">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="hand point right icon"></i>向你推荐
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank">更多..<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui fluid vertical menu">
+                            <a href="" class="item"><i class="assistive listening systems icon"></i>云原生系列巅峰会</a>
+                            <a href="" class="item"><i class="comments icon"></i>AI studios社区</a>
+                            <a href="" class="item"><i class="assistive listening systems icon"></i>学院课程</a>
+                            <a href="" class="item"><i class="chart pie icon"></i>学+练产品推荐</a>
+                            <a href="" class="item"><i class="balance scale icon"></i>编程竞赛：第五期</a>
+                            <a href="" class="item"><i class="bullhorn icon"></i>答题冲千元奖</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <!--底部-->
 <footer class="ui inverted vertical segment m-padded-6">
@@ -136,7 +222,10 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script th:inline="javascript">
+   $('#blog-message').load(/*[[@{/index/message}]]*/"/index/message");
+</script>
 </body>
 </html>

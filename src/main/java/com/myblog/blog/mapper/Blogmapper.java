@@ -35,4 +35,5 @@ public interface Blogmapper {
     List<FirstPageBlog> getSearchBlog(String query);
     int updateDayViews(Integer id);
     int updateNewDayViews();
+    int findNumofBlogs();
 }

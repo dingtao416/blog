@@ -104,7 +104,7 @@
         FROM
         myblog.t_blog
         ORDER BY
-        t_blog.ups DESC LIMIT 4
+        t_blog.ups DESC LIMIT 5
     </select>
     <resultMap id="newComment" type="com.myblog.blog.quaryentity.NewComment">
         <id property="id" column="bid"/>
@@ -157,6 +157,9 @@
         from myblog.t_blog b, myblog.t_type t,myblog.t_user u
         where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like  #{pattern})
         order by b.update_time desc
+    </select>
+    <select id="findNumofBlogs" resultType="java.lang.Integer">
+        select count(*) from t_blog
     </select>
     <update id="getCommentCountById" parameterType="com.myblog.blog.entity.Blog">
         update myblog.t_blog b set b.comment_count = (

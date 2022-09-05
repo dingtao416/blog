@@ -1,3 +1,6 @@
+body{
+    background: url(../images/backgroundtwo.jpg) no-repeat  center center fixed;
+}
 .m-padded-nav{
     padding-top: 0.2em !important;
     padding-bottom: 0.2em !important;
@@ -34,22 +37,54 @@
     padding-top: 5em !important;
     padding-bottom: 5em !important;
 }
+.m-margin-small{
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5 !important;
+}
+.m-margin-big{
 
+    margin-bottom: 4em !important;
+}
+.m-margin-large{
+    margin-bottom: 2em !important;
+}
+
+.login{
+    padding-left: 50px !important;
+}
 /* disply*/
 .m-inline-block{
     display: inline-block !important;
 }
 
 
+/*详情页css*/
+.m-container-small{
+    max-width: 65em !important;
+    margin: auto !important;
+}
+.m-padded-lr{
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+.background{
+    background-color: rgb(214, 213, 213) !important;
+}
+.m-shadow-nav{
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2) !important;
+}
 
-
-
- /* 底部字体设置 */
+ /* 字体设置 */
+ .m-text{
+    font-weight: 350 !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.3;
+ }
  .m-text-thin{
     font-weight: 300 !important;
  }
  .m-text-spaced{
-    letter-spacing: 1px !important;
+    letter-spacing: 0.5px !important;
  }
  .m-text-lined{
     line-height: 1.8;

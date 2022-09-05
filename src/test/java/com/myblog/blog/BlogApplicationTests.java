@@ -77,8 +77,8 @@ class BlogApplicationTests {
     @Test
     void getAll()
     {
-        List<Type> t = typemapper.getAllTypeAndBlog();
-        System.out.println(t);
+        int numofBlogs = blogmapper.findNumofBlogs();
+        System.out.println(numofBlogs);
     }
     @Test
     void change()

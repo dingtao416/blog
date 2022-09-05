@@ -1,6 +1,8 @@
 package com.myblog.blog.controller;
 
 import com.myblog.blog.Service.BlogService;
+import com.myblog.blog.Service.TypeService;
+import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.DetailedBlog;
@@ -24,6 +26,8 @@ public class IndexController {
     private BlogService blogService;
     @Autowired
     private Blogmapper blogmapper;
+    @Autowired
+    private TypeService typeService;
     //分页查询博客列表
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, HttpSession session, RedirectAttributes attributes){
@@ -34,12 +38,12 @@ public class IndexController {
         List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
         //查询最新评论
         List<NewComment> newComments = blogService.getNewComment();
-        User user =(User)session.getAttribute("user");
+        List<Type> types = typeService.getAllTypesAndBlog();
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         model.addAttribute("pageInfo",pageInfo);
         model.addAttribute("recommendedBlogs", recommendedBlog);
         model.addAttribute("newComment",newComments);
-        model.addAttribute("user",user);
+        model.addAttribute("types",types);
         return "index";
     }
     @GetMapping("/blog/{id}")
@@ -68,5 +72,12 @@ public class IndexController {
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("query", query);
         return "search";
+    }
+    @GetMapping("/index/message")
+    public String message(Model model)
+    {
+        int numofBlogs = blogmapper.findNumofBlogs();
+        model.addAttribute("blogTotal",numofBlogs);
+        return "index::message";
     }
 }

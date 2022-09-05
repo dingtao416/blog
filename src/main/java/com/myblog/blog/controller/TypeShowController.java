@@ -12,6 +12,7 @@ import com.myblog.blog.quaryentity.ShowBlog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,8 @@ public class TypeShowController {
     private TypeService typeService;
     @Autowired
     private BlogService blogService;
+    @Autowired
+    private Typemapper typemapper;
     @RequestMapping("/types/{id}")
     public String types(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, @PathVariable Integer id, Model model){
         List<Type> allTypeAndBlog = typeService.getAllTypesAndBlog();
@@ -40,5 +43,12 @@ public class TypeShowController {
         model.addAttribute("pageInfo",pageInfo);
         model.addAttribute("activeTypeId", id);
         return "types";
+    }
+    @GetMapping("/type/message")
+    public String message(Model model)
+    {
+        int types = typemapper.FindNumOfTypes();
+        model.addAttribute("typeTotal",types);
+        return "types::message";
     }
 }
