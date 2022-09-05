@@ -1,6 +1,5 @@
 package com.myblog.blog.Service;
 
-import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.FollowEntity;
 
@@ -56,4 +55,6 @@ public interface UserService {
         * @return
         */
        User getDetailUser(Integer userId);
+       //修改关注数
+       int updateFollow(long userId);
 }

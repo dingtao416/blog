@@ -7,8 +7,6 @@ import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
-import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.DetailedBlog;
 import com.myblog.blog.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,6 +121,14 @@ class BlogApplicationTests {
     {
         boolean flag=new TimeUtil().offTime();
         System.out.println(flag);
+    }
+    @Test
+    void Follower()
+    {
+    usermapper.saveFollower(123,5);
+    System.out.println(usermapper.selectAllFollowers(123));
+        //System.out.println(usermapper.updateFollow(123));//update sql可能错误
+        usermapper.cancelFollow(123,5);
     }
 }
 
