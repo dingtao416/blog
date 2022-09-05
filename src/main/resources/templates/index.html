@@ -16,7 +16,7 @@
         <div class="ui inverted secondary menu">
             <h1 class="ui blue header item">Blog</h1>
             <a href="#" class="item"><i class="home icon"></i>首页</a>
-            <a href="#" class="item" th:src="@{/types/-1}"><i class="idea icon"></i>分类</a>
+            <a href="#" class="item" th:href="@{/types/-1}"><i class="idea icon"></i>分类</a>
             <a href="#" class="item" ><i class="tags icon"></i>标签</a>
             <a href="#" class="item"><i class="info icon"></i>关于我</a>
             <div class="right item">
@@ -29,8 +29,13 @@
                     </form>
                 </div>
             </div>
-            <div class="right item">
-                <a th:src="@{/user/login}">登录</a>
+            <div th:if="${user}" class="right item">
+                <img th:src="${user.avatar}">
+            </div>
+            <div th:if="${user==null}" class="right item">
+                <a th:href="@{/user/login}" href="#">登录</a>
+                &nbsp&nbsp<span>|</span>&nbsp&nbsp
+                <a th:href="@{/user/register}">注册</a>
             </div>
         </div>
     </div>
@@ -62,7 +67,7 @@
                             <p class="m-text m-margin-top-max" th:text="|${blog.description}......|">戴上金箍，没法爱你；放下金箍，没法保护你。我知道上天不会给我第二次机会，曾经我们说好的永远，原来也仅仅只有，十二画，而已。“大圣，此去欲何?”“踏南天，碎凌霄。”“若一去不回……”“便一去不回” 其实很多时候，我们都是有机会的，最后真正放弃的，是我们自己。......</p>
                             <div class="five wide column">
                                 <a href="#" target="_blank" >
-                                    <img src="../static/images/enter.png" th:src="${blog.avatar}" alt="" class="ui rounded image">
+                                    <img src="../static/images/enter.png" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
                                 </a>
                             </div>
                         </div>

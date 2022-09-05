@@ -1,0 +1,6 @@
+2022-09-04 10:47:13.654  INFO 15016 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 15016 (started by 86136 in D:\myblog\blog)
+2022-09-04 10:47:13.663  INFO 15016 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 10:47:16.729  INFO 15016 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 3.547 seconds (JVM running for 4.908)
+2022-09-04 14:57:49.890  INFO 2176 --- [main] com.myblog.blog.BlogApplicationTests     : Starting BlogApplicationTests using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 2176 (started by 86136 in D:\myblog\blog)
+2022-09-04 14:57:49.891  INFO 2176 --- [main] com.myblog.blog.BlogApplicationTests     : The following 1 profile is active: "dev"
+2022-09-04 14:57:53.088  INFO 2176 --- [main] com.myblog.blog.BlogApplicationTests     : Started BlogApplicationTests in 3.836 seconds (JVM running for 5.32)

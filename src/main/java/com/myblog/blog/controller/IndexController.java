@@ -1,9 +1,7 @@
 package com.myblog.blog.controller;
 
 import com.myblog.blog.Service.BlogService;
-import com.myblog.blog.Service.CommentService;
-import com.myblog.blog.entity.Blog;
-import com.myblog.blog.entity.Comment;
+import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.DetailedBlog;
 import com.myblog.blog.quaryentity.FirstPageBlog;
@@ -13,11 +11,11 @@ import org.springframework.stereotype.Controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -28,7 +26,7 @@ public class IndexController {
     private Blogmapper blogmapper;
     //分页查询博客列表
     @GetMapping("/")
-    public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, RedirectAttributes attributes){
+    public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, HttpSession session, RedirectAttributes attributes){
         PageHelper.startPage(pageNum,4);
         //查询博客列表
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
@@ -36,11 +34,12 @@ public class IndexController {
         List<RecommendBlog> recommendedBlog = blogService.getRecommendedBlog();
         //查询最新评论
         List<NewComment> newComments = blogService.getNewComment();
-
+        User user =(User)session.getAttribute("user");
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         model.addAttribute("pageInfo",pageInfo);
         model.addAttribute("recommendedBlogs", recommendedBlog);
         model.addAttribute("newComment",newComments);
+        model.addAttribute("user",user);
         return "index";
     }
     @GetMapping("/blog/{id}")

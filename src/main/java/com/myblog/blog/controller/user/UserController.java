@@ -43,6 +43,11 @@ public class UserController extends baseController {
         //注册成功进入登陆页面
         return "userLogin";
      }
+     @GetMapping("/login")
+     public  String login()
+     {
+         return "userLogin";
+     }
      /*
      @PostMapping("/register")
     public JsonResult<User> reg(User user)
@@ -89,41 +94,70 @@ public  String dd(String username, String password, HttpSession session,
         userService.updateUser(user);
         return new JsonResult<>(OK,"修改成功");
     }
+
+    /**
+     * 关注
+     * @param session
+     * @param followId
+     * @param model
+     * @return
+     */
     @GetMapping("/follow/{followId}")
     public  String follow(HttpSession session,@PathVariable  long followId,Model model)
     {
         User user = (User)session.getAttribute("user");
-        long usrId=user.getId();
+        long userId=user.getId();
         int hasFollowed;
         if(user!=null)
         {
-            userService.saveFollower(usrId,followId);
+            userService.saveFollower(userId,followId);
         }
-        FollowEntity followed = userService.isFollowed(usrId, followId);
+        FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
         return "user::message";
     }
+
+    /**
+     * 取消关注
+     * @param session
+     * @param followId
+     * @param model
+     * @return
+     */
     @GetMapping("/unfollow/{followId}")
     public String unfollow(HttpSession session,@PathVariable  long followId,Model model)
     {
         User user = (User)session.getAttribute("user");
-        long usrId=user.getId();
+        long userId=user.getId();
         int hasFollowed;
         if(user!=null)
         {
-            userService.cancelFollow(usrId,followId);
+            userService.cancelFollow(userId,followId);
         }
-        FollowEntity followed = userService.isFollowed(usrId, followId);
+        FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
         return "user::message";
     }
+
+    /**
+     * 根据id得到用户的信息
+     * @param userId
+     * @param model
+     * @return
+     */
     @GetMapping("/{id}")
-    public String getDetailUser(@PathVariable Integer userId,Model model)
+    public String getDetailUser(@PathVariable Integer userId,Model model,HttpSession session)
     {
         User detailUser = userService.getDetailUser(userId);
         model.addAttribute("user",detailUser);
+        User user = (User)session.getAttribute("user");
+        long usrId=user.getId();
+        int hasFollowed;
+        FollowEntity followed = userService.isFollowed(usrId, userId);
+        hasFollowed=followed==null?0:1;
+        model.addAttribute("hasFollowed",hasFollowed);
         return "user";
     }
 }

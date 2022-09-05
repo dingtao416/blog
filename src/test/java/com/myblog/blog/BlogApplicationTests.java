@@ -1,9 +1,6 @@
 package com.myblog.blog;
 
-import com.myblog.blog.Service.BlogService;
-import com.myblog.blog.Service.CommentService;
-import com.myblog.blog.Service.MessageService;
-import com.myblog.blog.Service.TypeService;
+import com.myblog.blog.Service.*;
 import com.myblog.blog.entity.Message;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
@@ -36,6 +33,8 @@ class BlogApplicationTests {
     private MessageService messageService;
     @Autowired
     private TypeService typeService;
+    @Autowired
+    private UserService userService;
     @Test
     void contextLoads() {
     }
@@ -95,8 +94,8 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        int i = usermapper.updateFollow(4);
-        System.out.println(i);
+        User detailUser = userService.getDetailUser(4);
+        System.out.println(detailUser);
     }
     @Test
     void comment()

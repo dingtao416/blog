@@ -28,7 +28,6 @@ public class adminUserController {
                         RedirectAttributes redirectAttributes)
     {
         User user= userService.checkUser(username,password);
-        System.out.println(user);
         if(user!=null && "admin".equals(user.getUsername()))
         {
 
