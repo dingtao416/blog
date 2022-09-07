@@ -1,5 +1,6 @@
 package com.myblog.blog.quaryentity;
 
+import com.myblog.blog.entity.Tag;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 
@@ -21,6 +22,7 @@ public class BlogQuery {
     private Integer userId;
     private  long ups;
     private User user;
+
 
     @Override
     public String toString() {
