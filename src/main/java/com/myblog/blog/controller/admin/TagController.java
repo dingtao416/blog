@@ -36,7 +36,7 @@ public class TagController {
         model.addAttribute("tag",new Tag());
         return "admin/tags-input";
     }
-    //  新增分类(先需要前端进行一个内容非空的表单验证)
+    //  新增标签(先需要前端进行一个内容非空的表单验证)
     @PostMapping("/tags")
     public String post(Tag tag,RedirectAttributes attributes) {
         Tag tag1 = tagService.getTagByName(tag.getName());
