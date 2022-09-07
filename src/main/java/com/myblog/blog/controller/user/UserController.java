@@ -76,6 +76,7 @@ public  String dd(String username, String password, HttpSession session,
     }
     else {
         session.setAttribute("user",user);
+        session.setMaxInactiveInterval(-1);    // 设置session永不过期
         return "redirect:/";
         //登陆成功进入下一页面 userIndex
     }

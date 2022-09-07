@@ -7,6 +7,7 @@ import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
+import com.myblog.blog.quaryentity.DetailedBlog;
 import com.myblog.blog.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,8 +78,8 @@ class BlogApplicationTests {
     @Test
     void getAll()
     {
-        int numofBlogs = blogmapper.findNumofBlogs();
-        System.out.println(numofBlogs);
+        DetailedBlog detailedBlog = blogmapper.getDetailedBlog(16);
+        System.out.println(detailedBlog);
     }
     @Test
     void change()

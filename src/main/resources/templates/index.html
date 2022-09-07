@@ -16,7 +16,7 @@
         <div class="ui inverted secondary menu">
             <h1 class="ui blue header item">Blog</h1>
             <a href="#" th:href="@{/}" class="item"><i class="home icon"></i>首页</a>
-            <a href="#" th:href="@{/types/-1}" class="item"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/types/-1}" target="_blank" class="item"><i class="idea icon"></i>分类</a>
             <a href="#" class="item"><i class="tags icon"></i>标签</a>
             <a href="#" class="item"><i class="info icon"></i>关于我</a>
             <div class="right item">
@@ -29,7 +29,7 @@
                     </form>
                 </div>
                 <div class="right item login" th:if="${session.user}">
-                    <img th:src="${session.user.avatar}">
+                    <img class="ui avatar image" th:src="${session.user.avatar}">
                 </div>
                 <div th:if="${session.user==null}" class="right item login">
                     <a href="#" th:href="@{/user/login}"class="item">登录</a><p style="padding-top: 12px;">/</p>
@@ -117,10 +117,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ui segment">
-                        <div class="ui fluid vertical menu">
-                           <div th:each="type : ${types}"><a href="" class="item" th:text="${type.name}">java<div class="ui blue right pointing label" th:text="${#arrays.length(type.blogs)}">22</div></a>
-                           </div>
+                    <div class="ui segment" th:each="type : ${types}">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column"><a href="#" th:href="@{/types/{id}(id=${type.id})}" class="item" th:text="${type.name}">java</a></div>
+                            <div class="right aligned column">
+                                <h3 class="ui blue header label mini" th:text="${#arrays.length(type.blogs)}">10</h3>
+                            </div>
                         </div>
                     </div>
                 </div>

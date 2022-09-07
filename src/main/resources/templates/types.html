@@ -29,7 +29,7 @@
                     </form>
                 </div>
                 <div class="right item login" th:if="${session.user}">
-                    <img th:src="${session.user.avatar}">
+                    <img class="ui avatar image" th:src="${session.user.avatar}">
                 </div>
                 <div th:if="${session.user==null}" class="right item login">
                     <a href="#" th:href="@{/user/login}"class="item">登录</a><p style="padding-top: 12px;">/</p>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="right aligned five wide column">
-                                <a href="./详情页.html" target="_blank" class="ui label blue basic">查看详情</a>
+                                <a href="./详情页.html" target="_blank" th:href="@{/blog/{id}(id=${blog.id})}" class="ui label blue basic">查看详情</a>
                             </div>
                         </div>
                     </div>

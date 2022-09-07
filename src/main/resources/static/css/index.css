@@ -1,5 +1,8 @@
 body{
-    background: url(../images/backgroundtwo.jpg) no-repeat  center center fixed;
+    background: url(../images/backgroundtwo.jpg)  no-repeat  center center fixed;
+}
+.m-padded {
+    padding: 1em !important;
 }
 .m-padded-nav{
     padding-top: 0.2em !important;
@@ -57,7 +60,14 @@ body{
     display: inline-block !important;
 }
 
-
+.m-fixed {
+    position: fixed !important;
+    z-index: 10 !important;
+}
+.m-right-bottom {
+    bottom: 0 !important;
+    right: 0 !important;
+}
 /*详情页css*/
 .m-container-small{
     max-width: 65em !important;
