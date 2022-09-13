@@ -1,6 +1,7 @@
 package com.myblog.blog.mapper;
 
 import com.myblog.blog.entity.Blog;
+import com.myblog.blog.entity.BlogAndTag;
 import com.myblog.blog.quaryentity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -35,5 +36,12 @@ public interface Blogmapper {
     List<FirstPageBlog> getSearchBlog(String query);
     int updateDayViews(Integer id);
     int updateNewDayViews();
+    //查询博客的数量
     int findNumofBlogs();
+    //给博客表和标签中间表添加属性
+    int saveBlogAndTag(BlogAndTag blogAndTag);
+    DetailedBlog getDetailedBlogHasTag(Integer id);
+
+    List<Blog> getByTagId(Integer tagId);
+    List<BlogQuery> getBlogByUser(Integer id);
 }

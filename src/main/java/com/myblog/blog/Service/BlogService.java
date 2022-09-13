@@ -23,4 +23,7 @@ public interface BlogService {
     List<FirstPageBlog> getByTypeId(Integer typeId);
     //首页查询博客
     List<FirstPageBlog> getSearchBlog(String query);
+
+    List<Blog> getByTagId(Integer id);
+    List<BlogQuery> getBlogByUser(Integer id);
 }

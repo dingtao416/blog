@@ -31,6 +31,16 @@ public class Blog {
     private long typeId;
     private long userId;
     private List<Comment> comments=new ArrayList<>();
+    private String tagIds;
+    List<Tag> tags=new ArrayList<>();
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
     @Override
     public String toString() {
@@ -57,7 +67,17 @@ public class Blog {
                 ", typeId=" + typeId +
                 ", userId=" + userId +
                 ", comments=" + comments +
+                ", tagIds='" + tagIds + '\'' +
+                ", tags=" + tags +
                 '}';
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
     }
 
     public long getDayViews() {

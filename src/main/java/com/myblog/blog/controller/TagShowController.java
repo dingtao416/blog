@@ -27,33 +27,28 @@ public class TagShowController {
     private BlogService blogService;
 
     @GetMapping("/tags/{id}")
-    public String list(Model model, @RequestParam(defaultValue = "1", value = "tagNum") Integer pageNum) {
-        //按照排序字段 倒序 排序
-        String orderBy = "id desc";
-        PageHelper.startPage(pageNum, 5, orderBy);
-        List<Tag> list = tagService.getAllTag();
-        PageInfo<Tag> pageInfo = new PageInfo<Tag>(list);
-        model.addAttribute("pageInfo", pageInfo);
-        return "tags";
-    }
-
-    @PostMapping("/tags/search/{id}")
     public String search(SearchBlog searchBlog, Model model,
                          @RequestParam(defaultValue = "1", value = "tagNum") Integer pageNum, @PathVariable Integer id) {
-        List<Tag> tags = tagService.getAllTag();
-        if (id == -1) {
+        PageHelper.startPage(pageNum, 100);  //开启分页
+        List<Tag> tags = tagService.getBlogTag();
+        //-1从导航点过来的
+        if (id == -1){
             id = tags.get(0).getId();
         }
-        List<BlogQuery> blogBySearch = blogService.getBlogBySearch(searchBlog);
-        BlogQuery blogQuery = new BlogQuery();
-        blogQuery.setPublished(true);
-        PageHelper.startPage(pageNum, 10);
-        PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogBySearch);
+        List<Blog> blogs = blogService.getByTagId(id);
+        System.out.println(id);
+        PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
         model.addAttribute("tags", tags);
         model.addAttribute("pageInfo", pageInfo);
-        //model.addAttribute("pageInfo",blogService.getBlogBySearch(searchBlog));好像是简化了 emoj 不确定
-         return "redirect:/tags/search";
-
+        model.addAttribute("activeTagId", id);
+        return "tags";
+    }
+    @GetMapping("/tag/message")
+    public String message(Model model)
+    {
+        int tags = tagService.FindNumOfTypes();
+        model.addAttribute("tagTotal",tags);
+        return "tags::message";
     }
 }
 

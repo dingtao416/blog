@@ -2,17 +2,36 @@
 <html lang="en" xmlns:th="http://www.themleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <link href="../../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"  rel="stylesheet">
 </head>
 <body>
-<h1>后台登录</h1>
-<form th:action="@{/admin/login}" method="post">
-<input type="text" name="username" placeholder="用户名">
-    <br>
-    <input type="text" name="password" placeholder="密码">
-    <br>
-    <input type="submit" value="登录">
-</form>
-<p th:unless="${#strings.isEmpty(message)} " th:text="${message}"></p>
+<div class="conter">
+    <div class="header">
+        <h1>后台登录</h1>
+    </div>
+
+
+    <!--输入部分-->
+    <form class="main" method="post" th:action="@{/admin/login}">
+        <div>
+            <i class="fas fa-solid fa-user"></i>
+            <input type="text" placeholder="账号" id="username" name="username"><br>
+
+        </div><br><br>
+        <div>
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="密码" id="password" name="password"><br>
+        </div><br><br><br>
+        <button>登录</button><br>
+    </form> <br>
+</div>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+
+</script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.myblog.blog.Service;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.FollowEntity;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface UserService {
@@ -57,4 +58,5 @@ public interface UserService {
        User getDetailUser(Integer userId);
        //修改关注数
        int updateFollow(long userId);
+
 }

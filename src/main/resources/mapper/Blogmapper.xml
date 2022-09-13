@@ -25,13 +25,16 @@
             <result property="username" column="username"/>
         </association>
     </resultMap>
-    <insert id="saveBlog">
+    <insert id="saveBlog" useGeneratedKeys="true" keyProperty="id">
         insert into myblog.t_blog (id,title, content, first_picture, flag,
         views, comment_count, appreciation, share_statement, commentabled, published,
-        recommend, create_time, update_time, type_id, user_id, description,ups)
+        recommend, create_time, update_time, type_id, user_id, description,ups,tagIds)
         values (#{id},#{title},#{content},#{firstPicture},#{flag},#{views},#{commentCount},#{appreciation},
         #{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},
-        #{updateTime},#{typeId},#{userId},#{description},#{ups});
+        #{updateTime},#{typeId},#{userId},#{description},#{ups},#{tagIds});
+    </insert>
+    <insert id="saveBlogAndTag">
+        insert into t_blog_tags (tag_id, blog_id) values (#{tagId},#{blogId})
     </insert>
     <update id="updateBlog" parameterType="com.myblog.blog.quaryentity.ShowBlog">
         update myblog.t_blog
@@ -39,7 +42,7 @@
         title = #{title}, content = #{content}, type_id = #{typeId},
         first_picture = #{firstPicture} , description = #{description} , recommend = #{recommend} ,
         share_statement = #{shareStatement}, appreciation = #{appreciation},
-        commentabled = #{commentabled} ,update_time = #{updateTime}
+        commentabled = #{commentabled} ,update_time = #{updateTime},tagIds=#{tagIds}
         where id = #{id};
     </update>
     <update id="updateViews">
@@ -52,7 +55,7 @@
     <select id="getBlogByid" resultType="com.myblog.blog.quaryentity.ShowBlog">
         select b.id,b.flag,b.title,b.content,b.type_id,b.ups,
         b.first_picture,b.description,b.recommend,b.published,b.share_statement,
-        b.appreciation,b.commentabled
+        b.appreciation,b.commentabled,b.tagIds
         from myblog.t_blog b
         where  b.id = #{id};
     </select>
@@ -141,8 +144,29 @@
         <result property="nickname" column="nickname"/>
         <result property="avatar" column="avatar"/>
     </resultMap>
+    <resultMap id="detailedBlogHasType" type="com.myblog.blog.quaryentity.DetailedBlog">
+        <id property="id" column="bid"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="typeName" column="name"/>
+        <result property="views" column="views"/>
+        <result property="ups" column="ups"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="commentabled" column="commentabled"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+        <collection property="tags" ofType="com.myblog.blog.entity.Tag">
+            <id property="id" column="tagId"></id>
+            <result property="name" column="tagName"></result>
+        </collection>
+    </resultMap>
     <select id="getDetailedBlog" resultMap="detailedBlog">
-        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.ups,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name
+        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name
         from myblog.t_blog b,myblog.t_user u, myblog.t_type t
         where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
     </select>
@@ -160,6 +184,26 @@
     </select>
     <select id="findNumofBlogs" resultType="java.lang.Integer">
         select count(*) from t_blog
+    </select>
+    <select id="getDetailedBlogHasTag" resultMap="detailedBlogHasType">
+        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.ups,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name,
+        g.id tagId, g.name tagName
+        from myblog.t_blog b,myblog.t_user u, myblog.t_type t,t_tag g, t_blog_tags tb
+        where b.user_id = u.id and b.type_id = t.id and tb.blog_id = b.id and tb.tag_id = g.id and b.id = #{id}
+    </select>
+
+    <select id="getByTagId" resultMap="firstPageBlog">
+        select b.id, b.title, b.first_picture, b.views, b.update_time, b.description,
+        t1.name, t1.id tagid,
+        u.nickname, u.avatar
+        from t_blog b, t_user u, t_blog_tags tb, t_tag t1
+        where u.id = b.user_id and tb.blog_id = b.id and tb.tag_id = t1.id and t1.id = #{tagId}
+        order by b.update_time desc;
+    </select>
+    <select id="getBlogByUser" resultMap="blog">
+        select b.id,b.title,b.views,b.ups,b.update_time,t.name
+        from t_blog b,t_type t
+        where t.id=b.type_id and b.user_id=#{id}
     </select>
     <update id="getCommentCountById" parameterType="com.myblog.blog.entity.Blog">
         update myblog.t_blog b set b.comment_count = (

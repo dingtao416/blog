@@ -1,10 +1,13 @@
 package com.myblog.blog.controller.user;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.myblog.blog.Service.BlogService;
+import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.Service.UserService;
-import com.myblog.blog.controller.baseController;
 import com.myblog.blog.entity.User;
+import com.myblog.blog.quaryentity.BlogQuery;
 import com.myblog.blog.quaryentity.FollowEntity;
-import com.myblog.blog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -13,16 +16,22 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends baseController {
+public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private BlogService blogService;
+    @Autowired
+    private TypeService typeService;
 //注册
     @Value("${user.avatar}")
     String avatar;
-
+    @Value("${user.introduction}")
+    String introduction;
     @GetMapping("/register")
     public String register()
     {
@@ -38,6 +47,8 @@ public class UserController extends baseController {
              return "register";
          }
          else{
+             user.setIntroduction(introduction);
+             user.setAvatar(avatar);
              userService.saveUser(user);
          }
         //注册成功进入登陆页面
@@ -48,20 +59,6 @@ public class UserController extends baseController {
      {
          return "userLogin";
      }
-     /*
-     @PostMapping("/register")
-    public JsonResult<User> reg(User user)
-    {
-        System.out.println(user);
-        userService.saveUser(user);
-        return new JsonResult<>(OK,user);
-    }
-    @GetMapping("/register")
-    public String re()
-    {
-        return "register";
-    }
-    登陆*/
 
 @PostMapping("/login")
 public  String dd(String username, String password, HttpSession session,
@@ -81,20 +78,6 @@ public  String dd(String username, String password, HttpSession session,
         //登陆成功进入下一页面 userIndex
     }
 }
-    //修改
-    @PostMapping("/update/{id}")
-    /**
-     * 修改user数据
-     * @user
-     * @id
-     * @return
-     */
-    public  JsonResult<User> update(@RequestBody User user,@PathVariable Integer id)
-    {
-        user.setId(id);
-        userService.updateUser(user);
-        return new JsonResult<>(OK,"修改成功");
-    }
 
     /**
      * 关注
@@ -160,5 +143,24 @@ public  String dd(String username, String password, HttpSession session,
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
         return "user";
+    }
+
+    /**
+     * 进入自己的页面
+     * @return
+     */
+    @GetMapping("/me")
+    public String getMeMessage(HttpSession session,Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum)
+    {
+        User user = (User)session.getAttribute("user");
+        User detailUser = userService.getDetailUser(user.getId());
+        model.addAttribute("user",detailUser);
+        String orderBy = "id desc";
+        PageHelper.startPage(pageNum,5,orderBy);
+        List<BlogQuery> list = blogService.getBlogByUser(user.getId());
+        PageInfo<BlogQuery> pageInfo=new PageInfo<>(list);
+        model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("types",typeService.getTypes());
+        return "userDetail";
     }
 }

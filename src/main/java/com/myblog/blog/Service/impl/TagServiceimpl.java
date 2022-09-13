@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,5 +46,40 @@ public class TagServiceimpl implements TagService {
     @Override
     public Tag getTagByName(String name) {
         return tagmapper.getTagByName(name);
+    }
+
+    @Override
+    public List<Tag> findUseTag(String ids) {
+        List<Integer> list = convetList(ids);
+        List<Tag> useTags = tagmapper.findUseTags(list);
+        return useTags;
+    }
+    public List<Integer> convetList(String ids)
+    {
+        List<Integer> l=new ArrayList<>();
+        if(!"".equals(ids) && ids !=null)
+        {
+            String [] idArray=ids.split(",");
+            for(int i=0;i<idArray.length;i++)
+            {
+                l.add(Integer.parseInt(idArray[i]));
+            }
+        }
+        return  l;
+    }
+
+    @Override
+    public List<Tag> getBlogTag() {
+        return tagmapper.getBlogTag();
+    }
+
+    @Override
+    public int FindNumOfTypes() {
+        return tagmapper.FindNumOfTypes();
+    }
+
+    @Override
+    public int deleteByBlogId(Integer id) {
+        return tagmapper.deleteByBlogId(id);
     }
 }

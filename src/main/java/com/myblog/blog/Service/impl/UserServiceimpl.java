@@ -9,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +31,9 @@ public class UserServiceimpl implements UserService {
         String prefix="blog:";
         String nickname= UUID.randomUUID().toString();
         user.setNickname(prefix+nickname);
+        user.setFans(0);
+        user.setFollows(0);
+        user.setCreateTime(new Date());
         return  usermapper.saveUser(user);
     }
     @SneakyThrows
@@ -88,4 +96,5 @@ public class UserServiceimpl implements UserService {
     public int updateFollow(long userId) {
         return usermapper.updateFollow(userId);
     }
+
 }

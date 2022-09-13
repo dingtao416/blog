@@ -11,6 +11,9 @@
     <delete id="deleteTag">
         delete from t_tag where id = #{id}
     </delete>
+    <delete id="deleteByBlogId">
+        delete from t_blog_tags where blog_id=#{id};
+    </delete>
     <select id="getTagById" resultType="com.myblog.blog.entity.Tag">
         select id,name from t_tag where id = #{id}
     </select>
@@ -19,5 +22,27 @@
     </select>
     <select id="getTagByName" resultType="com.myblog.blog.entity.Tag">
         select * from t_tag where name = #{name}
+    </select>
+    <select id="findUseTags" parameterType="java.util.List" resultType="com.myblog.blog.entity.Tag">
+        select t.id,t.name from t_tag t where t.id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <resultMap id="tags" type="com.myblog.blog.entity.Tag">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="blogs" ofType="com.myblog.blog.entity.Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+        </collection>
+    </resultMap>
+    <select id="getBlogTag" resultMap="tags">
+        select t.id, t.name, b.id bid, b.title
+        from t_tag t, t_blog b, t_blog_tags bt
+        where t.id = bt.tag_id and b.id = bt.blog_id
+    </select>
+    <select id="FindNumOfTypes" resultType="java.lang.Integer">
+        select count(*) from t_tag
     </select>
 </mapper>

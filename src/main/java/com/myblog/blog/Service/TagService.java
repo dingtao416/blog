@@ -11,4 +11,10 @@ public interface TagService {
     Tag getTagById(Integer id);
     List<Tag> getAllTag();
     Tag getTagByName(String name);
+    List<Tag> findUseTag(String ids);
+
+    List<Tag> getBlogTag();
+
+    int FindNumOfTypes();
+    int deleteByBlogId(Integer id);
 }

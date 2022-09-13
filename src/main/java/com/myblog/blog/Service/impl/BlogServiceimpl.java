@@ -3,6 +3,8 @@ package com.myblog.blog.Service.impl;
 import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.entity.Blog;
+import com.myblog.blog.entity.BlogAndTag;
+import com.myblog.blog.entity.Tag;
 import com.myblog.blog.mapper.Blogmapper;
 import com.myblog.blog.quaryentity.*;
 import com.myblog.blog.util.MarkdownUtils;
@@ -23,7 +25,6 @@ import java.util.List;
 public class BlogServiceimpl implements BlogService {
     @Autowired
    private Blogmapper blogmapper;
-
     /**
      * 定时更新时间
      * @param id
@@ -47,7 +48,18 @@ public class BlogServiceimpl implements BlogService {
         blog.setViews(0);
         blog.setCommentCount(0);
         blog.setUps(0);
-        return blogmapper.saveBlog(blog);
+        blogmapper.saveBlog(blog);
+        Integer id = blog.getId();
+        System.out.println(id);
+        //将标签的数据存到t_blogs_tag表中
+        List<Tag> tags=blog.getTags();
+        BlogAndTag blogAndTag=null;
+        for(Tag tag :tags)
+        {
+            blogAndTag=new BlogAndTag(id,tag.getId());
+            blogmapper.saveBlogAndTag(blogAndTag);
+        }
+        return 1;
     }
 
     /**
@@ -60,6 +72,12 @@ public class BlogServiceimpl implements BlogService {
     @Override
     public int updateBlog(ShowBlog showBlog) {
         showBlog.setUpdateTime(new Date());
+        List<Tag> tags = showBlog.getTags();
+        BlogAndTag blogAndTag = null;
+        for (Tag tag : tags) {
+            blogAndTag = new BlogAndTag(showBlog.getId(),tag.getId());
+            blogmapper.saveBlogAndTag(blogAndTag);
+        }
         return blogmapper.updateBlog(showBlog);
     }
     @Transactional
@@ -117,10 +135,14 @@ public class BlogServiceimpl implements BlogService {
      */
     @Override
     public DetailedBlog getDetailedBlog(Integer id) {
-        DetailedBlog detailedBlog = blogmapper.getDetailedBlog(id);
+        DetailedBlog detailedBlog = blogmapper.getDetailedBlogHasTag(id);
         if(detailedBlog==null)
         {
-            throw new RuntimeException("博客不存在");
+            detailedBlog=blogmapper.getDetailedBlog(id);
+            if(detailedBlog==null)
+            {
+                throw new RuntimeException("博客未找到");
+            }
         }
         String content = detailedBlog.getContent();
         content= MarkdownUtils.markdownToHtml(content);
@@ -141,6 +163,17 @@ public class BlogServiceimpl implements BlogService {
     public List<FirstPageBlog> getSearchBlog(String query) {
         return blogmapper.getSearchBlog(query);
     }
+
+    @Override
+    public List<Blog> getByTagId(Integer id) {
+        return blogmapper.getByTagId(id);
+    }
+
+    @Override
+    public List<BlogQuery> getBlogByUser(Integer id) {
+        return blogmapper.getBlogByUser(id);
+    }
+
     @Scheduled(cron = "0 0 1 * * ?")
     public void updateNewDayViews()
     {

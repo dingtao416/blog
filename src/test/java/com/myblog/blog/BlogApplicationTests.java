@@ -1,10 +1,10 @@
 package com.myblog.blog;
 
 import com.myblog.blog.Service.*;
-import com.myblog.blog.entity.Message;
-import com.myblog.blog.entity.Type;
-import com.myblog.blog.entity.User;
+import com.myblog.blog.Service.impl.TagServiceimpl;
+import com.myblog.blog.entity.*;
 import com.myblog.blog.mapper.Blogmapper;
+import com.myblog.blog.mapper.Tagmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
 import com.myblog.blog.quaryentity.DetailedBlog;
@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,15 +22,17 @@ class BlogApplicationTests {
     @Autowired
     private Blogmapper blogmapper;
     @Autowired
+    private TagServiceimpl tagService;
+    @Autowired
     private Typemapper typemapper;
+    @Autowired
+    private Tagmapper tagmapper;
     @Autowired
     private Usermapper usermapper;
     @Autowired
     private BlogService blogService;
     @Autowired
     private CommentService commentService;
-    @Autowired
-    private MessageService messageService;
     @Autowired
     private TypeService typeService;
     @Autowired
@@ -73,7 +76,8 @@ class BlogApplicationTests {
     @Test
     void deleteType()
     {
-        typemapper.deleteType(44);
+        List<Type> allTypesAndBlog = typeService.getAllTypesAndBlog();
+        System.out.println(allTypesAndBlog);
     }
     @Test
     void getAll()
@@ -101,22 +105,6 @@ class BlogApplicationTests {
     {
         System.out.println(typemapper.getAllType());
     }
-@Test
-    void Message()
-    {
-        Date date=new Date();
-        date.setTime(20005);
-       Message message= new Message();
-        message.setId(1l);
-        message.setParentMessageId(1l);
-        message.setCreateTime(date);
-        Message message1= new Message();
-        message1.setId(2l);
-        message1.setCreateTime(date);
-        messageService.saveMessage(message,message1);
-        System.out.println(messageService.getEmailByParentId(1l));
-        System.out.println(messageService.findAllmessage());
-    }
     @Test
     void Time()
     {
@@ -130,6 +118,11 @@ class BlogApplicationTests {
     System.out.println(usermapper.selectAllFollowers(123));
         //System.out.println(usermapper.updateFollow(123));//update sql可能错误
         usermapper.cancelFollow(123,5);
+    }
+    @Test
+    void tag()
+    {
+        System.out.println(blogmapper.getByTagId(11));
     }
 }
 

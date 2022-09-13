@@ -1,7 +1,9 @@
 package com.myblog.blog.controller;
 
 import com.myblog.blog.Service.BlogService;
+import com.myblog.blog.Service.TagService;
 import com.myblog.blog.Service.TypeService;
+import com.myblog.blog.entity.Tag;
 import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Blogmapper;
@@ -28,6 +30,8 @@ public class IndexController {
     private Blogmapper blogmapper;
     @Autowired
     private TypeService typeService;
+    @Autowired
+    private TagService tagService;
     //分页查询博客列表
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, HttpSession session, RedirectAttributes attributes){
@@ -39,11 +43,13 @@ public class IndexController {
         //查询最新评论
         List<NewComment> newComments = blogService.getNewComment();
         List<Type> types = typeService.getAllTypesAndBlog();
+        List<Tag> tags=tagService.getAllTag();
         PageInfo<FirstPageBlog> pageInfo = new PageInfo<>(allFirstPageBlog);
         model.addAttribute("pageInfo",pageInfo);
         model.addAttribute("recommendedBlogs", recommendedBlog);
         model.addAttribute("newComment",newComments);
         model.addAttribute("types",types);
+        model.addAttribute("tags",tags);
         return "index";
     }
     @GetMapping("/blog/{id}")

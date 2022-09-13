@@ -1,6 +1,10 @@
 package com.myblog.blog.quaryentity;
 
+import com.myblog.blog.entity.Tag;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ShowBlog {
     private Integer id;
@@ -17,8 +21,8 @@ public class ShowBlog {
     private boolean commentabled;
     private Date updateTime;
     private long ups;
-    public ShowBlog() {
-    }
+    private String tagIds;
+    List<Tag> tags=new ArrayList<>();
 
     @Override
     public String toString() {
@@ -37,7 +41,28 @@ public class ShowBlog {
                 ", commentabled=" + commentabled +
                 ", updateTime=" + updateTime +
                 ", ups=" + ups +
+                ", tagIds='" + tagIds + '\'' +
+                ", tags=" + tags +
                 '}';
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
+    }
+
+    public ShowBlog() {
     }
 
     public long getUps() {

@@ -18,4 +18,8 @@ public interface Tagmapper {
     Tag getTagById(Integer id);
     List<Tag> getAllTags();
     Tag getTagByName(String name);
+    List<Tag> findUseTags(List<Integer> ids);
+    List<Tag> getBlogTag();  //首页展示博客标签
+    int FindNumOfTypes();
+    int deleteByBlogId(Integer id);
 }

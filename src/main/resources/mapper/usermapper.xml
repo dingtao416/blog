@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Usermapper">
     <insert id="saveUser" parameterType="com.myblog.blog.entity.User">
-        insert into t_user(username,password,email,nickname) values (#{username},#{password},#{email},#{nickname})
+        insert into t_user(username,password,email,nickname,introduction,avatar,create_time,fans,follows) values (#{username},#{password},#{email},#{nickname},#{introduction},#{avatar},#{createTime},#{fans},#{follows})
     </insert>
     <insert id="saveFollower">
         insert myblog.t_follow(t_userId,t_follow.t_followId,hasfollowed) VALUES(#{userId},#{followId},1)

@@ -1,6 +1,10 @@
 package com.myblog.blog.quaryentity;
 
+import com.myblog.blog.entity.Tag;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description: 博客详情实体类
@@ -26,8 +30,7 @@ public class DetailedBlog {
     //分类名称
     private String typeName;
 
-    public DetailedBlog() {
-    }
+    List<Tag> tags=new ArrayList<>();
 
     @Override
     public String toString() {
@@ -47,7 +50,19 @@ public class DetailedBlog {
                 ", nickname='" + nickname + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", typeName='" + typeName + '\'' +
+                ", tags=" + tags +
                 '}';
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public DetailedBlog() {
     }
 
     public long getUps() {

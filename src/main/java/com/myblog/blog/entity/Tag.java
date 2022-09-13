@@ -1,13 +1,21 @@
 package com.myblog.blog.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //标签
 public class Tag {
     private Integer id;
     private String name;
-    public Integer getId() {
-        return id;
+    List<Blog> blogs=new ArrayList<>();
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 
     @Override
@@ -15,7 +23,12 @@ public class Tag {
         return "Tag{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", blogs=" + blogs +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public void setId(Integer id) {

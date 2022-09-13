@@ -19,17 +19,14 @@ public class User {
     private long follows;
     private Date createTime;
     private Date updateTime;
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime) && Objects.equals(type, user.type);
+    private String introduction;
+
+    public String getIntroduction() {
+        return introduction;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, createTime, updateTime, type);
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     @Override
@@ -45,8 +42,22 @@ public class User {
                 ", follows=" + follows +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", introduction='" + introduction + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return fans == user.fans && follows == user.follows && Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(createTime, user.createTime) && Objects.equals(updateTime, user.updateTime) && Objects.equals(type, user.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nickname, username, password, avatar, email, fans, follows, createTime, updateTime, type);
     }
 
     public Integer getType() {
