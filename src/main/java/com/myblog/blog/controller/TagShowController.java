@@ -29,7 +29,6 @@ public class TagShowController {
     @GetMapping("/tags/{id}")
     public String search(SearchBlog searchBlog, Model model,
                          @RequestParam(defaultValue = "1", value = "tagNum") Integer pageNum, @PathVariable Integer id) {
-        PageHelper.startPage(pageNum, 100);  //开启分页
         List<Tag> tags = tagService.getBlogTag();
         //-1从导航点过来的
         if (id == -1){
@@ -37,9 +36,7 @@ public class TagShowController {
         }
         List<Blog> blogs = blogService.getByTagId(id);
         System.out.println(id);
-        PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
         model.addAttribute("tags", tags);
-        model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("activeTagId", id);
         return "tags";
     }

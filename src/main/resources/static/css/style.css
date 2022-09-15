@@ -1,6 +1,6 @@
 body{
     /* 引入背景图片 设置居中布局 */
-    background: url(../images/backgroundtwo.jpg) no-repeat center center fixed;
+    background: url(../images/bac.png) no-repeat center center fixed;
     /* 计算背景大小 */
     background-size: cover;
     font-family: roboto,snas-serif;
@@ -9,7 +9,7 @@ body{
 .conter{
     width: 400px;
     height: 480px;
-    margin: 100px auto;
+    margin: 300px 100px 100px 750px ;
     background-color: black;
     opacity: 0.8;
     border-radius: 25px;
@@ -27,6 +27,8 @@ body{
 }
 .main{
     text-align: center ;
+
+
 }
 .main small{
     color: aliceblue;

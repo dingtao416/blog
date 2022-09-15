@@ -23,12 +23,13 @@ public class TagController {
     private TagService tagService;
     @GetMapping("/tags")
     public String list(Model model, @RequestParam(defaultValue = "1",value = "tagNum") Integer pageNum){
-        //按照排序字段 倒序 排序
+       // 按照排序字段 倒序 排序
         String orderBy = "id desc";
-        PageHelper.startPage(pageNum,5,orderBy);
+       PageHelper.startPage(pageNum,5,orderBy);
         List<Tag> list = tagService.getAllTag();
-        PageInfo<Tag> pageInfo = new PageInfo<Tag>(list);
+         PageInfo<Tag> pageInfo = new PageInfo<Tag>(list);
         model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("tags",list);
         return "admin/tags";
     }
     @GetMapping("/tags/input")
