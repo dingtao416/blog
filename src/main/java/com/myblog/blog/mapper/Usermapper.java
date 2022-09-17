@@ -1,7 +1,10 @@
 
 package com.myblog.blog.mapper;
 import com.myblog.blog.entity.User;
+import com.myblog.blog.quaryentity.FirstPageUser;
 import com.myblog.blog.quaryentity.FollowEntity;
+import com.myblog.blog.quaryentity.SearchUser;
+import com.myblog.blog.quaryentity.UserQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -36,4 +39,5 @@ public interface Usermapper {
         //修改关注
         int updateFollow(long userId);
         FollowEntity isFollowed(long userId,long followId);
+        List<UserQuery> getUserBySearch(SearchUser searchUser);
 }

@@ -40,6 +40,13 @@
     <select id="isFollowed" resultType="com.myblog.blog.quaryentity.FollowEntity">
         SELECT f.hasfollowed FROM t_follow f WHERE f.t_userId=#{userId} and f.t_followId=#{followId};
     </select>
-
+    <select id="getUserBySearch" >
+        //使用id和nickname查询
+        <bind name="pattern" value="'%' + query + '%'" />
+        select b.id,b.username,b.nickname, b.create_time,b.update_time,b.email,t.name , u.nickname, u.avatar
+        from myblog.t_user b, myblog.t_type t,myblog.t_user u
+        where b.id = t.id and
+        order by b.update_time desc
+    </select>
 </mapper>
 

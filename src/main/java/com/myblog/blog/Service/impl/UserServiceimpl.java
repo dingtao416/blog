@@ -3,7 +3,7 @@ package com.myblog.blog.Service.impl;
 import com.myblog.blog.Service.UserService;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.mapper.Usermapper;
-import com.myblog.blog.quaryentity.FollowEntity;
+import com.myblog.blog.quaryentity.*;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -95,6 +95,11 @@ public class UserServiceimpl implements UserService {
     @Override
     public int updateFollow(long userId) {
         return usermapper.updateFollow(userId);
+    }
+
+    @Override
+    public List<UserQuery> getUserBySearch(SearchUser searchUser) {
+        return usermapper.getUserBySearch(searchUser);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.myblog.blog.Service;
 
 import com.myblog.blog.entity.User;
-import com.myblog.blog.quaryentity.FollowEntity;
+import com.myblog.blog.quaryentity.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -58,5 +58,7 @@ public interface UserService {
        User getDetailUser(Integer userId);
        //修改关注数
        int updateFollow(long userId);
+       List<UserQuery> getUserBySearch(SearchUser searchUser);
+
 
 }

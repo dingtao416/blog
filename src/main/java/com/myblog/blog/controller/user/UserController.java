@@ -6,8 +6,7 @@ import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.Service.UserService;
 import com.myblog.blog.entity.User;
-import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.FollowEntity;
+import com.myblog.blog.quaryentity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -144,7 +143,21 @@ public  String dd(String username, String password, HttpSession session,
         model.addAttribute("hasFollowed",hasFollowed);
         return "user";
     }
+    /**
+     * 搜索用户
+     */
+     @GetMapping("/search")
+             public String getUser(SearchUser searchUser,
+                     @PathVariable Integer id, Model model, @RequestParam(defaultValue = "1",value = "pagenum") Integer pageNum)
+     {
+        List<UserQuery> userBySearch =userService.getUserBySearch(searchUser);
+        PageHelper.startPage(pageNum,10);
+        PageInfo<UserQuery> pageInfo =new PageInfo<>(userBySearch);
+        model.addAttribute("pageInfo",pageInfo);
+        return "search";
 
+
+     }
     /**
      * 进入自己的页面
      * @return
