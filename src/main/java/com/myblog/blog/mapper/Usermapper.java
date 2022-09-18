@@ -39,5 +39,8 @@ public interface Usermapper {
         //修改关注
         int updateFollow(long userId);
         FollowEntity isFollowed(long userId,long followId);
+        int updateFans(long userId);
+        int deleteFollow(long userId);
+        int deleteFans(long userId);
         List<UserQuery> getUserBySearch(SearchUser searchUser);
 }

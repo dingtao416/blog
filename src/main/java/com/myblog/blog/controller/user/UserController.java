@@ -5,8 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.myblog.blog.Service.BlogService;
 import com.myblog.blog.Service.TypeService;
 import com.myblog.blog.Service.UserService;
+import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.*;
+import com.myblog.blog.quaryentity.BlogQuery;
+import com.myblog.blog.quaryentity.FirstPageBlog;
+import com.myblog.blog.quaryentity.FollowEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -94,6 +98,8 @@ public  String dd(String username, String password, HttpSession session,
         if(user!=null)
         {
             userService.saveFollower(userId,followId);
+            userService.updateFollow(userId);
+            userService.updateFans(followId);
         }
         FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
@@ -117,6 +123,8 @@ public  String dd(String username, String password, HttpSession session,
         if(user!=null)
         {
             userService.cancelFollow(userId,followId);
+            userService.deleteFollow(userId);
+            userService.deleteFans(followId);
         }
         FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
@@ -130,17 +138,23 @@ public  String dd(String username, String password, HttpSession session,
      * @param model
      * @return
      */
-    @GetMapping("/{id}")
-    public String getDetailUser(@PathVariable Integer userId,Model model,HttpSession session)
+    @GetMapping("/{userId}")
+    public String getDetailUser(@PathVariable Integer userId,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum,Model model,HttpSession session)
     {
         User detailUser = userService.getDetailUser(userId);
         model.addAttribute("user",detailUser);
         User user = (User)session.getAttribute("user");
-        long usrId=user.getId();
+        Integer usrId=user.getId();
         int hasFollowed;
         FollowEntity followed = userService.isFollowed(usrId, userId);
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
+        PageHelper.startPage(pageNum,4);
+        List<BlogQuery> blogByUser = blogService.getBlogByUser(userId);
+        PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogByUser);
+        model.addAttribute("pageInfo",pageInfo);
+        List<Type> types = typeService.getAllTypesAndBlog();
+        model.addAttribute("types",types);
         return "user";
     }
     /**
@@ -176,4 +190,13 @@ public  String dd(String username, String password, HttpSession session,
         model.addAttribute("types",typeService.getTypes());
         return "userDetail";
     }
+    @GetMapping("followList")
+    public String getFollow(HttpSession session,Model model)
+    {
+        User user =(User)session.getAttribute("user");
+        List<User> users = userService.selectAllFollowers(user.getId());
+        model.addAttribute("user",users);
+        return "followList";
+    }
+
 }
