@@ -64,9 +64,10 @@ public  String dd(String username, String password, HttpSession session,
                   RedirectAttributes redirectAttributes)
 {
     User user= userService.checkUser(username,password);
+    System.out.println(username+password);
     if((user == null||username.equals("admin")))
     {
-        redirectAttributes.addFlashAttribute("message","用户名和密码错误");
+        redirectAttributes.addFlashAttribute("message","用户名或密码错误");
         return "redirect:/user/login";
         //失败重定向至原来页面
     }

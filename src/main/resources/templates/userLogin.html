@@ -20,12 +20,15 @@
         <div>
             <i class="fas fa-solid fa-user"></i>
             <input type="text" placeholder="账号" id="username" name="username"><br>
-
-        </div><br>
+        </div>
+        <br>
+        <br>
         <div>
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="密码" id="password" name="password"><br>
-        </div><br>
+        </div>
+
+        <p class="message" th:unless="${#strings.isEmpty(message)} " th:text="${message}"></p>
         <button>登录</button><br>
     </form> <br>
 

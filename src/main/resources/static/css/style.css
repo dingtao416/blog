@@ -9,14 +9,18 @@ body{
 .conter{
     width: 400px;
     height: 480px;
-    margin: 300px 100px 100px 750px ;
+    margin: 250px 500px 500px 750px ;
     background-color: black;
     opacity: 0.8;
     border-radius: 25px;
     box-shadow: 0 0 30px rgb(76, 107, 154);
 
 }
-
+.message
+{
+    height: 10px;
+    color: blue;
+}
 .header{
     text-align: center;
     padding-top: 60px;
@@ -88,11 +92,12 @@ body{
 .conter2{
     width: 480px;
     height: 500px;
-    margin:100px auto;
+    margin:250px 500px 500px 750px;
     background-color:black;
     opacity: 0.8;
     border-radius: 25px;
-    box-shadow: 0 0 30px rgb(76, 107, 154)
+    box-shadow: 0 0 30px rgb(76, 107, 154);
+    margin: 250px 500px 500px 700px ;
 }
 .header2{
     margin-left: 80px;
