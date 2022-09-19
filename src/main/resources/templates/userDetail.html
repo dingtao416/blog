@@ -62,8 +62,8 @@
           <p class="ui blue basic label m-padded-small">简介:</p>
           <p class="m-margin-small" th:text="${user.introduction}">圆头圆脑圆肚皮，聪明勇敢有力气!!!!!</p>
         </div>
-        <p class="ui blue big basic label" th:text="|粉丝：${user.fans}|">粉丝：31</p>
-        <p class="ui blue big basic label" th:text="|已关注：${user.follows}|">已关注：2342</p>
+        <a th:href="@{/user/fanList}"class="ui blue big basic label" th:text="|粉丝：${user.fans}|">粉丝：31</a>
+        <a th:href="@{/user/followList}"class="ui blue big basic label" th:text="|已关注：${user.follows}|">已关注：2342</a>
         <p class="ui blue big basic label"> 原创：2</p>
       </div>
       <form action="#" method="post" class="ui form top attached segment">

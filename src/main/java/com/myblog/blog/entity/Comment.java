@@ -20,13 +20,10 @@ public class Comment {
     private List<Comment> replyComments=new ArrayList<>();
     private Comment parentComment;
     private  String parentNickname;
-    public Integer getId() {
-        return id;
-    }
-
+    private Integer userId;
     @Override
     public String toString() {
-        return "Commentmapper{" +
+        return "Comment{" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
@@ -39,7 +36,20 @@ public class Comment {
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +
                 ", parentNickname='" + parentNickname + '\'' +
+                ", userId=" + userId +
                 '}';
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override

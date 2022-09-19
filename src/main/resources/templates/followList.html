@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的关注</title>
+  <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
+  <link rel="stylesheet"  href="../static/css/index.css" th:href="@{/css/index.css}">
+</head>
+
+<body>
+<!--导航部分-->
+<nav class="ui inverted attached segment m-padded-nav">
+  <div class="ui container">
+    <div class="ui inverted secondary menu">
+      <h1 class="ui blue header item">Blog</h1>
+      <a href="#" th:href="@{/}" class="item"><i class="home icon"></i>首页</a>
+      <a href="#" th:href="@{/types/-1}" target="_blank" class="item"><i class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/tags/-1}" class="item"><i class="tags icon"></i>标签</a>
+      <div class="right item">
+        <div class="ui icon inverted transparent input">
+          <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+            <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+              <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
+              <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+            </div>
+          </form>
+        </div>
+        <div class="right menu" th:if="${session.user}">
+          <a th:href="@{/user/me}"><img class="ui avatar image" th:src="${session.user.avatar}" src="../images/3.png"></a>
+        </div>
+        <div th:if="${session.user==null}" class="right item login">
+          <a href="#" th:href="@{/user/login}"class="item">登录</a><p style="padding-top: 12px;">/</p>
+          <a href="#"th:href="@{/user/register}" class="item">注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<!------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="ui segment m-padded-large m-container-big  m-margin-large">
+  <div class="ui container">
+
+    <div class="ui secondary menu top attached">
+
+      <a href="../HTML/我的粉丝.html" th:href="@{/user/fanList}"class="ui item">
+        我的粉丝
+      </a>
+      <a href="../HTML/我的关注.html" th:href="@{/user/followList}" class="item active">
+        我的关注
+      </a>
+      <a href="" class="item">
+        朋友们
+      </a>
+      <butto class="ui button teal" th:text="|关注用户总数：${session.user.follows}|">
+        关注用户总数：8
+      </butto>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="用户名">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+        <a class="ui item active">
+          搜索
+        </a>
+      </div>
+    </div>
+    <!--关注列表-->
+    <div class="ui middle aligned divided list" th:each="user:${user}">
+      <div class="item">
+        <div class="right floated content">
+          <div class="ui red basic button">取消关注</div>
+        </div>
+        <img class="ui avatar image" src="../images/1.png" th:src="@{${user.avatar}}">
+        <div class="content" th:text="${user.nickname}">
+          Lena
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--底部-->
+<footer class="ui inverted vertical segment m-padded-6">
+  <div class="ui center aligned container">
+    <div class="ui inverted divided grid">
+      <div class="three wide column">
+        <img src="../images/footer.png" class="ui rounded image" style="width:100px;height: 120px;"  alt="">
+      </div>
+
+      <div class="three wide column m-text-thin m-text-spaced m-text-lined m-opacity-mini">
+        <h4 class="ui inverted heaerd">最新博客</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item">我们的故事</a>
+          <a href="#" class="item">每日新鲜事</a>
+          <a href="#" class="item">热榜</a>
+        </div>
+      </div>
+
+      <div class="three wide column m-text-thin m-text-spaced m-text-lined m-opacity-mini">
+        <h4 class="ui inverted heaerd">联系我们</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item">Emai:111111@163.com</a>
+          <a href="#" class="item">QQ: 12121212</a>
+          <a href="#" class="item">tel:13131313</a>
+        </div>
+      </div>
+
+      <div class="seven wide column m-text-thin m-text-spaced m-text-lined m-opacity-mini">
+        <h4 class="ui inverted heaerd ">About Blog</h4>
+        <p>这是三个小朋友第一次尝试开发的Blog，能够实现最基础的博客功能，fighting~！！！！</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
+<script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
+</body>
+</html>

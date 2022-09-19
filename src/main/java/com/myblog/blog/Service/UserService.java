@@ -60,5 +60,7 @@ public interface UserService {
        int updateFollow(long userId);
        List<UserQuery> getUserBySearch(SearchUser searchUser);
 
-
+       int updateFans(long userId);
+       int deleteFollow(long userId);
+       int deleteFans(long userId);
 }

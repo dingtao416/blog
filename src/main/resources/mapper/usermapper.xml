@@ -13,7 +13,11 @@
         update t_user set nickname = #{nickname},avatar=#{avatar},password=#{password},email=#{email} where id = #{id}
     </update>
     <update id="updateFollow">
-        update t_user u set follows=(SELECT count(*) from t_follow f where f.t_userId=#{userId})
+        update t_user u set follows=follows+1
+        where u.id=#{userId}
+    </update>
+    <update id="updateFans">
+        update t_user u set fans=fans+1
         where u.id=#{userId}
     </update>
     <delete id="deleteUser">
@@ -22,6 +26,14 @@
     <delete id="cancelFollow">
         DELETE FROM t_follow where t_userId=#{userId} and t_followId=#{followId};
     </delete>
+    <update id="deleteFans">
+        update t_user u set fans=fans-1
+        where u.id=#{userId}
+    </update>
+    <update id="deleteFollow">
+        update t_user u set follows=follows-1
+        where u.id=#{userId}
+    </update>
     <select id="getUserById" resultType="com.myblog.blog.entity.User">
         select * from t_user where id=#{id}
     </select>
@@ -40,13 +52,13 @@
     <select id="isFollowed" resultType="com.myblog.blog.quaryentity.FollowEntity">
         SELECT f.hasfollowed FROM t_follow f WHERE f.t_userId=#{userId} and f.t_followId=#{followId};
     </select>
-    <select id="getUserBySearch" >
-        //使用id和nickname查询
-        <bind name="pattern" value="'%' + query + '%'" />
-        select b.id,b.username,b.nickname, b.create_time,b.update_time,b.email,t.name , u.nickname, u.avatar
-        from myblog.t_user b, myblog.t_type t,myblog.t_user u
-        where b.id = t.id and
-        order by b.update_time desc
+    <select id="getUserBySearch" resultType="com.myblog.blog.quaryentity.UserQuery">
+            <bind name="pattern" value="'%' + query + '%'" />
+            select b.id,b.username,b.nickname, b.create_time,b.update_time,b.email,t.name , u.nickname, u.avatar
+            from myblog.t_user b, myblog.t_type t,myblog.t_user u
+            where b.id = t.id and
+            order by b.update_time desc
     </select>
+
 </mapper>
 

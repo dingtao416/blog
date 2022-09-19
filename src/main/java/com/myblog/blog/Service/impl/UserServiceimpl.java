@@ -102,4 +102,19 @@ public class UserServiceimpl implements UserService {
         return usermapper.getUserBySearch(searchUser);
     }
 
+    @Override
+    public int updateFans(long userId) {
+        return usermapper.updateFans(userId);
+    }
+
+    @Override
+    public int deleteFollow(long userId) {
+        return usermapper.deleteFollow(userId);
+    }
+
+    @Override
+    public int deleteFans(long userId) {
+        return usermapper.deleteFans(userId);
+    }
+
 }

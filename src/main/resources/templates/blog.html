@@ -118,7 +118,7 @@
           <div class="ui threaded comments" style="max-width: 100%;">
             <h3 class="ui dividing header">评论</h3>
             <div class="comment" th:each="comment : ${comments}">
-              <a class="avatar">
+              <a class="avatar" th:href="@{/user/{userId}(userId=${comment.userId})}">
                 <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
               </a>
               <div class="content">
@@ -172,6 +172,7 @@
       <div id="comment-form" class="ui form">
         <input type="hidden" name="blogId" th:value="${blog.id}">
         <input type="hidden" name="parentComment.id" value="-1">
+        <input th:if="${session.user!=null}"type="hidden" name="userId" th:value="${session.user.id}">
         <div class="field">
           <textarea name="content" placeholder="请输入评论信息..."></textarea>
         </div>
@@ -325,7 +326,8 @@ $('#ups-button').click(function(){
             "blogId" : $("[name='blogId']").val(),
             "nickname": $("[name='nickname']").val(),
             "email"   : $("[name='email']").val(),
-            "content" : $("[name='content']").val()
+            "content" : $("[name='content']").val(),
+            "userId"  :$("[name='userId']").val()
         },function (responseTxt, statusTxt, xhr) {
             $(window).scrollTo($('#goto'),500);
             clearContent();

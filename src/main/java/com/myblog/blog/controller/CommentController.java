@@ -37,6 +37,7 @@ public class CommentController {
     @PostMapping("/comments")
     public String post(Comment comment, HttpSession session, Model model) {
         Integer blogId = comment.getBlogId();
+        System.out.println(comment);
         User user = (User) session.getAttribute("user");
         if (user != null) {
             comment.setAvatar(user.getAvatar());
