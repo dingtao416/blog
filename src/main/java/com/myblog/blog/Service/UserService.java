@@ -58,7 +58,7 @@ public interface UserService {
        User getDetailUser(Integer userId);
        //修改关注数
        int updateFollow(long userId);
-       List<UserQuery> getUserBySearch(SearchUser searchUser);
+       List<UserQuery> getUserBySearch(String query);
 
        int updateFans(long userId);
        int deleteFollow(long userId);

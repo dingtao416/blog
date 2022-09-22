@@ -25,4 +25,5 @@ public interface BlogService {
     List<FirstPageBlog> getSearchBlog(String query);
     List<Blog> getByTagId(Integer id);
     List<BlogQuery> getBlogByUser(Integer id);
+    List<BlogQuery> getUserSearchBlog(SearchUserBlog searchUserBlog);
 }

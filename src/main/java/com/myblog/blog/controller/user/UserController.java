@@ -90,7 +90,7 @@ public  String dd(String username, String password, HttpSession session,
      * @return
      */
     @GetMapping("/follow/{followId}")
-    public  String follow(HttpSession session,@PathVariable  long followId,Model model)
+    public String follow(HttpSession session,@PathVariable  long followId,Model model)
     {
         User user = (User)session.getAttribute("user");
         long userId=user.getId();
@@ -104,9 +104,8 @@ public  String dd(String username, String password, HttpSession session,
         FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
-        return "user::message";
+        return "user :: message";
     }
-
     /**
      * 取消关注
      * @param session
@@ -119,6 +118,7 @@ public  String dd(String username, String password, HttpSession session,
     {
         User user = (User)session.getAttribute("user");
         long userId=user.getId();
+        System.out.println("进去");
         int hasFollowed;
         if(user!=null)
         {
@@ -129,7 +129,8 @@ public  String dd(String username, String password, HttpSession session,
         FollowEntity followed = userService.isFollowed(userId, followId);
         hasFollowed=followed==null?0:1;
         model.addAttribute("hasFollowed",hasFollowed);
-        return "user::message";
+        System.out.println("出去");
+        return "user :: message";
     }
 
     /**
@@ -144,7 +145,14 @@ public  String dd(String username, String password, HttpSession session,
         User detailUser = userService.getDetailUser(userId);
         model.addAttribute("user",detailUser);
         User user = (User)session.getAttribute("user");
-        Integer usrId=user.getId();
+        Integer usrId=null;
+        if(user!=null)
+        {
+            usrId=user.getId();
+        }
+        else {
+            usrId=0;
+        }
         int hasFollowed;
         FollowEntity followed = userService.isFollowed(usrId, userId);
         hasFollowed=followed==null?0:1;
@@ -160,17 +168,15 @@ public  String dd(String username, String password, HttpSession session,
     /**
      * 搜索用户
      */
-     @GetMapping("/search")
-             public String getUser(SearchUser searchUser,
-                     @PathVariable Integer id, Model model, @RequestParam(defaultValue = "1",value = "pagenum") Integer pageNum)
+     @GetMapping("/UserSearch")
+             public String getUser(String query,
+                     Model model, @RequestParam(defaultValue = "1",value = "pagenum") Integer pageNum)
      {
-        List<UserQuery> userBySearch =userService.getUserBySearch(searchUser);
+        List<UserQuery> userBySearch =userService.getUserBySearch(query);
         PageHelper.startPage(pageNum,10);
         PageInfo<UserQuery> pageInfo =new PageInfo<>(userBySearch);
         model.addAttribute("pageInfo",pageInfo);
-        return "search";
-
-
+        return "UserSearch";
      }
     /**
      * 进入自己的页面
@@ -190,7 +196,7 @@ public  String dd(String username, String password, HttpSession session,
         model.addAttribute("types",typeService.getTypes());
         return "userDetail";
     }
-    @GetMapping("followList")
+    @GetMapping("/followList")
     public String getFollow(HttpSession session,Model model)
     {
         User user =(User)session.getAttribute("user");
@@ -198,5 +204,33 @@ public  String dd(String username, String password, HttpSession session,
         model.addAttribute("user",users);
         return "followList";
     }
-
+    @PostMapping("/search")
+    public String search(SearchUserBlog searchBlog, Model model,
+                         @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
+        List<BlogQuery> blogBySearch = blogService.getUserSearchBlog(searchBlog);
+        System.out.println(searchBlog);
+        PageHelper.startPage(pageNum, 10);
+        PageInfo<BlogQuery> pageInfo = new PageInfo<>(blogBySearch);
+        model.addAttribute("pageInfo", pageInfo);
+        return "user :: blogList";
+    }
+    /*
+    * Bug
+    * */
+    @GetMapping("/unfollowList/{followId}")
+    public String unfollowList(HttpSession session,@PathVariable  long followId,Model model)
+    {
+        User user = (User)session.getAttribute("user");
+        long userId=user.getId();
+        System.out.println(followId);
+        if(user!=null)
+        {
+            userService.cancelFollow(userId,followId);
+            userService.deleteFollow(userId);
+            userService.deleteFans(followId);
+        }
+        List<User> users = userService.selectAllFollowers(user.getId());
+        model.addAttribute("user",users);
+        return "followList::message";
+    }
 }

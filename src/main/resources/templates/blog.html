@@ -146,7 +146,7 @@
                     <img src="https://unsplash.it/100/100?image=1005" th:src="@{${reply.avatar}}">
                   </a>
                   <div class="content">
-                    <a class="author" >
+                    <a class="author" th:href="@{/user/{userId}(userId=${comment.userId})}">
                       <span th:text="${reply.nickname}">小红</span>
                       <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">栈主</div>
                       &nbsp;<span th:text="|@ ${reply.parentNickname}|" class="m-teal">@ 小白</span>
@@ -250,8 +250,6 @@
 <script th:inline="javascript">
 
  $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/);
-
-
  tocbot.init({
         // Where to render the table of contents.
         tocSelector: '.js-toc',

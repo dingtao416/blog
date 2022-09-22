@@ -174,6 +174,11 @@ public class BlogServiceimpl implements BlogService {
         return blogmapper.getBlogByUser(id);
     }
 
+    @Override
+    public List<BlogQuery> getUserSearchBlog(SearchUserBlog searchUserBlog) {
+        return blogmapper.searchByTitleAndTypeAndUser(searchUserBlog);
+    }
+
     @Scheduled(cron = "0 0 1 * * ?")
     public void updateNewDayViews()
     {
