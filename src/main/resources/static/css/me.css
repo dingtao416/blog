@@ -1,4 +1,18 @@
-
+body{
+    /* 引入背景图片 设置居中布局 */
+    background: url(../images/adminbacc.jpg) no-repeat center center fixed;
+    /* 计算背景大小 */
+    background-size: cover;
+    font-family: roboto,snas-serif;
+}
+.fanbac
+{
+    background-color: beige;
+}
+.ddddd
+{
+    width: 100px;
+}
 .m-bg{
     width: 100%;
     height: 650px;

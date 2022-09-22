@@ -22,8 +22,9 @@
                 <div class="ui icon inverted transparent input">
                     <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
                         <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                            <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
+                            <input style="color: white" type="text" name="query" placeholder="Search Blog" th:value="${query}">
                             <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                            <input style="color: white" type="text" name="query" placeholder="Search User" th:value="${query}">
                         </div>
                     </form>
                 </div>
