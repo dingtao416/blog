@@ -35,7 +35,7 @@ public class IndexController {
     //分页查询博客列表
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, HttpSession session, RedirectAttributes attributes){
-        PageHelper.startPage(pageNum,4);
+        PageHelper.startPage(pageNum,8);
         //查询博客列表
         List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
         //查询最新推荐博客

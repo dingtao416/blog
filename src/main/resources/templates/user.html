@@ -7,6 +7,7 @@
   <title>其他用户</title>
   <link rel="stylesheet" href="../static/lib/semantic/dist/semantic.min.css" th:href="@{/lib/semantic/dist/semantic.min.css}">
   <link rel="stylesheet"  href="../static/css/index.css" th:href="@{/css/index.css}">
+
 </head>
 
 <body>
@@ -50,6 +51,7 @@
         <img src="../images/1.png" th:src="@{${user.avatar}}" class="ui rounded image" style="width:100px;height: 100px; left: 37px;"  alt=""><br>
 
         <div class="ui blue label">普通用户</div>
+        <br>
 
       </div>
       <div class="twelve wide column left aligned">
@@ -61,6 +63,18 @@
             <div class="item">
               <i class="birthday cake icon"></i><span th:text="${#dates.format(user.createTime,'yyyy-MM-dd')}">2022-08-29</span>
             </div>
+            <div id="result" class="item">
+              <div th:fragment="message">
+                <button class="ui active button fade red " th:if="${hasFollowed==0}" onclick="follow()">
+                  <i class="user icon" ></i>
+                  关注
+                </button>
+                <button class="ui active button fade red " th:if="${hasFollowed==1}" onclick="unfollow()">
+                  <i class="user icon" ></i>
+                  取消关注
+                </button>
+              </div>
+            </div>
           </div><br>
           <p class="ui blue basic label m-padded-small">简介:</p>
           <p class="m-margin-small" th:text="${user.introduction}">这是一个用户!</p>
@@ -69,87 +83,108 @@
         <p class="ui blue big basic label" >获赞：111</p>
         <p class="ui blue big basic label" th:text="|粉丝：${user.fans}|">粉丝：31</p>
         <p class="ui blue big basic label" th:text="|已关注：${user.follows}|">已关注：2342</p>
-        <p class="ui blue big basic label"> 原创：2</p>
       </div>
-      <form action="#" method="post" class="ui form top attached segment">
+      <div class="ui form top attached segment">
+        <input type="hidden" name="page">
+        <input type="hidden" name="userId" th:value="${user.id}">
         <div class="inline fields">
           <div class="field">
-            <input type="text" name="title" placeholder="文章名称">
+            <input type="text" name="title" placeholder="标题">
           </div>
           <div class="field">
             <div class="ui selection dropdown">
-              <input type="hidden" name="type">
+              <input type="hidden" name="typeId">
               <i class="dropdown icon"></i>
               <div class="default text">类型</div>
               <div class="menu">
-                <div class="item" date-value="1">1</div>
-                <div class="item" date-value="2">2</div>
-                <div class="item" date-value="3">3</div>
-                <div class="item" date-value="4">4</div>
+                <div class="item" th:each="type: ${types}" th:text="${type.name}" data-value="1" th:data-value="${type.id}">New</div>
               </div>
             </div>
           </div>
           <div class="field">
-            <button class="ui mini blue button"><i class="search icon"></i>搜索</button>
-          </div>
-          <div class="ui animated fade red button"  tabindex="0" id="result" th:fragment="message">
-            <div class="content " id="followButton" th:if="${hasFollowed==0}"><i class="plus icon"></i> 关注</div>
-            <div class="content"  id="UnfollowButton" th:if="${hasFollowed==1}">
-              已关注
-            </div>
+            <button class="ui mini blue button" type="button" id="search-btn"><i class="search icon"></i>搜索</button>
           </div>
         </div>
-      </form>
-      <table class="ui attached celled table">
-        <!--表头-->
-        <thead>
-        <tr>
-          <th></th>
-          <th>标题</th>
-          <th>类型</th>
-          <th>更新时间</th>
-          <th>操作</th>
-        </tr>
-        </thead>
-        <!--表格内容-->
-        <tbody>
-        <tr th:each="blog,iterStat : ${pageInfo.list}">
-          <td th:text="${iterStat.count}">1</td>
-          <td th:text="${blog.title}">总结过去，展望未来</td>
-          <td th:text="${blog.type.name}">成长感悟</td>
-          <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2022-09-04 09:45</td>
-          <td>
-            <a href="" class="ui mini blue button" th:href="@{/blog/{id}(id=${blog.id})}">查看</a>
-          </td>
-        </tr>
-        </tbody>
-        <!--表格尾部-->
-        <tfoot>
-        <tr>
-          <th colspan="5">
-            <div class="ui right floated pagination menu">
-              <a class="icon item" th:href="@{/user/{userId}(userId=${user.id},pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">
-                <i class="left chevron icon"></i>&nbsp;&nbsp;
-                上一页
-              </a>
+      </div>
+        <table class="ui attached celled table" id="table-container" th:fragment="blogList">
+          <!--表头-->
+          <thead>
+          <tr>
+            <th></th>
+            <th>标题</th>
+            <th>类型</th>
+            <th>更新时间</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <!--表格内容-->
+          <tbody>
+          <tr th:each="blog,iterStat : ${pageInfo.list}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${blog.title}">总结过去，展望未来</td>
+            <td th:text="${blog.type.name}">成长感悟</td>
+            <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2022-09-04 09:45</td>
+            <td>
+              <a href="" class="ui mini blue button" th:href="@{/blog/{id}(id=${blog.id})}">查看</a>
+            </td>
+          </tr>
+          </tbody>
+          <!--表格尾部-->
+          <tfoot>
+          <tr>
+            <th colspan="5">
+              <div class="ui right floated pagination menu">
+                <a class="icon item" th:href="@{/user/{userId}(userId=${user.id},pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">
+                  <i class="left chevron icon"></i>&nbsp;&nbsp;
+                  上一页
+                </a>
 
-              <a class="icon item" th:href="@{/user/{userId}(userId=${user.id},pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}">下一页&nbsp;&nbsp;
-                <i class="right chevron icon"></i>
-              </a>
-            </div>
+                <a class="icon item" th:href="@{/user/{userId}(userId=${user.id},pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}">下一页&nbsp;&nbsp;
+                  <i class="right chevron icon"></i>
+                </a>
+              </div>
 
-          </th>
-        </tr>
-        </tfoot>
-      </table>
+            </th>
+          </tr>
+          </tfoot>
+        </table>
+
     </div>
   </div>
 </div>
-
 <br>
 <br>
 <br>
-
+<div class="ui modal">
+  <div class="ur container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui teal image header">
+          <div class="content">
+            用户登录
+          </div>
+        </h2>
+        <form class="ui large form" method="post" action="#" th:action="@{/user/login}">
+          <div class="ui  segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" placeholder="用户名">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="密码">
+              </div>
+            </div>
+            <button class="ui fluid large teal submit button">登   录</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <!--底部-->
@@ -192,12 +227,31 @@
         $('.ui.dropdown').dropdown({
             on:'hover'
         });
-        $('#followButton').click(function(){
-       $('#result').load(/*[[@{/user/follow/{followId}(followId=${user.id})}]]*/)
+
+    var user=/*[[${session.user}]]*/;
+    function follow(){
+    if(user==null)
+    {
+           $('.ui.modal').modal('show');
+    }
+    else $('#result').load(/*[[@{/user/follow/{followId}(followId=${user.id})}]]*/);
+    }
+
+    function unfollow(){ $('#result').load(/*[[@{/user/unfollow/{followId}(followId=${user.id})}]]*/);}
+
+    $("#search-btn").click(function () {
+      $("[name='page']").val(0);
+      loaddata();
     });
-        $('#UnfollowButton').click(function(){
-       $('#result').load(/*[[@{/user/unfollow/{followId}(followId=${user.id})}]]*/)
-    });
+
+     function loaddata() {
+      $("#table-container").load(/*[[@{/user/search}]]*/,{
+        title : $("[name='title']").val(),
+        typeId : $("[name='typeId']").val(),
+        page : $("[name='page']").val(),
+        userId: $("[name='userId']").val()
+      });
+    }
  </script>
 </body>
 </html>

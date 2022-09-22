@@ -8,6 +8,8 @@ import com.myblog.blog.mapper.Tagmapper;
 import com.myblog.blog.mapper.Typemapper;
 import com.myblog.blog.mapper.Usermapper;
 import com.myblog.blog.quaryentity.DetailedBlog;
+import com.myblog.blog.quaryentity.FirstPageBlog;
+import com.myblog.blog.quaryentity.UserQuery;
 import com.myblog.blog.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,13 +99,14 @@ class BlogApplicationTests {
     @Test
     void blog()
     {
-        User detailUser = userService.getDetailUser(4);
-        System.out.println(detailUser);
+        List<User> users = userService.selectAllFollowers(10);
+        System.out.println(users);
     }
     @Test
     void comment()
     {
-        System.out.println(typemapper.getAllType());
+        List<FirstPageBlog> allFirstPageBlog = blogService.getAllFirstPageBlog();
+        System.out.println(allFirstPageBlog);
     }
     @Test
     void Time()
@@ -114,10 +117,8 @@ class BlogApplicationTests {
     @Test
     void Follower()
     {
-    usermapper.saveFollower(123,5);
-    System.out.println(usermapper.selectAllFollowers(123));
-        //System.out.println(usermapper.updateFollow(123));//update sql可能错误
-        usermapper.cancelFollow(123,5);
+        List<UserQuery> userBySearch = usermapper.getUserBySearch("牛");
+        System.out.println(userBySearch);
     }
     @Test
     void tag()

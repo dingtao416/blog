@@ -97,7 +97,7 @@
         <result property="avatar" column="avatar"/>
     </resultMap>
     <select id="getFirstPageBlog" resultMap="firstPageBlog">
-        select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.ups,b.update_time,b.description,t.name ,u.nickname, u.avatar
+        select b.id,b.title,b.first_picture, b.views, u.id uid,b.comment_count,b.create_time,b.ups,b.update_time,b.description,t.name ,u.nickname, u.avatar
         from  myblog.t_blog b, myblog.t_type t,myblog.t_user u
         where b.type_id = t.id and  u.id = b.user_id and b.published = 1 order by b.create_time desc
     </select>
@@ -204,6 +204,23 @@
         select b.id,b.title,b.views,b.ups,b.update_time,t.name
         from t_blog b,t_type t
         where t.id=b.type_id and b.user_id=#{id}
+    </select>
+    <select id="searchByTitleAndTypeAndUser" resultMap="blog">
+        <bind name="pattern" value="'%' + title + '%'" />
+        select b.id,b.title,b.type_id,t.id,t.name,b.views,b.ups,u.username,b.update_time from myblog.t_blog b ,myblog.t_type t,myblog.t_user u
+        <where>
+            <if test="1 == 1">
+                b.type_id = t.id
+                and  b.user_id=#{userId}
+            </if>
+            <if test="typeId != null">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="title != null">
+                and b.title like #{pattern}
+            </if>
+
+        </where>
     </select>
     <update id="getCommentCountById" parameterType="com.myblog.blog.entity.Blog">
         update myblog.t_blog b set b.comment_count = (

@@ -47,17 +47,14 @@
         select * from t_user where username=#{username} and password=#{password}
     </select>
     <select id="selectAllFollowers" resultType="com.myblog.blog.entity.User">
-        SELECT u.id,u.username from myblog.t_user u,myblog.t_follow f where f.t_userId=#{userId} and f.t_followId=u.id;
+        SELECT u.id,u.avatar,u.nickname from myblog.t_user u,myblog.t_follow f where f.t_userId=#{userId} and f.t_followId=u.id;
     </select>
     <select id="isFollowed" resultType="com.myblog.blog.quaryentity.FollowEntity">
         SELECT f.hasfollowed FROM t_follow f WHERE f.t_userId=#{userId} and f.t_followId=#{followId};
     </select>
     <select id="getUserBySearch" resultType="com.myblog.blog.quaryentity.UserQuery">
             <bind name="pattern" value="'%' + query + '%'" />
-            select b.id,b.username,b.nickname, b.create_time,b.update_time,b.email,t.name , u.nickname, u.avatar
-            from myblog.t_user b, myblog.t_type t,myblog.t_user u
-            where b.id = t.id and
-            order by b.update_time desc
+            select u.id,u.nickname,u.avatar from t_user u where u.nickname like #{pattern}
     </select>
 
 </mapper>

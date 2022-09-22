@@ -97,9 +97,10 @@ public class UserServiceimpl implements UserService {
         return usermapper.updateFollow(userId);
     }
 
+
     @Override
-    public List<UserQuery> getUserBySearch(SearchUser searchUser) {
-        return usermapper.getUserBySearch(searchUser);
+    public List<UserQuery> getUserBySearch(String query) {
+        return usermapper.getUserBySearch(query);
     }
 
     @Override

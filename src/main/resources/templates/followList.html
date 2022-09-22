@@ -71,15 +71,18 @@
       </div>
     </div>
     <!--关注列表-->
-    <div class="ui middle aligned divided list" th:each="user:${user}">
+    <div  id="result" th:fragment="message" class="ui middle aligned divided list" th:each="user:${user}">
       <div class="item">
         <div class="right floated content">
-          <div class="ui red basic button">取消关注</div>
+          <button class="ui red basic button" onclick="unfollow()">取消关注</button>
         </div>
-        <img class="ui avatar image" src="../images/1.png" th:src="@{${user.avatar}}">
+       <a th:href="@{/user/{userId}(userId=${user.id})}"><img class="ui avatar image" src="../images/1.png" th:src="${user.avatar}"></a>
         <div class="content" th:text="${user.nickname}">
           Lena
         </div>
+        <script th:inline="javascript">
+         function unfollow(){ $('#result').load("/user/unfollowList/"+[[${user.id}]])}
+         </script>
       </div>
     </div>
   </div>

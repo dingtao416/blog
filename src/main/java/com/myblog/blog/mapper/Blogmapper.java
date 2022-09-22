@@ -20,6 +20,7 @@ public interface Blogmapper {
     //删除博客
     void deletBlog(long id);
     List<BlogQuery> searchByTitleAndType(SearchBlog searchBlog);
+    List<BlogQuery> searchByTitleAndTypeAndUser(SearchUserBlog searchUserBlog);
     //首页展示查询
     List<FirstPageBlog> getFirstPageBlog();
     //推荐博客

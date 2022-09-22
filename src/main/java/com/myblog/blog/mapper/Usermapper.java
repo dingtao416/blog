@@ -42,5 +42,5 @@ public interface Usermapper {
         int updateFans(long userId);
         int deleteFollow(long userId);
         int deleteFans(long userId);
-        List<UserQuery> getUserBySearch(SearchUser searchUser);
+        List<UserQuery> getUserBySearch(String query);
 }

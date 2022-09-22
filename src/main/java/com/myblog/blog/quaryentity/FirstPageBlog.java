@@ -9,6 +9,7 @@ public class FirstPageBlog {
 
     //博客信息
     private Integer id;
+    private Integer uid;
     private String title;
     private String firstPicture;
     private Integer views;
@@ -32,6 +33,7 @@ public class FirstPageBlog {
     public String toString() {
         return "FirstPageBlog{" +
                 "id=" + id +
+                ", uid=" + uid +
                 ", title='" + title + '\'' +
                 ", firstPicture='" + firstPicture + '\'' +
                 ", views=" + views +
@@ -44,6 +46,14 @@ public class FirstPageBlog {
                 ", nickname='" + nickname + '\'' +
                 ", avatar='" + avatar + '\'' +
                 '}';
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public long getUps() {

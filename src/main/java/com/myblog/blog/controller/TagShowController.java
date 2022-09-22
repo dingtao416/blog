@@ -27,8 +27,7 @@ public class TagShowController {
     private BlogService blogService;
 
     @GetMapping("/tags/{id}")
-    public String search(SearchBlog searchBlog, Model model,
-                         @RequestParam(defaultValue = "1", value = "tagNum") Integer pageNum, @PathVariable Integer id) {
+    public String search(SearchBlog searchBlog, Model model, @PathVariable Integer id) {
         List<Tag> tags = tagService.getBlogTag();
         //-1从导航点过来的
         if (id == -1){
@@ -38,6 +37,7 @@ public class TagShowController {
         System.out.println(id);
         model.addAttribute("tags", tags);
         model.addAttribute("activeTagId", id);
+        model.addAttribute("blog",blogs);
         return "tags";
     }
     @GetMapping("/tag/message")
