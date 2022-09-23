@@ -1,6 +1,7 @@
 package com.myblog.blog.config;
 
 import com.myblog.blog.Interceptor.LoginInterceptor;
+import com.myblog.blog.Interceptor.UserLoginInterceptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -25,6 +26,12 @@ public class LoginInterceptorConfig implements WebMvcConfigurer {
         list.add("/register.html");
         list.add("/bootstrap3/**");
         list.add("/admin/logout");
+        list.add("/user/{userId}");
+        list.add("/user/UserSearch");
+        list.add("/user/search");
+        list.add("/user/follow/{followId}");
+        HandlerInterceptor userLoginInterceptor =new UserLoginInterceptor();
+        registry.addInterceptor(userLoginInterceptor).addPathPatterns("/user/**").excludePathPatterns(list);
         registry.addInterceptor(interceptor)
                 .addPathPatterns("/admin/**").
                 excludePathPatterns(list);

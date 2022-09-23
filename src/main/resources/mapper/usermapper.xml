@@ -54,7 +54,7 @@
     </select>
     <select id="getUserBySearch" resultType="com.myblog.blog.quaryentity.UserQuery">
             <bind name="pattern" value="'%' + query + '%'" />
-            select u.id,u.nickname,u.avatar from t_user u where u.nickname like #{pattern}
+            select u.id,u.nickname,u.avatar,u.fans,u.create_time from t_user u where u.nickname like #{pattern}
     </select>
 
 </mapper>

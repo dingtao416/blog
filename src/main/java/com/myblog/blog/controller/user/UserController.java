@@ -169,15 +169,17 @@ public  String dd(String username, String password, HttpSession session,
     /**
      * 搜索用户
      */
-     @GetMapping("/UserSearch")
-             public String getUser(String query,
+     @PostMapping("/UserSearch")
+             public String getUser(@RequestParam String queryUser,
                      Model model, @RequestParam(defaultValue = "1",value = "pagenum") Integer pageNum)
      {
-        List<UserQuery> userBySearch =userService.getUserBySearch(query);
+        List<UserQuery> userBySearch =userService.getUserBySearch(queryUser);
+         System.out.println(userBySearch);
         PageHelper.startPage(pageNum,10);
         PageInfo<UserQuery> pageInfo =new PageInfo<>(userBySearch);
         model.addAttribute("pageInfo",pageInfo);
-        return "UserSearch";
+        model.addAttribute("queryUser",queryUser);
+        return "searchuser";
      }
     /**
      * 进入自己的页面
@@ -187,6 +189,7 @@ public  String dd(String username, String password, HttpSession session,
     public String getMeMessage(HttpSession session,Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum)
     {
         User user = (User)session.getAttribute("user");
+        System.out.println("进入");
         User detailUser = userService.getDetailUser(user.getId());
         model.addAttribute("user",detailUser);
         String orderBy = "id desc";
@@ -233,5 +236,17 @@ public  String dd(String username, String password, HttpSession session,
         List<User> users = userService.selectAllFollowers(user.getId());
         model.addAttribute("user",users);
         return "followList::message";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session)
+    {
+        session.removeAttribute("user");
+        return "redirect:/";
+    }
+    @PostMapping("/update")
+    public String updateUser(User user)
+    {
+
+        return "userDetail";
     }
 }

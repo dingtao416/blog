@@ -40,7 +40,7 @@ public class adminUserController {
         }
     }
     //注销用户
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session)
     {
         session.removeAttribute("user");

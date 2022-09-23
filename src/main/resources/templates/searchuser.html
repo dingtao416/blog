@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONESTAR-搜索结果</title>
+    <title>用户搜索结果</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
 </head>
@@ -23,7 +23,14 @@
                         <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
                             <input style="color: white" type="text" name="query" placeholder="Search Blog" th:value="${query}">
                             <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-                            <input style="color: white" type="text" name="query" placeholder="Search User" th:value="${query}">
+                        </div>
+                    </form>
+                </div>
+                <div class="ui icon inverted transparent input">
+                    <form name="searchUser" action="#" th:action="@{/user/UserSearch}" method="post" target="_blank">
+                        <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+                            <input style="color: white" type="text" name="queryUser" placeholder="Search User" th:value="${queryUser}">
+                            <i onclick="document.forms['searchUser'].submit()" class="search link icon"></i>
                         </div>
                     </form>
                 </div>
@@ -62,48 +69,21 @@
                 </div>
 <!--                这里用户开始-->
                 <div class="ui attached segment" >
-                    <div class="ui padded vertical segment m-padded-large" th:each="blog:${pageInfo.list}">
+                    <div class="ui padded vertical segment m-padded-large" th:each="user:${pageInfo.list}">
                         <div class="ui middle aligned grid">
                             <div class="eleven wide column">
                                 <div class="ui grid">
                                     <div class="eleven wide column">
                                         <div class="ui horizontal link list">
                                             <div class="item">
-                                                <img src="../static/images/avatar.png" th:src="@{${blog.avatar}}" alt="" class="ui avatar image">
-                                                <div class="content" ><a href="#" th:text="${blog.nickname}"class="header">二百斤的三儿</a></div>
+                                                <img src="../static/images/avatar.png" th:src="@{${user.avatar}}" alt="" class="ui avatar image">
+                                                <div class="content" ><a href="#" th:text="${user.nickname}"class="header">二百斤的三儿</a></div>
                                             </div>
                                             <div class="item" >
-                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2021-09-01</span>
+                                                <i class="calendar icon"></i><span th:text="${#dates.format(user.createTime,'yyyy-MM-dd')}">2021-09-01</span>
                                             </div>
                                             <div class="item">
-                                                <span th:text="${blog.views}" class="fanbac">粉丝：29</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="ui attached segment">
-                    <div class="ui padded vertical segment m-padded-large" th:each="blog:${pageInfo.list}">
-                        <div class="ui middle aligned grid">
-                            <div class="eleven wide column">
-
-
-                                <div class="ui grid">
-                                    <div class="eleven wide column">
-                                        <div class="ui horizontal link list">
-                                            <div class="item">
-                                                <img src="../static/images/" th:src="@{${blog.avatar}}" alt="" class="ui avatar image">
-                                                <div class="content" ><a href="#" th:text="${blog.nickname}"class="header">可爱的丁涛</a></div>
-                                            </div>
-                                            <div class="item" class="fanbac">
-                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2021-09-01</span>
-                                            </div>
-                                            <div class="item">
-                                                <span th:text="${blog.views}" class="fanbac">粉丝：29</span>
+                                                <span th:text="|粉丝：${user.fans}|" class="fanbac">粉丝：29</span>
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +95,7 @@
                 </div>
 <!--                这里是用户-->
                 <div class="right aligned column">
-                    共 <h2 class="ui orange header m-inline-block m-text-thin"> 14 </h2> 个
+                    共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${pageInfo.total}">  </h2> 个
                 </div>
                 <!--分页-->
                 <div class="ui bottom attached segment m-opacity stackable grid">
@@ -153,7 +133,7 @@
     <div class="ui center aligned container">
         <div class="ui inverted divided grid">
             <div class="three wide column">
-                <img src="../../static/images/footer.png" class="ui rounded image" style="width:100px;height: 120px;"  alt="">
+                <img src="../images/footer.png" class="ui rounded image" style="width:100px;height: 120px;"  alt="">
             </div>
 
             <div class="three wide column m-text-thin m-text-spaced m-text-lined m-opacity-mini">

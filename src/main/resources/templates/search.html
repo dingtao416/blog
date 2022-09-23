@@ -10,7 +10,7 @@
   <link rel="stylesheet"  href="../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 <body>
-<!--导航部分-->
+<!--导航-->
 <nav class="ui inverted attached segment m-padded-nav">
   <div class="ui container">
     <div class="ui inverted secondary menu">
@@ -22,9 +22,16 @@
         <div class="ui icon inverted transparent input">
           <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
             <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-              <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
+              <input style="color: white" type="text" name="query" placeholder="Search Blog" th:value="${query}">
               <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-              <input style="color: white" type="text" name="query" placeholder="Search User" th:value="${query}">
+            </div>
+          </form>
+        </div>
+        <div class="ui icon inverted transparent input">
+          <form name="searchUser" action="#" th:action="@{/user/UserSearch}" method="post" target="_blank">
+            <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+              <input style="color: white" type="text" name="queryUser" placeholder="Search User" th:value="${queryUser}">
+              <i onclick="document.forms['searchUser'].submit()" class="search link icon"></i>
             </div>
           </form>
         </div>
