@@ -175,38 +175,111 @@
     </div>
   </div>
 </footer>
+<style>
 
-<div class="ui modal">
-  <h3>编辑资料</h3>
-  <form method="post" th:action="@{/user/update}">
-  <div class="form-group">
-    <label for="username" class="form-label">用户名：</label>
-    <div class="form-input">
-      <input type="text" id="username"  value="54210723" th:value="${user.username}">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+    background: url("../static/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    border: 1px solid #000;
+    width: 500px;
+    height: 400px;
+    margin: 100px auto;
+    opacity: 0.8;
+    border-radius: 25px;
+    box-shadow: 0 0 100px rgb(76, 107, 154);
+
+    }
+    #container h3{
+        text-align: center;
+    }
+    .form-group{
+
+        margin-bottom: 25px;
+        display: flex;
+    }
+    .form-label{
+        flex: 4;
+        text-align: right;
+        margin-right: 10px;
+        border-radius: 50px;
+    }
+    .form-input{
+        flex: 8;
+    }
+    .button{
+        margin-left: 100px !important;
+
+    }
+    textarea
+    {
+      width: 50px;
+      height: 50px;
+
+    }
+    .block
+    {
+      height: 30px;
+
+    }
+    .error{color:red}
+</style>
+    <div id="container">
+      <div class="block"></div>
+      <h3>编辑资料</h3>
+      <form class="ui modal" method="post" th:action="@{/user/update}">
+      <div class="form-group">
+        <label for="username" class="form-label">用户名：</label>
+        <div class="form-input">
+          <input type="text" id="username"  th:value="${user.username}" value="54210723">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nickname" class="form-label">昵称：</label>
+        <div class="form-input">
+          <input type="text" id="nickname" name="nickname" th:value="${user.nickname}" value="二百斤">
+          <div class="error"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;  </p>
+        <label class="form-label">我的签名：</label>
+        <textarea class="form-input" rows="5" cols="10"  name="introduction" th:value="${user.introduction}"style="resize:none">11111111</textarea>
+        <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        </p>
+        <p>  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label  class="form-label">出生日期:</label>
+        <div class="form-input">
+          <input type="datetime-local" >
+        </div>
+      </div>
+      <div class="button ">
+        <button type="submit" class="ui button" id="btn">
+          确定
+        </button>
+      </div>
+      </form>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="nickname" class="form-label">昵称：</label>
-    <div class="form-input">
-      <input type="text" id="nickname" name="nickname" th:value="${user.nickname}"value="二百斤">
-      <div class="error"></div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label  class="form-label">我的签名：</label>
-    <textarea name="introduction"  th:value="${user.introduction}"class="form-input" rows="5" cols="20" style="resize:none">11111111</textarea>
-  </div>
-  <div class="form-group">
-    <label  class="form-label">出生日期:</label>
-    <div class="form-input">
-      <input type="datetime-local" name="create_time" th:value="${#dates.format(user.createTime,'yyyy/MM/dd')}">
-    </div>
-  </div>
-    <button class="ui button" id="btn" type="submit">
-      确定
-    </button>
-  </form>
-</div>
 <script src="../static/lib/jquery-3.2.1/jquery-3.2.1.min.js" th:src="@{/lib/jquery-3.2.1/jquery-3.2.1.min.js}"></script>
 <script src="../static/lib/semantic/dist/semantic.min.js" th:src="@{/lib/semantic/dist/semantic.min.js}"></script>
 <script th:inline="javascript">

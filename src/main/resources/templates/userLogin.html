@@ -27,7 +27,8 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="密码" id="password" name="password"><br>
         </div>
-
+        <br>
+        <br>
         <p class="message" th:unless="${#strings.isEmpty(message)} " th:text="${message}"></p>
         <button>登录</button><br>
     </form> <br>

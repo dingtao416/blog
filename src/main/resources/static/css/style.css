@@ -9,7 +9,7 @@ body{
 .conter{
     width: 400px;
     height: 480px;
-    margin: 250px 500px 500px 750px ;
+    margin: 200px 500px 500px 550px ;
     background-color: black;
     opacity: 0.8;
     border-radius: 25px;
@@ -92,12 +92,12 @@ body{
 .conter2{
     width: 480px;
     height: 500px;
-    margin:250px 500px 500px 750px;
+margin: 150px 500px 500px 480px ;
     background-color:black;
     opacity: 0.8;
     border-radius: 25px;
     box-shadow: 0 0 30px rgb(76, 107, 154);
-    margin: 250px 500px 500px 700px ;
+
 }
 .header2{
     margin-left: 80px;
