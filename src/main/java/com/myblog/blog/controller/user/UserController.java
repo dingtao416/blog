@@ -9,7 +9,6 @@ import com.myblog.blog.entity.Type;
 import com.myblog.blog.entity.User;
 import com.myblog.blog.quaryentity.*;
 import com.myblog.blog.quaryentity.BlogQuery;
-import com.myblog.blog.quaryentity.FirstPageBlog;
 import com.myblog.blog.quaryentity.FollowEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -68,7 +68,6 @@ public  String dd(String username, String password, HttpSession session,
                   RedirectAttributes redirectAttributes)
 {
     User user= userService.checkUser(username,password);
-    System.out.println(username+password);
     if((user == null||username.equals("admin")))
     {
         redirectAttributes.addFlashAttribute("message","用户名或密码错误");
@@ -186,10 +185,9 @@ public  String dd(String username, String password, HttpSession session,
      * @return
      */
     @GetMapping("/me")
-    public String getMeMessage(HttpSession session,Model model,@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum)
+    public String getMeMessage(HttpSession session, HttpServletRequest request, Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum)
     {
         User user = (User)session.getAttribute("user");
-        System.out.println("进入");
         User detailUser = userService.getDetailUser(user.getId());
         model.addAttribute("user",detailUser);
         String orderBy = "id desc";
@@ -226,7 +224,6 @@ public  String dd(String username, String password, HttpSession session,
     {
         User user = (User)session.getAttribute("user");
         long userId=user.getId();
-        System.out.println(followId);
         if(user!=null)
         {
             userService.cancelFollow(userId,followId);
@@ -246,7 +243,6 @@ public  String dd(String username, String password, HttpSession session,
     @PostMapping("/update")
     public String updateUser(User user)
     {
-
         return "userDetail";
     }
 }

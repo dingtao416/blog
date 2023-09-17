@@ -1,9 +1,0 @@
-2022-09-13 11:22:12.258  INFO 31012 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 31012 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
-2022-09-13 11:22:12.265  INFO 31012 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
-2022-09-13 11:22:17.119  INFO 31012 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 5.967 seconds (JVM running for 7.028)
-2022-09-13 12:00:13.212  INFO 14816 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 14816 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
-2022-09-13 12:00:13.216  INFO 14816 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
-2022-09-13 12:00:15.661  INFO 14816 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 2.852 seconds (JVM running for 3.204)
-2022-09-13 12:28:19.193  INFO 19244 --- [restartedMain] com.myblog.blog.BlogApplication          : Starting BlogApplication using Java 18.0.1.1 on DESKTOP-7ELKVJQ with PID 19244 (D:\myblog\blog\target\classes started by 86136 in D:\myblog\blog)
-2022-09-13 12:28:19.195  INFO 19244 --- [restartedMain] com.myblog.blog.BlogApplication          : The following 1 profile is active: "dev"
-2022-09-13 12:28:22.541  INFO 19244 --- [restartedMain] com.myblog.blog.BlogApplication          : Started BlogApplication in 3.992 seconds (JVM running for 4.547)

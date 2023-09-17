@@ -50,7 +50,6 @@ public class BlogServiceimpl implements BlogService {
         blog.setUps(0);
         blogmapper.saveBlog(blog);
         Integer id = blog.getId();
-        System.out.println(id);
         //将标签的数据存到t_blogs_tag表中
         List<Tag> tags=blog.getTags();
         BlogAndTag blogAndTag=null;
@@ -90,7 +89,6 @@ public class BlogServiceimpl implements BlogService {
     public List<BlogQuery> getAllBlog() {
        return blogmapper.getAllBlogQuery();
     }
-
     /**
      * 查询博客时用的方法
      * @param searchBlog
@@ -100,7 +98,6 @@ public class BlogServiceimpl implements BlogService {
     public List<BlogQuery> getBlogBySearch(SearchBlog searchBlog) {
         return blogmapper.searchByTitleAndType(searchBlog);
     }
-
     /**
      * 首页返回博客
      * @return
@@ -155,10 +152,12 @@ public class BlogServiceimpl implements BlogService {
         blogmapper.getCommentCountById(id);
         return detailedBlog;
     }
+
     @Override
     public List<FirstPageBlog> getByTypeId(Integer typeId) {
         return blogmapper.getByTypeId(typeId);
     }
+
     @Override
     public List<FirstPageBlog> getSearchBlog(String query) {
         return blogmapper.getSearchBlog(query);

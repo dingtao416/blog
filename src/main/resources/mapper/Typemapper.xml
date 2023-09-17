@@ -30,7 +30,7 @@
     </resultMap>
     <select id="getAllTypeAndBlog" resultMap="type">
         select t.id tid, t.name, b.id bid, b.title,b.type_id
-        from myblog.t_type t,myblog.t_blog b
+        from t_type t,t_blog b
         where t.id = b.type_id
     </select>
     <select id="FindNumOfTypes" resultType="java.lang.Integer">

@@ -7,7 +7,7 @@
         insert into t_user(username,password,email,nickname,introduction,avatar,create_time,fans,follows) values (#{username},#{password},#{email},#{nickname},#{introduction},#{avatar},#{createTime},#{fans},#{follows})
     </insert>
     <insert id="saveFollower">
-        insert myblog.t_follow(t_userId,t_follow.t_followId,hasfollowed) VALUES(#{userId},#{followId},1)
+        insert t_follow(t_userId,t_follow.t_followId,hasfollowed) VALUES(#{userId},#{followId},1)
     </insert>
     <update id="updateUser">
         update t_user set nickname = #{nickname},avatar=#{avatar},password=#{password},email=#{email} where id = #{id}
@@ -47,7 +47,7 @@
         select * from t_user where username=#{username} and password=#{password}
     </select>
     <select id="selectAllFollowers" resultType="com.myblog.blog.entity.User">
-        SELECT u.id,u.avatar,u.nickname from myblog.t_user u,myblog.t_follow f where f.t_userId=#{userId} and f.t_followId=u.id;
+        SELECT u.id,u.avatar,u.nickname from t_user u,t_follow f where f.t_userId=#{userId} and f.t_followId=u.id;
     </select>
     <select id="isFollowed" resultType="com.myblog.blog.quaryentity.FollowEntity">
         SELECT f.hasfollowed FROM t_follow f WHERE f.t_userId=#{userId} and f.t_followId=#{followId};

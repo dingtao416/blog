@@ -4,27 +4,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myblog.blog.mapper.Commentmapper">
     <insert id="saveComment" parameterType="com.myblog.blog.entity.Comment">
-        insert into myblog.t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment,userId)
+        insert into t_comment (nickname,email,content,avatar,create_time,blog_id,parent_comment_id,admin_comment,userId)
         values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{blogId},#{parentCommentId},#{adminComment},#{userId});
     </insert>
     <delete id="deleteComment">
-        delete from myblog.t_comment where id = #{id}
+        delete from t_comment where id = #{id}
     </delete>
     <select id="findByBlogIdParentIdNull" resultType="com.myblog.blog.entity.Comment">
         select *
-        from myblog.t_comment c
+        from t_comment c
         where c.blog_id = #{blogId} and c.parent_comment_id = #{blogParentId}
         order by c.create_time desc
     </select>
     <select id="findByBlogIdParentIdNotNull" resultType="com.myblog.blog.entity.Comment">
         select *
-        from myblog.t_comment c
+        from t_comment c
         where c.blog_id = #{blogId} and c.parent_comment_id = #{id}
         order by c.create_time desc
     </select>
     <select id="findByBlogIdAndReplayId" resultType="com.myblog.blog.entity.Comment">
         select *
-        from myblog.t_comment c
+        from t_comment c
         where c.blog_id = #{blogId} and c.parent_comment_id = #{childId}
         order by c.create_time desc
     </select>
